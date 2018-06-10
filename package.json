@@ -1,0 +1,27 @@
+{
+  "name": "slv-textconv",
+  "version": "0.1.0",
+  "description": "Transforming DBSolve files to RHS + IV + Comments text. The arguments adapted for textconv as required for .git/config",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "test": "echo No tests!"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/insysbio/slv-textconv.git"
+  },
+  "keywords": [
+    "qsp",
+    "cli",
+    "git",
+    "textconv"
+  ],
+  "author": "Evgeny Metelkin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/insysbio/slv-textconv/issues"
+  },
+  "homepage": "https://github.com/insysbio/slv-textconv",
+  "dependencies": {}
+}
