@@ -1,6 +1,6 @@
 # slv-textconv
 
-Utility for git to compare two SLV files.
+Utilities for working with SLV and DAT files.
 
 Command line function to produce text file from SLV: RHS + IV + Comments text.
 
@@ -8,18 +8,18 @@ Command line function to produce text file from SLV: RHS + IV + Comments text.
 
 Required `npm` and `nodejs` installed.
 ```
-npm install slv-textconv --global
+npm install slv-utils --global
 ```
 Gives the ability to start function.
 ```shell
-slv-textconv model.slv >> out.txt
+slv-utils textconv model.slv >> out.txt
 ```
 
 ## Usage for git
 
 For implementation in all git repositories use
 ```shell
-git config --global diff.slv.textconv slv-textconv
+git config --global diff.slv.textconv "slv-utils textconv"
 ```
 In particular project include lines in .gitattributes
 ```
