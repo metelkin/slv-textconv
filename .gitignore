@@ -1,3 +1,4 @@
 node_modules/
 cases/
 test/dev-test.js
+test/result.txt
