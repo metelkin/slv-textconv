@@ -6,7 +6,7 @@
   "bin": "cli.js",
   "scripts": {
     "test": "echo No tests!",
-    "build": "pegjs -o src/parsers/slv-parser.js src/parsers/pegjs/slv.pegjs && pegjs -o src/parsers/dat-parser.js src/parsers/pegjs/dat.pegjs"
+    "build": "pegjs -o src/parsers/slv-row-parser.js src/parsers/pegjs/slv.pegjs && pegjs -o src/parsers/slv-value-parser.js src/parsers/pegjs/slv-value.pegjs && pegjs -o src/parsers/dat-parser.js src/parsers/pegjs/dat.pegjs"
   },
   "repository": {
     "type": "git",
