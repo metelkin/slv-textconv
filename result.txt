@@ -4,6 +4,15 @@
     "header": "DBSolve Optimum (new parser) 1 Jul 2006\r,\nSLV25.00*",
     "map": [
       {
+        "key": "ifelse ",
+        "rowValue": [
+          "\r\n// if-else check 2 "
+        ],
+        "parsedValue": [
+          " if-else check 2"
+        ]
+      },
+      {
         "key": "Number of rows in matrix (Number of activities) ",
         "rowValue": [
           "1.097818e+00 "

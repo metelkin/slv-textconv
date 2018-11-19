@@ -1,8 +1,11 @@
 start
   = number/
     numbers/
-    string
+    string/
+    lineComment
 
+
+/*LEXIS*/
 number = n:[0-9e.+\-]+!' ' {
   console.log("number "+n.join(''))
   return parseFloat(n.join(''))
@@ -14,6 +17,13 @@ numbers = n:[' '0-9e.+\-]+ {
     .split('  ')
     .map(x => parseFloat(x))
 }
-string = s:[ A-Za-z]+ {
+string = s:[ A-Za-z0-9\-]+ {
   return s.join('')
 }
+lineComment
+  = break?
+    "//"
+    comment:string+ {
+      return comment.join('')
+    }
+break = '\r\n'
