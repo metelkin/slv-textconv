@@ -46,7 +46,7 @@ key
 value
   = break*
     "#"
-    s:(lineValue+/&dictKey/&key/&(break+ "#")/break? "#dbs#")
+    s:(lineValue+/&dictKey/&key/&(break+ "#"))
     &(break* "#"/dictKey/key/"#"/break+ !(value))
     {
       console.log("VALUE: "+s)
@@ -61,7 +61,7 @@ value
 lineValue
   = !(key/dictKey/break key)
     sp:break?
-    v:valueSymbols+
+    v:(valueSymbols+/break? "#dbs#"/break &lineValue)
     {
       let result = ''
       if (sp !== null) {

@@ -230,9 +230,7 @@
         "value": [
           "\r\n// if-else check 2 \r\n//if (C1>0.3) {check=100;} \r\n//else {check=0;} \r\n//! Rate Laws \r\nDoseF=Dose*F; \r\n//!!vabs \r\nvabs=Default*(kabs*C0); \r\n//!!vel \r\nvel=Vd*(kcat*C1/(Km+C1)); \r\n//! Differential Equations \r\n//for C0 \r\nF[1]=(-vabs)/Default; \r\n//for C1 \r\nF[2]=(vabs-vel)/Vd; \r\n//! Explicit Functions \r\n// Explicit Functions text ",
           "\r\n//! Data comments \r\n//! Compartments volumes \r\nDefault=1;       // {--} \r\nVd=9;                     //{L} \r\nF=0.72; \r\n//! Initial concentration \r\nDose=5;                     // {umole} \r\nT=24; \r\nC0=0;                      // {umole} \r\nC1=0;                      // {uM} \r\n//! Kinetic parameters \r\nkabs=4;                  // {hr-1} \r\nkcat=0.8;                  // {uM/hr} \r\nKm=5;                    // {uM} \r\n//!!! F0=0.020335 2:16:09 PM 5/23/2014 \r\nkcat=7.375000e-01; \r\nVd=5.275000e+00; \r\nKm=5.528412e+00; \r\nkabs=2.064588e+00; \r\n//!!! F0=-91.566265 12:31:06 PM 3/16/2017 \r\nkcat=7.282813e-01; \r\nVd=5.275000e+00; \r\nKm=5.257432e+00; \r\nkabs=2.090394e+00; ",
-          "\r\n/*{ \r\n  class: \"task\", \r\n  id: \"default2\", \r\n  kind: \"SimSingle\", \r\n  units: \"s\", \r\n  settings: { \r\n    timeRage: [0, 100], \r\n    forsingTimes: [] \r\n  }, \r\n  method: { \r\n    algorithm: \"ode15s\", \r\n    abstol: 1e-6, \r\n    reltol: 1e-3, \r\n    dt: 1e-6, \r\n    dtmax: 0.01, \r\n    dtmin: 1e-9, \r\n  } \r\n}*/ \r\n/* \r\n            \"class\" : \"Switcher\", \r\n            \"id\" : \"evt0\", \r\n            \"timeCondition\" : {repeatCount: 10} \r\n*/ \r\n/*{ \r\n    class: \"dose\", \r\n    id: \"dose1\", \r\n    path: \"/evt0\", \r\n    targetSpecies: \"C0\", \r\n    variableRef: \"amt1\", \r\n    notes: \"I am an dose!\" \r\n}*/ \r\n/*{ \r\n    class: \"variable\", \r\n    id: \"amt1\", \r\n    kind: \"Static\", \r\n    tags: {}, \r\n    rhs: {kind: \"static\", value: 12} \r\n}*/ ",
-          "dbs ",
-          "\r\n"
+          "\r\n/*{ \r\n  class: \"task\", \r\n  id: \"default2\", \r\n  kind: \"SimSingle\", \r\n  units: \"s\", \r\n  settings: { \r\n    timeRage: [0, 100], \r\n    forsingTimes: [] \r\n  }, \r\n  method: { \r\n    algorithm: \"ode15s\", \r\n    abstol: 1e-6, \r\n    reltol: 1e-3, \r\n    dt: 1e-6, \r\n    dtmax: 0.01, \r\n    dtmin: 1e-9, \r\n  } \r\n}*/ \r\n/* \r\n            \"class\" : \"Switcher\", \r\n            \"id\" : \"evt0\", \r\n            \"timeCondition\" : {repeatCount: 10} \r\n*/ \r\n/*{ \r\n    class: \"dose\", \r\n    id: \"dose1\", \r\n    path: \"/evt0\", \r\n    targetSpecies: \"C0\", \r\n    variableRef: \"amt1\", \r\n    notes: \"I am an dose!\" \r\n}*/ \r\n/*{ \r\n    class: \"variable\", \r\n    id: \"amt1\", \r\n    kind: \"Static\", \r\n    tags: {}, \r\n    rhs: {kind: \"static\", value: 12} \r\n}*/ \r\n\r\n#dbs# "
         ]
       },
       {
@@ -1846,55 +1844,49 @@
       {
         "key": "<COMMENTS 0",
         "value": [
-          "\r\n",
-          "dbs ",
-          "\r\n"
+          "\r\n\r\n#dbs# "
         ]
       },
       {
         "key": "<COMMENTS 1",
         "value": [
-          "\r\n/*{ \r\n  class: \"task\", \r\n  id: \"default2\", \r\n  kind: \"SimSingle\", \r\n  units: \"s\", \r\n  settings: { \r\n    timeRage: [0, 100], \r\n    forsingTimes: [] \r\n  }, \r\n  method: { \r\n    algorithm: \"ode15s\", \r\n    abstol: 1e-6, \r\n    reltol: 1e-3, \r\n    dt: 1e-6, \r\n    dtmax: 0.01, \r\n    dtmin: 1e-9, \r\n  } \r\n}*/ \r\n/* \r\n            \"class\" : \"Switcher\", \r\n            \"id\" : \"evt0\", \r\n            \"timeCondition\" : {repeatCount: 10} \r\n*/ \r\n/*{ \r\n    class: \"dose\", \r\n    id: \"dose1\", \r\n    path: \"/evt0\", \r\n    targetSpecies: \"C0\", \r\n    variableRef: \"amt1\", \r\n    notes: \"I am an dose!\" \r\n}*/ \r\n/*{ \r\n    class: \"variable\", \r\n    id: \"amt1\", \r\n    kind: \"Static\", \r\n    tags: {}, \r\n    rhs: {kind: \"static\", value: 12} \r\n}*/ ",
-          "dbs ",
-          "\r\n"
+          "\r\n/*{ \r\n  class: \"task\", \r\n  id: \"default2\", \r\n  kind: \"SimSingle\", \r\n  units: \"s\", \r\n  settings: { \r\n    timeRage: [0, 100], \r\n    forsingTimes: [] \r\n  }, \r\n  method: { \r\n    algorithm: \"ode15s\", \r\n    abstol: 1e-6, \r\n    reltol: 1e-3, \r\n    dt: 1e-6, \r\n    dtmax: 0.01, \r\n    dtmin: 1e-9, \r\n  } \r\n}*/ \r\n/* \r\n            \"class\" : \"Switcher\", \r\n            \"id\" : \"evt0\", \r\n            \"timeCondition\" : {repeatCount: 10} \r\n*/ \r\n/*{ \r\n    class: \"dose\", \r\n    id: \"dose1\", \r\n    path: \"/evt0\", \r\n    targetSpecies: \"C0\", \r\n    variableRef: \"amt1\", \r\n    notes: \"I am an dose!\" \r\n}*/ \r\n/*{ \r\n    class: \"variable\", \r\n    id: \"amt1\", \r\n    kind: \"Static\", \r\n    tags: {}, \r\n    rhs: {kind: \"static\", value: 12} \r\n}*/ \r\n\r\n#dbs# "
         ]
       },
       {
         "key": "<COMMENTS 2",
         "value": [
-          "\r\n",
-          "dbs ",
-          "\r\n"
+          "\r\n\r\n#dbs# "
         ]
       },
       {
         "key": "<COMMENTS 3",
         "value": [
-          "\r\n",
-          "dbs ",
-          "\r\n"
+          "\r\n\r\n#dbs# "
         ]
       },
       {
         "key": "<COMMENTS 4",
         "value": [
-          "\r\n",
-          "dbs ",
-          "\r\n"
+          "\r\n\r\n#dbs# "
         ]
       },
       {
         "key": "<COMMENTS 5",
         "value": [
-          "\r\n",
-          "dbs ",
-          "\r\n"
+          "\r\n\r\n#dbs# "
         ]
       },
       {
         "key": "<COMMENTS 6",
         "value": [
-          "1 "
+          "\r\n\r\n#dbs# "
+        ]
+      },
+      {
+        "key": "<COMMENTS 7",
+        "value": [
+          "\r\n\r\n 0 \r\n0 \r\n0 \r\n0 \r\n2 \r\nDefault \r\nVd \r\n0 \r\n2 \r\n0 \r\n1 \r\n2 \r\n\r\n Default \r\n2 \r\ntrue \r\ntrue \r\n0 \r\n2 \r\n1.000000 \r\n2.000000 \r\n2 \r\n3 \r\n3 \r\n2 \r\nC0 \r\nC1 \r\n0 \r\n2 \r\nDefault \r\nVd \r\n2 \r\n0.0 \r\n0.0 \r\n2 \r\n0.000000 \r\n0.000000 \r\n0 \r\n0 \r\n0 \r\n2 \r\nfalse \r\nfalse \r\n0 \r\n2 \r\nfalse \r\nfalse \r\n2 \r\nfalse \r\nfalse \r\n0 \r\n0 \r\n0 \r\n0 \r\n0 \r\n0 \r\n0 \r\n0 \r\n0 \r\n2 \r\nvabs \r\nvabs \r\n0 1 \r\n0 \r\nvel \r\nvel \r\n0 1 \r\n0 \r\n0 \r\n2 \r\nmm \r\nmole \r\n1000 \r\n15 \r\nk1 \r\n1.000000 \r\n0.000000 \r\n15 \r\n1000 \r\nk1 \r\n1.000000 \r\n0 \r\n0 \r\n1.000000e-06 \r\n0 \r\n0 \r\n5 \r\nk1 \r\n0.001000 \r\nk1 \r\n0.001000 \r\n0 \r\n100 \r\n0 \r\n100 \r\n2.000000 \r\n3 \r\n0 \r\n0 \r\n1 \r\n20 \r\n1 \r\n1.000000 \r\n0.500000 \r\n1 \r\n1 \r\n1 \r\n-1.000000 \r\n1000000 \r\n1 \r\n2 \r\nC0 \r\n1 \r\nDoseF \r\n0 \r\n24 \r\n1 \r\nC0 \r\n0 \r\n5 \r\n12 \r\n0 \r\n0 \r\n<listModelData> \r\n   <item> \r\n      <name></name> \r\n      <organizm></organizm> \r\n      <modeltype>0</modeltype> \r\n      <expdata></expdata> \r\n   </item> \r\n</listModelData> \r\n<listUnits size=\"1\"> \r\n</listUnits> \r\n<listComp size=\"1\"> \r\n   <item> \r\n      <name>Default_mc</name> \r\n      <comment></comment> \r\n      <unit></unit> \r\n      <outside></outside> \r\n      <spdim>3</spdim> \r\n      <sizes>1</sizes> \r\n      <const>0</const> \r\n      <rrule></rrule> \r\n      <cdown></cdown> \r\n   </item> \r\n</listComp> \r\n<listSpecies size=\"0\"> \r\n</listSpecies> \r\n<listRepository size=\"1\" default=\"List1\"> \r\n   <item> \r\n      <name>List1</name> \r\n      <comment></comment> \r\n      <listParameters size=\"0\"> \r\n      </listParameters> \r\n   </item> \r\n</listRepository> \r\n<listRules size=\"0\"> \r\n</listRules> \r\n<listReactions size=\"0\"> \r\n</listReactions> \r\n<listcontent size=\"0\"> \r\n</listcontent> \r\n22jun2007 "
         ]
       }
     ]
