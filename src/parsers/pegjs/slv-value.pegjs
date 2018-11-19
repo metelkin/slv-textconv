@@ -8,22 +8,40 @@ start
 /*LEXIS*/
 number = n:[0-9e.+\-]+!' ' {
   console.log("number "+n.join(''))
-  return parseFloat(n.join(''))
+  let value = parseFloat(n.join(''))
+  return {
+    type: "number",
+    value
+  }
 }
 numbers = n:[' '0-9e.+\-]+ {
   console.log("any numbers "+n.join(''))
-  return n
+  let value = n
     .join('')
     .split('  ')
     .map(x => parseFloat(x))
+  return {
+      type: "arrayNumber",
+      value
+    }
 }
 string = s:[ A-Za-z0-9\-]+ {
-  return s.join('')
+  let value = s.join('')
+  return {
+      type: "string",
+      value
+    }
 }
 lineComment
-  = break?
+  = b:break?
     "//"
     comment:string+ {
-      return comment.join('')
+      console.log(b)
+      return {
+        type: "lineComment",
+        header: 0,
+        value: comment.join(''),
+        newLine: b ? true:false
+      }
     }
 break = '\r\n'

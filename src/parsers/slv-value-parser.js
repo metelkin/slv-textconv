@@ -147,26 +147,44 @@ function peg$parse(input, options) {
       peg$c3 = peg$literalExpectation(" ", false),
       peg$c4 = function(n) {
         console.log("number "+n.join(''))
-        return parseFloat(n.join(''))
+        let value = parseFloat(n.join(''))
+        return {
+          type: "number",
+          value
+        }
       },
       peg$c5 = /^[' '0-9e.+\-]/,
       peg$c6 = peg$classExpectation(["'", " ", "'", ["0", "9"], "e", ".", "+", "-"], false, false),
       peg$c7 = function(n) {
         console.log("any numbers "+n.join(''))
-        return n
+        let value = n
           .join('')
           .split('  ')
           .map(x => parseFloat(x))
+        return {
+            type: "arrayNumber",
+            value
+          }
       },
       peg$c8 = /^[ A-Za-z0-9\-]/,
       peg$c9 = peg$classExpectation([" ", ["A", "Z"], ["a", "z"], ["0", "9"], "-"], false, false),
       peg$c10 = function(s) {
-        return s.join('')
+        let value = s.join('')
+        return {
+            type: "string",
+            value
+          }
       },
       peg$c11 = "//",
       peg$c12 = peg$literalExpectation("//", false),
-      peg$c13 = function(comment) {
-            return comment.join('')
+      peg$c13 = function(b, comment) {
+            console.log(b)
+            return {
+              type: "lineComment",
+              header: 0,
+              value: comment.join(''),
+              newLine: b ? true:false
+            }
           },
       peg$c14 = "\r\n",
       peg$c15 = peg$literalExpectation("\r\n", false),
@@ -482,7 +500,7 @@ function peg$parse(input, options) {
         }
         if (s3 !== peg$FAILED) {
           peg$savedPos = s0;
-          s1 = peg$c13(s3);
+          s1 = peg$c13(s1, s3);
           s0 = s1;
         } else {
           peg$currPos = s0;
