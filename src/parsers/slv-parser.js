@@ -7,7 +7,8 @@ function parse(slv) {
   SLV.content.map.forEach((item) => {
     let rowValue = item.rowValue
     let value = rowValue.map(x => {
-      console.log(`x parse ${x.trim()};`)
+      console.log('______________')
+      console.log(`Now parse ${x.trim()};`)
       return SVP.parse(x.trim())
     })
     item['parsedValue'] = value

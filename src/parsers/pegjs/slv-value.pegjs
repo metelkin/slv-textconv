@@ -1,12 +1,14 @@
 start
   = number/
     numbers/
-    string/
-    lineComment
+    variable/
+    numeric/
+    record
 
 
-/*LEXIS*/
-number = n:[0-9e.+\-]+!' ' {
+
+/*Grammar*/
+number = n:digits+!' ' {
   console.log("number "+n.join(''))
   let value = parseFloat(n.join(''))
   return {
@@ -25,7 +27,7 @@ numbers = n:[' '0-9e.+\-]+ {
       value
     }
 }
-string = s:[ A-Za-z0-9\-]+ {
+variable = s:symbols+ {
   let value = s.join('')
   return {
       type: "string",
@@ -35,8 +37,8 @@ string = s:[ A-Za-z0-9\-]+ {
 lineComment
   = b:break?
     "//"
-    comment:string+ {
-      console.log(b)
+    comment:symbols+
+    break {
       return {
         type: "lineComment",
         header: 0,
@@ -44,4 +46,31 @@ lineComment
         newLine: b ? true:false
       }
     }
+
+numeric
+  = break?
+    lhs:symbols+
+    "="
+    rhs:digits+
+    ";"
+    {
+      console.log(`LHS: ${lhs.join('')}`)
+      console.log(`RHS: ${rhs.join('')}`)
+    return {
+      type: "numeric",
+      value: {
+        'lhs': lhs.join(''),
+        'rhs': rhs.join('')
+      }
+    }
+  }
+record
+  = a:(numeric/lineComment/variable)+{
+    console.log(`RECORD ${a}`)
+    return a
+  }
+/** LEXIS **/
 break = '\r\n'
+digits = [0-9e.+\-]
+symbols = [ A-Za-z0-9\-]
+space = ' '
