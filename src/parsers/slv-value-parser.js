@@ -209,8 +209,8 @@ function peg$parse(input, options) {
       peg$c19 = peg$classExpectation([["0", "9"], "e", ".", "+", "-"], false, false),
       peg$c20 = /^[A-Za-z0-9\-]/,
       peg$c21 = peg$classExpectation([["A", "Z"], ["a", "z"], ["0", "9"], "-"], false, false),
-      peg$c22 = /^[' 'A-Za-z0-9\-]/,
-      peg$c23 = peg$classExpectation(["'", " ", "'", ["A", "Z"], ["a", "z"], ["0", "9"], "-"], false, false),
+      peg$c22 = /^[' 'A-Za-z0-9.\-{}:=\/]/,
+      peg$c23 = peg$classExpectation(["'", " ", "'", ["A", "Z"], ["a", "z"], ["0", "9"], ".", "-", "{", "}", ":", "=", "/"], false, false),
 
       peg$currPos          = 0,
       peg$savedPos         = 0,

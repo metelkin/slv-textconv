@@ -77,7 +77,7 @@ record
 break = '\r\n'
 digits = [0-9e.+\-]
 word = [A-Za-z0-9\-]
-sentence = [' 'A-Za-z0-9\-]
+sentence = [' 'A-Za-z0-9.\-{}:=/]
 space = ' '
 simpleDataTypes
     = number/
