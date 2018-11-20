@@ -1,8 +1,5 @@
 start
-  = number/
-    numbers/
-    variable/
-    numeric/
+  = simpleDataTypes/
     record
 
 
@@ -27,7 +24,7 @@ numbers = n:[' '0-9e.+\-]+ {
       value
     }
 }
-variable = s:symbols+ {
+variable = s:word+ {
   let value = s.join('')
   return {
       type: "string",
@@ -35,22 +32,24 @@ variable = s:symbols+ {
     }
 }
 lineComment
-  = b:break?
+  = b:(break/space)*
     "//"
-    comment:symbols+
-    break {
+    comment:sentence+
+    break? {
       return {
         type: "lineComment",
         header: 0,
         value: comment.join(''),
-        newLine: b ? true:false
+        newLine: b.join('').indexOf('\r\n') != -1 ? true:false
       }
     }
 
 numeric
-  = break?
-    lhs:symbols+
+  = (break/space)*
+    lhs:word+
+    space*
     "="
+    space*
     rhs:digits+
     ";"
     {
@@ -65,12 +64,23 @@ numeric
     }
   }
 record
-  = a:(numeric/lineComment/variable)+{
+  = a:(numeric/lineComment)+
+    {
     console.log(`RECORD ${a}`)
+    for (let i in a) {
+      console.log(`   V: ${a[i].value}|`)
+    }
     return a
   }
+
 /** LEXIS **/
 break = '\r\n'
 digits = [0-9e.+\-]
-symbols = [ A-Za-z0-9\-]
+word = [A-Za-z0-9\-]
+sentence = [' 'A-Za-z0-9\-]
 space = ' '
+simpleDataTypes
+    = number/
+      numbers/
+      variable/
+      numeric

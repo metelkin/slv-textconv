@@ -12,6 +12,7 @@ function parse(slv) {
       return SVP.parse(x.trim())
     })
     item['parsedValue'] = value
+    console.log("End")
   })
 
   return SLV
