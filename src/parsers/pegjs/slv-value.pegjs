@@ -87,13 +87,21 @@ numeric
       }
     }
   }
+emptyNumeric
+  = (break/space)*
+    ";" {
+      return {
+        type: "emptyNumeric",
+        value: ''
+    }
+  }
 oneValue
   = !"/*" r:simpleDataTypes !simpleDataTypes
   {
     return r
   }
 record
-  = a:(numeric/multylineComment/lineComment)+
+  = a:(numeric/emptyNumeric/multylineComment/lineComment)+
     {
     console.log(`RECORD ${a}`)
     for (let i in a) {
