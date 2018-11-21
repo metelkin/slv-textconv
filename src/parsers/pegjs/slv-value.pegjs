@@ -101,7 +101,7 @@ oneValue
     return r
   }
 record
-  = a:(numeric/emptyNumeric/multylineComment/lineComment)+
+  = a:(numeric/emptyNumeric/condExpression/multylineComment/lineComment)+
     {
     console.log(`RECORD ${a}`)
     for (let i in a) {
@@ -109,13 +109,30 @@ record
     }
     return a
   }
-
+condExpression
+  = (break/space)*
+    "if"
+    space+
+    "("
+    cond:conditionSymbols+
+    ")"
+    (break/space)*
+    "{"
+    then:(!"}"(oneValue/record))+
+    "}" {
+      return {
+        type: "conditionExpression",
+        condition: cond.join(''),
+        then: then
+      }
+    }
 /** LEXIS **/
 break = '\r\n'
 digits = [0-9e.+\-]
 word = [A-Za-z0-9\-[\]#]
-words = [ A-Za-z0-9.\-{}:=/[\]#]
+words = [ A-Za-z0-9.\-:=/[\]#]
 space = ' '
+conditionSymbols = [0-9 .<>=A-Za-z]
 simpleDataTypes
     = number/
       numbers/
