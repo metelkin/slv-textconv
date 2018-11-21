@@ -52,6 +52,21 @@ lineComment
         newLine: b.join('').indexOf('\r\n') != -1 ? true:false
       }
     }
+multylineComment
+  = break*
+    "/*"
+    s:multyCommentSymbolsRule+
+    "*/" {
+      return {
+        type: "multylineComment",
+        value: s.join('')
+      }
+    }
+
+multyCommentSymbolsRule
+  = !"*/" s:multyCommentSymbols {
+    return s
+  }
 
 numeric
   = (break/space)*
@@ -73,12 +88,12 @@ numeric
     }
   }
 oneValue
-  = r:simpleDataTypes !simpleDataTypes
+  = !"/*" r:simpleDataTypes !simpleDataTypes
   {
     return r
   }
 record
-  = a:(numeric/lineComment)+
+  = a:(numeric/multylineComment/lineComment)+
     {
     console.log(`RECORD ${a}`)
     for (let i in a) {
@@ -99,3 +114,4 @@ simpleDataTypes
       numeric/
       sentence/
       variable
+multyCommentSymbols = [ A-Za-z0-9,.{}:;~=/[\]+\-#\r\n()@$%^&*#?!<>\'\"]
