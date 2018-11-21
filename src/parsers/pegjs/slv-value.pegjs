@@ -1,5 +1,5 @@
 start
-  = simpleDataTypes/
+  = oneValue/
     record
 
 
@@ -31,10 +31,19 @@ variable = s:word+ {
       value
     }
 }
+sentence
+  = !(space* "//")
+    s:words+ {
+  let value = s.join('')
+  return {
+      type: "string",
+      value
+    }
+}
 lineComment
   = b:(break/space)*
     "//"
-    comment:sentence+
+    comment:words+
     break? {
       return {
         type: "lineComment",
@@ -63,6 +72,11 @@ numeric
       }
     }
   }
+oneValue
+  = r:simpleDataTypes !simpleDataTypes
+  {
+    return r
+  }
 record
   = a:(numeric/lineComment)+
     {
@@ -76,11 +90,12 @@ record
 /** LEXIS **/
 break = '\r\n'
 digits = [0-9e.+\-]
-word = [A-Za-z0-9\-]
-sentence = [' 'A-Za-z0-9.\-{}:=/]
+word = [A-Za-z0-9\-[\]#]
+words = [ A-Za-z0-9.\-{}:=/[\]#]
 space = ' '
 simpleDataTypes
     = number/
       numbers/
-      variable/
-      numeric
+      numeric/
+      sentence/
+      variable
