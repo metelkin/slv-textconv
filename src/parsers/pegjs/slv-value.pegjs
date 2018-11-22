@@ -43,11 +43,17 @@ sentence
 lineComment
   = b:(break/space)*
     "//"
+    level:("!")*
     comment:words+
     break? {
+      let headerLevel = 0
+      level = level.join('')
+      if (level != '') {
+        headerLevel = level.match(/!/g).length
+      }
       return {
         type: "lineComment",
-        header: 0,
+        header: headerLevel,
         value: comment.join(''),
         newLine: b.join('').indexOf('\r\n') != -1 ? true:false
       }
@@ -67,7 +73,20 @@ multyCommentSymbolsRule
   = !"*/" s:multyCommentSymbols {
     return s
   }
-
+/*header
+  =
+  b:(break/space)*
+    "//"
+    level:"!"+
+    comment:words+
+    break? {
+      return {
+        type: "lineComment",
+        header: level.,
+        value: comment.join(''),
+        newLine: b.join('').indexOf('\r\n') != -1 ? true:false
+      }
+    }*/
 numeric
   = (break/space)*
     lhs:word+
@@ -154,8 +173,8 @@ otherwiseBranch
 /** LEXIS **/
 break = '\r\n'
 digits = [0-9e.+\-]
-word = [A-Za-z0-9\-[\]#]
-words = [ A-Za-z0-9.\-:=/[\]#]
+word = [A-Za-z0-9\-[\]#{}]
+words = [ A-Za-z0-9.\-:=/[\]#{}]
 space = ' '
 conditionSymbols = [0-9 .<>=A-Za-z]
 simpleDataTypes
