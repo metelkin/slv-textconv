@@ -136,7 +136,7 @@ condExpression
       }
     }
 branchPattern
-  = !"}"
+  = !((break/space)* "}")
     result:(oneValue/record) {
       return result
   }

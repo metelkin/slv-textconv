@@ -1167,17 +1167,42 @@ function peg$parse(input, options) {
   }
 
   function peg$parsebranchPattern() {
-    var s0, s1, s2;
+    var s0, s1, s2, s3, s4;
 
     s0 = peg$currPos;
     s1 = peg$currPos;
     peg$silentFails++;
-    if (input.charCodeAt(peg$currPos) === 125) {
-      s2 = peg$c32;
-      peg$currPos++;
+    s2 = peg$currPos;
+    s3 = [];
+    s4 = peg$parsebreak();
+    if (s4 === peg$FAILED) {
+      s4 = peg$parsespace();
+    }
+    while (s4 !== peg$FAILED) {
+      s3.push(s4);
+      s4 = peg$parsebreak();
+      if (s4 === peg$FAILED) {
+        s4 = peg$parsespace();
+      }
+    }
+    if (s3 !== peg$FAILED) {
+      if (input.charCodeAt(peg$currPos) === 125) {
+        s4 = peg$c32;
+        peg$currPos++;
+      } else {
+        s4 = peg$FAILED;
+        if (peg$silentFails === 0) { peg$fail(peg$c33); }
+      }
+      if (s4 !== peg$FAILED) {
+        s3 = [s3, s4];
+        s2 = s3;
+      } else {
+        peg$currPos = s2;
+        s2 = peg$FAILED;
+      }
     } else {
+      peg$currPos = s2;
       s2 = peg$FAILED;
-      if (peg$silentFails === 0) { peg$fail(peg$c33); }
     }
     peg$silentFails--;
     if (s2 === peg$FAILED) {
