@@ -101,7 +101,11 @@ oneValue
     return r
   }
 record
-  = a:(numeric/emptyNumeric/condExpression/multylineComment/lineComment)+
+  = a:(numeric/
+    emptyNumeric/
+    condExpression/
+    multylineComment/
+    lineComment)+
     {
     console.log(`RECORD ${a}`)
     for (let i in a) {
@@ -118,13 +122,34 @@ condExpression
     ")"
     (break/space)*
     "{"
-    then:(!"}"(oneValue/record))+
-    "}" {
+    then:branchPattern+
+    (break/space)*
+    "}"
+    otherwise:otherwiseBranch?
+     {
+      console.log("Cond")
       return {
         type: "conditionExpression",
         condition: cond.join(''),
-        then: then
+        then: then,
+        else: otherwise
       }
+    }
+branchPattern
+  = !"}"
+    result:(oneValue/record) {
+      return result
+  }
+otherwiseBranch
+  = (break/space)*
+    "else"
+    (break/space)*
+    "{"
+    value:branchPattern+
+    (break/space)*
+    "}"
+    {
+      return value
     }
 /** LEXIS **/
 break = '\r\n'
