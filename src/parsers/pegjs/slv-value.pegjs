@@ -6,47 +6,64 @@ start
 
 
 /*Grammar*/
-number = n:digits+!' ' {
-  console.log("number "+n.join(''))
-  let value = parseFloat(n.join(''))
-  return {
-    type: "number",
-    value
+number
+  = n:digits+!' ' {
+      console.log("number "+n.join(''))
+      let value = parseFloat(n.join(''))
+      return {
+        type: "number",
+        value
+      }
   }
-}
-numbers = n:[' '0-9e.+\-]+ {
-  console.log("any numbers "+n.join(''))
-  let value = n
-    .join('')
-    .split('  ')
-    .map(x => parseFloat(x))
-  return {
-      type: "arrayNumber",
-      value
+numbers
+  = n:[' '0-9e.+\-\r\n]+
+    "&"?
+    {
+      console.log("any numbers "+n.join('')+";")
+      let numbers = n.join('') // 1,8,2,.,4,4, ,5,6 =>182.44 56
+      let matrix = numbers.trim().split('\r\n')
+      console.log(matrix)
+      let value = matrix.map((line) => {
+        return line
+          .trim()
+          .split(' ')
+          .map(x => parseFloat(x))
+      })
+
+      if (value.length === 1) {
+        value = value[0]
+      }
+
+      return {
+          type: "arrayNumber",
+          value
+      }
     }
-}
-variable = s:word+ {
-  let value = s.join('')
-  return {
-      type: "string",
-      value
+variable
+    = s:word+ {
+      let value = s.join('')
+      return {
+          type: "string",
+          value
+        }
     }
-}
 sentence
   = !(space* "//")
-    s:words+ {
-  let value = s.join('')
-  return {
-      type: "string",
-      value
+    s:words+
+    {
+      let value = s.join('')
+      return {
+          type: "string",
+          value
+        }
     }
-}
 lineComment
   = b:(break/space)*
     "//"
     level:("!")*
     comment:CommentSymbols+
-    break? {
+    break?
+    {
       let headerLevel = 0
       level = level.join('')
       if (level != '') {
@@ -63,7 +80,8 @@ multylineComment
   = (space/break)*
     "/*"
     s:multyCommentSymbolsRule+
-    "*/" {
+    "*/"
+    {
       return {
         type: "multylineComment",
         value: s.join('')
@@ -86,14 +104,14 @@ numeric
     {
       console.log(`LHS: ${lhs.join('')}`)
       console.log(`RHS: ${rhs.join('')}`)
-    return {
-      type: "numeric",
-      value: {
-        'lhs': lhs.join(''),
-        'rhs': rhs.join('')
+      return {
+        type: "numeric",
+        value: {
+          'lhs': lhs.join(''),
+          'rhs': rhs.join('')
+        }
       }
     }
-  }
 mathExpression
   = lhs:word+
     (break/space)*
@@ -112,7 +130,8 @@ mathExpression
     }
 emptyNumeric
   = (break/space)*
-    ";" {
+    ";"
+    {
       return {
         type: "emptyNumeric",
         value: ''
@@ -132,12 +151,12 @@ record
     mathExpression)+
     ((space/break)*"#dbs#")?
     {
-    console.log(`RECORD ${a}`)
-    for (let i in a) {
-      console.log(`   V: ${a[i].value}|`)
+      console.log(`RECORD ${a}`)
+      for (let i in a) {
+        console.log(`   V: ${a[i].value}|`)
+      }
+      return a
     }
-    return a
-  }
 condExpression
   = (break/space)*
     "if"
@@ -184,9 +203,10 @@ condition
 
 branchPattern
   = !((break/space)* "}")
-    result:(oneValue/record) {
+    result:(oneValue/record)
+    {
       return result
-  }
+    }
 otherwiseBranch
   = (break/space)*
     "else"
