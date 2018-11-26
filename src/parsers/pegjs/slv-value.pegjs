@@ -100,7 +100,8 @@ mathExpression
     "="
     (break/space)*
     rhs:expressionSymbols+
-    ";" {
+    ";"
+    {
       return {
         type: "expression",
         value: {
@@ -129,6 +130,7 @@ record
     multylineComment/
     lineComment/
     mathExpression)+
+    ((space/break)*"#dbs#")?
     {
     console.log(`RECORD ${a}`)
     for (let i in a) {
@@ -211,7 +213,9 @@ simpleDataTypes
       numeric/
       sentence/
       variable
-emptyValue = '' {
+emptyValue
+  = ''
+  ((space/break)*"#dbs#")? {
   return {
     type: "emptyValue",
     value: null
