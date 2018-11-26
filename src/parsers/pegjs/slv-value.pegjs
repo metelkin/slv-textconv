@@ -44,7 +44,7 @@ lineComment
   = b:(break/space)*
     "//"
     level:("!")*
-    comment:words+
+    comment:CommentSymbols+
     break? {
       let headerLevel = 0
       level = level.join('')
@@ -59,7 +59,7 @@ lineComment
       }
     }
 multylineComment
-  = break*
+  = (space/break)*
     "/*"
     s:multyCommentSymbolsRule+
     "*/" {
@@ -73,20 +73,7 @@ multyCommentSymbolsRule
   = !"*/" s:multyCommentSymbols {
     return s
   }
-/*header
-  =
-  b:(break/space)*
-    "//"
-    level:"!"+
-    comment:words+
-    break? {
-      return {
-        type: "lineComment",
-        header: level.,
-        value: comment.join(''),
-        newLine: b.join('').indexOf('\r\n') != -1 ? true:false
-      }
-    }*/
+
 numeric
   = (break/space)*
     lhs:word+
@@ -170,6 +157,28 @@ condExpression
         else: otherwise
       }
     }
+/*
+condition
+  = (break/space)*
+
+    "("
+    space*
+    lhs:word+
+    space*
+    sign:conditionSings+
+    space*
+    lhs:word+
+    space*
+    ")"
+    {
+      return {
+        lhs: lhs.join(''),
+        rhs: rhs.join(''),
+        sign: sign.join('')
+      }
+    }
+*/
+
 branchPattern
   = !((break/space)* "}")
     result:(oneValue/record) {
@@ -189,10 +198,11 @@ otherwiseBranch
 /** LEXIS **/
 break = '\r\n'
 digits = [0-9e.+\-]
-word = [A-Za-z0-9\-[\]#{}]
-words = [ A-Za-z0-9.\-:=/[\]#{}]
+word = [A-Za-z0-9\-[\]#{}_]
+words = [ A-Za-z0-9.\-:=/[\]#{}_]
 space = ' '
 conditionSymbols = [0-9 .<>=A-Za-z]
+comparisonSings = [<>=!]
 expressionSymbols = [0-9 .+\-*/A-Za-z()]
 simpleDataTypes
     = number/
@@ -200,4 +210,5 @@ simpleDataTypes
       numeric/
       sentence/
       variable
+CommentSymbols = [ A-Za-z0-9,.{}:;~=/[\]+\-#()@$%^&*#?!<>\'\"]
 multyCommentSymbols = [ A-Za-z0-9,.{}:;~=/[\]+\-#\r\n()@$%^&*#?!<>\'\"]
