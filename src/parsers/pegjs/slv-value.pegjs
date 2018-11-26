@@ -169,6 +169,13 @@ xmlPattern
         value: xml.join('')
       }
     }
+familySign
+  = [*] {
+    return {
+      type: "string",
+      value: "*"
+    }
+  }
 condExpression
   = (break/space)*
     "if"
@@ -235,7 +242,6 @@ break = '\r\n'
 digits = [0-9e.+\-]
 word = [A-Za-z0-9\-[\]#{}_]
 words = [ A-Za-z0-9.\-:=/[\]#{}_]
-familySign = [*]
 space = ' '
 conditionSymbols = [0-9 .<>=A-Za-z]
 comparisonSings = [<>=!]
