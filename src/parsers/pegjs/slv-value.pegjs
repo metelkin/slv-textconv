@@ -106,6 +106,21 @@ numeric
       }
     }
   }
+mathExpression
+  = lhs:word+
+    space*
+    "="
+    space*
+    rhs:expressionSymbols+
+    ";" {
+      return {
+        type: "expression",
+        value: {
+          'lhs': lhs.join(''),
+          'rhs': rhs.join('')
+        }
+      }
+    }
 emptyNumeric
   = (break/space)*
     ";" {
@@ -124,7 +139,8 @@ record
     emptyNumeric/
     condExpression/
     multylineComment/
-    lineComment)+
+    lineComment/
+    mathExpression)+
     {
     console.log(`RECORD ${a}`)
     for (let i in a) {
@@ -177,6 +193,7 @@ word = [A-Za-z0-9\-[\]#{}]
 words = [ A-Za-z0-9.\-:=/[\]#{}]
 space = ' '
 conditionSymbols = [0-9 .<>=A-Za-z]
+expressionSymbols = [0-9 .+\-*/A-Za-z()]
 simpleDataTypes
     = number/
       numbers/
