@@ -1,6 +1,7 @@
 start
   = oneValue/
-    record
+    record/
+    emptyValue
 
 
 
@@ -210,5 +211,11 @@ simpleDataTypes
       numeric/
       sentence/
       variable
+emptyValue = '' {
+  return {
+    type: "emptyValue",
+    value: null
+  }
+}
 CommentSymbols = [ A-Za-z0-9,.{}:;~=/[\]+\-#()@$%^&*#?!<>\'\"]
 multyCommentSymbols = [ A-Za-z0-9,.{}:;~=/[\]+\-#\r\n()@$%^&*#?!<>\'\"]
