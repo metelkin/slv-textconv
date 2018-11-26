@@ -1,6 +1,7 @@
 start
   = oneValue/
     record/
+    familySign/
     emptyValue
 
 
@@ -22,7 +23,6 @@ numbers
       console.log("any numbers "+n.join('')+";")
       let numbers = n.join('') // 1,8,2,.,4,4, ,5,6 =>182.44 56
       let matrix = numbers.trim().split('\r\n')
-      console.log(matrix)
       let value = matrix.map((line) => {
         return line
           .trim()
@@ -144,11 +144,14 @@ oneValue
   }
 record
   = a:(numeric/
+    numbers/
     emptyNumeric/
     condExpression/
     multylineComment/
     lineComment/
-    mathExpression)+
+    mathExpression/
+    variable/
+    xmlPattern)+
     ((space/break)*"#dbs#")?
     {
       console.log(`RECORD ${a}`)
@@ -156,6 +159,15 @@ record
         console.log(`   V: ${a[i].value}|`)
       }
       return a
+    }
+xmlPattern
+  = (break/space)*
+    xml:xmlSymbols+
+    {
+      return {
+        type: "xml",
+        value: xml.join('')
+      }
     }
 condExpression
   = (break/space)*
@@ -223,6 +235,7 @@ break = '\r\n'
 digits = [0-9e.+\-]
 word = [A-Za-z0-9\-[\]#{}_]
 words = [ A-Za-z0-9.\-:=/[\]#{}_]
+familySign = [*]
 space = ' '
 conditionSymbols = [0-9 .<>=A-Za-z]
 comparisonSings = [<>=!]
@@ -242,4 +255,5 @@ emptyValue
   }
 }
 CommentSymbols = [ A-Za-z0-9,.{}:;~=/[\]+\-#()@$%^&*#?!<>\'\"]
+xmlSymbols = [ '"<>=A-Za-z0-9\r\n/]
 multyCommentSymbols = [ A-Za-z0-9,.{}:;~=/[\]+\-#\r\n()@$%^&*#?!<>\'\"]
