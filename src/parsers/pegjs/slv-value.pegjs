@@ -108,9 +108,9 @@ numeric
   }
 mathExpression
   = lhs:word+
-    space*
+    (break/space)*
     "="
-    space*
+    (break/space)*
     rhs:expressionSymbols+
     ";" {
       return {
