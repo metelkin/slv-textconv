@@ -216,16 +216,18 @@ function peg$parse(input, options) {
       peg$c35 = peg$literalExpectation("\r\n\r\nTCN->UserLaws\r\n<P Use User's mechanisms", false),
       peg$c36 = "\r\n\r\nPATH->UserLaws\r\n<P Use User's mechanisms",
       peg$c37 = peg$literalExpectation("\r\n\r\nPATH->UserLaws\r\n<P Use User's mechanisms", false),
-      peg$c38 = "<Total Cellular Process Names\r\n<Total Entity Names\r\n<Index Link to metabolic",
-      peg$c39 = peg$literalExpectation("<Total Cellular Process Names\r\n<Total Entity Names\r\n<Index Link to metabolic", false),
-      peg$c40 = "<Interaction Regulation GeneProductName\r\n<InteractionRegulation",
-      peg$c41 = peg$literalExpectation("<Interaction Regulation GeneProductName\r\n<InteractionRegulation", false),
-      peg$c42 = "Interaction GeneProductName\r\nInteractionNetwork",
-      peg$c43 = peg$literalExpectation("Interaction GeneProductName\r\nInteractionNetwork", false),
-      peg$c44 = "Gene Name Operon\r\nOperon Structure",
-      peg$c45 = peg$literalExpectation("Gene Name Operon\r\nOperon Structure", false),
-      peg$c46 = "Metabolic Regulation CompoundName\r\nMetabolicRegulation",
-      peg$c47 = peg$literalExpectation("Metabolic Regulation CompoundName\r\nMetabolicRegulation", false),
+      peg$c38 = "\r\n<Total Cellular Process Names\r\n<Total Entity Names\r\n<Index Link to metabolic",
+      peg$c39 = peg$literalExpectation("\r\n<Total Cellular Process Names\r\n<Total Entity Names\r\n<Index Link to metabolic", false),
+      peg$c40 = "\r\n<Interaction Regulation GeneProductName\r\n<InteractionRegulation",
+      peg$c41 = peg$literalExpectation("\r\n<Interaction Regulation GeneProductName\r\n<InteractionRegulation", false),
+      peg$c42 = "\r\nInteraction GeneProductName\r\nInteractionNetwork",
+      peg$c43 = peg$literalExpectation("\r\nInteraction GeneProductName\r\nInteractionNetwork", false),
+      peg$c44 = "\r\nGene Name Operon\r\nOperon Structure",
+      peg$c45 = peg$literalExpectation("\r\nGene Name Operon\r\nOperon Structure", false),
+      peg$c46 = "\r\nMetabolic Regulation CompoundName\r\nMetabolicRegulation",
+      peg$c47 = peg$literalExpectation("\r\nMetabolic Regulation CompoundName\r\nMetabolicRegulation", false),
+      peg$c48 = "\r\nGeneticNetwork GeneProductName\r\nGenetic Network",
+      peg$c49 = peg$literalExpectation("\r\nGeneticNetwork GeneProductName\r\nGenetic Network", false),
 
       peg$currPos          = 0,
       peg$savedPos         = 0,
@@ -1032,44 +1034,53 @@ function peg$parse(input, options) {
               if (peg$silentFails === 0) { peg$fail(peg$c37); }
             }
             if (s0 === peg$FAILED) {
-              if (input.substr(peg$currPos, 76) === peg$c38) {
+              if (input.substr(peg$currPos, 78) === peg$c38) {
                 s0 = peg$c38;
-                peg$currPos += 76;
+                peg$currPos += 78;
               } else {
                 s0 = peg$FAILED;
                 if (peg$silentFails === 0) { peg$fail(peg$c39); }
               }
               if (s0 === peg$FAILED) {
-                if (input.substr(peg$currPos, 63) === peg$c40) {
+                if (input.substr(peg$currPos, 65) === peg$c40) {
                   s0 = peg$c40;
-                  peg$currPos += 63;
+                  peg$currPos += 65;
                 } else {
                   s0 = peg$FAILED;
                   if (peg$silentFails === 0) { peg$fail(peg$c41); }
                 }
                 if (s0 === peg$FAILED) {
-                  if (input.substr(peg$currPos, 47) === peg$c42) {
+                  if (input.substr(peg$currPos, 49) === peg$c42) {
                     s0 = peg$c42;
-                    peg$currPos += 47;
+                    peg$currPos += 49;
                   } else {
                     s0 = peg$FAILED;
                     if (peg$silentFails === 0) { peg$fail(peg$c43); }
                   }
                   if (s0 === peg$FAILED) {
-                    if (input.substr(peg$currPos, 34) === peg$c44) {
+                    if (input.substr(peg$currPos, 36) === peg$c44) {
                       s0 = peg$c44;
-                      peg$currPos += 34;
+                      peg$currPos += 36;
                     } else {
                       s0 = peg$FAILED;
                       if (peg$silentFails === 0) { peg$fail(peg$c45); }
                     }
                     if (s0 === peg$FAILED) {
-                      if (input.substr(peg$currPos, 54) === peg$c46) {
+                      if (input.substr(peg$currPos, 56) === peg$c46) {
                         s0 = peg$c46;
-                        peg$currPos += 54;
+                        peg$currPos += 56;
                       } else {
                         s0 = peg$FAILED;
                         if (peg$silentFails === 0) { peg$fail(peg$c47); }
+                      }
+                      if (s0 === peg$FAILED) {
+                        if (input.substr(peg$currPos, 49) === peg$c48) {
+                          s0 = peg$c48;
+                          peg$currPos += 49;
+                        } else {
+                          s0 = peg$FAILED;
+                          if (peg$silentFails === 0) { peg$fail(peg$c49); }
+                        }
                       }
                     }
                   }

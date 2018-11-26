@@ -8,6 +8,7 @@ function parse(slv) {
     let rowValue = item.rowValue
     let value = rowValue.map(x => {
       console.log('______________')
+      console.log(`Key ${item.key}`)
       console.log(`Now parse ${x.trim()};`)
       return SVP.parse(x.trim())
     })

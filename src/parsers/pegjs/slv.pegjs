@@ -82,8 +82,9 @@ dictKey = "\r\nRight Hand Sides &&\r\nInitial Values &&\r\nComments Or Selkov DB
 "\r\n\r\nPON->UserLaws\r\n<P Use User's mechanisms"/
 "\r\n\r\nTCN->UserLaws\r\n<P Use User's mechanisms"/
 "\r\n\r\nPATH->UserLaws\r\n<P Use User's mechanisms"/
-"<Total Cellular Process Names\r\n<Total Entity Names\r\n<Index Link to metabolic"/
-"<Interaction Regulation GeneProductName\r\n<InteractionRegulation"/
-"Interaction GeneProductName\r\nInteractionNetwork"/
-"Gene Name Operon\r\nOperon Structure"/
-"Metabolic Regulation CompoundName\r\nMetabolicRegulation"
+"\r\n<Total Cellular Process Names\r\n<Total Entity Names\r\n<Index Link to metabolic"/
+"\r\n<Interaction Regulation GeneProductName\r\n<InteractionRegulation"/
+"\r\nInteraction GeneProductName\r\nInteractionNetwork"/
+"\r\nGene Name Operon\r\nOperon Structure"/
+"\r\nMetabolic Regulation CompoundName\r\nMetabolicRegulation"/
+"\r\nGeneticNetwork GeneProductName\r\nGenetic Network"
