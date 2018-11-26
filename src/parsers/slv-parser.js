@@ -5,8 +5,8 @@ function parse(slv) {
   let SLV = SRP.parse(slv)
   console.log('!!!ROW-VALUE TO PARSED-VALUE!!!')
   SLV.content.map.forEach((item) => {
-    let rowValue = item.rowValue
-    let value = rowValue.map(x => {
+    let rawValue = item.rawValue
+    let value = rawValue.map(x => {
       console.log('______________')
       console.log(`Key ${item.key}`)
       console.log(`Now parse ${x.trim()};`)
