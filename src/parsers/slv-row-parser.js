@@ -156,7 +156,7 @@ function peg$parse(input, options) {
           console.log("__________")
           return {
             key:k,
-            rowValue:v
+            rawValue:v
           }
         },
       peg$c2 = "DBSolve Optimum (new parser) 1 Jul 2006",

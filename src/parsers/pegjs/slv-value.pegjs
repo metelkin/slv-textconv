@@ -62,8 +62,12 @@ lineComment
     "//"
     level:("!")*
     comment:CommentSymbols+
-    break?
+    &break
     {
+      let newLine = false
+      if ((b.join('').indexOf('\r\n') != -1) || (location().start.column - location().start.offset == 1)) {
+        newLine = true
+      }
       let headerLevel = 0
       level = level.join('')
       if (level != '') {
@@ -73,7 +77,7 @@ lineComment
         type: "lineComment",
         header: headerLevel,
         value: comment.join(''),
-        newLine: b.join('').indexOf('\r\n') != -1 ? true:false
+        newLine
       }
     }
 multylineComment
@@ -143,12 +147,12 @@ oneValue
     return r
   }
 record
-  = a:(numeric/
-    numbers/
-    emptyNumeric/
-    condExpression/
+  = a:(condExpression/
     multylineComment/
     lineComment/
+    numeric/
+    numbers/
+    emptyNumeric/
     mathExpression/
     variable/
     xmlPattern)+
