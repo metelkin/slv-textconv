@@ -62,7 +62,7 @@ lineComment
     "//"
     level:("!")*
     comment:CommentSymbols+
-    &break
+    break?
     {
       let newLine = false
       if ((b.join('').indexOf('\r\n') != -1) || (location().start.column - location().start.offset == 1)) {
@@ -154,8 +154,7 @@ record
     numbers/
     emptyNumeric/
     mathExpression/
-    variable/
-    xmlPattern)+
+    variable)+
     ((space/break)*"#dbs#")?
     {
       console.log(`RECORD ${a}`)
