@@ -150,9 +150,9 @@ record
   = a:(condExpression/
     multylineComment/
     lineComment/
+    emptyNumeric/
     numeric/
     numbers/
-    emptyNumeric/
     mathExpression/
     variable)+
     ((space/break)*"#dbs#")?
@@ -248,7 +248,7 @@ words = [ A-Za-z0-9.\-:=/[\]#{}_]
 space = ' '
 conditionSymbols = [0-9 .<>=A-Za-z]
 comparisonSings = [<>=!]
-expressionSymbols = [0-9 .+\-*/A-Za-z()]
+expressionSymbols = [0-9 .+\-*/A-Za-z()[\]_\r\n]
 simpleDataTypes
     = number/
       numbers/

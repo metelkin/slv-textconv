@@ -311,8 +311,8 @@ function peg$parse(input, options) {
       peg$c59 = peg$classExpectation([["0", "9"], " ", ".", "<", ">", "=", ["A", "Z"], ["a", "z"]], false, false),
       peg$c60 = /^[<>=!]/,
       peg$c61 = peg$classExpectation(["<", ">", "=", "!"], false, false),
-      peg$c62 = /^[0-9 .+\-*\/A-Za-z()]/,
-      peg$c63 = peg$classExpectation([["0", "9"], " ", ".", "+", "-", "*", "/", ["A", "Z"], ["a", "z"], "(", ")"], false, false),
+      peg$c62 = /^[0-9 .+\-*\/A-Za-z()[\]_\r\n]/,
+      peg$c63 = peg$classExpectation([["0", "9"], " ", ".", "+", "-", "*", "/", ["A", "Z"], ["a", "z"], "(", ")", "[", "]", "_", "\r", "\n"], false, false),
       peg$c64 = "",
       peg$c65 = function() {
         return {
@@ -1168,11 +1168,11 @@ function peg$parse(input, options) {
       if (s2 === peg$FAILED) {
         s2 = peg$parselineComment();
         if (s2 === peg$FAILED) {
-          s2 = peg$parsenumeric();
+          s2 = peg$parseemptyNumeric();
           if (s2 === peg$FAILED) {
-            s2 = peg$parsenumbers();
+            s2 = peg$parsenumeric();
             if (s2 === peg$FAILED) {
-              s2 = peg$parseemptyNumeric();
+              s2 = peg$parsenumbers();
               if (s2 === peg$FAILED) {
                 s2 = peg$parsemathExpression();
                 if (s2 === peg$FAILED) {
@@ -1193,11 +1193,11 @@ function peg$parse(input, options) {
           if (s2 === peg$FAILED) {
             s2 = peg$parselineComment();
             if (s2 === peg$FAILED) {
-              s2 = peg$parsenumeric();
+              s2 = peg$parseemptyNumeric();
               if (s2 === peg$FAILED) {
-                s2 = peg$parsenumbers();
+                s2 = peg$parsenumeric();
                 if (s2 === peg$FAILED) {
-                  s2 = peg$parseemptyNumeric();
+                  s2 = peg$parsenumbers();
                   if (s2 === peg$FAILED) {
                     s2 = peg$parsemathExpression();
                     if (s2 === peg$FAILED) {
