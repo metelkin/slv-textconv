@@ -17,8 +17,8 @@ start
 keyValuePars
   = k:(dictKey/key)
     v:value+ {
-    console.log(k,v)
-    console.log("__________")
+    //console.log(k,v)
+    //console.log("__________")
     return {
       key:k,
       rawValue:v
@@ -39,7 +39,7 @@ key
     break?
     &"#"
     {
-      //console.log("KEY: "+s.join(''))
+      ////console.log("KEY: "+s.join(''))
       return s.join('')
     }
 
@@ -49,7 +49,7 @@ value
     s:(lineValue+/&dictKey/&key/&(break+ "#"))
     &(break* "#"/dictKey/key/"#"/break+ !(value))
     {
-      console.log("VALUE: "+s)
+      //console.log("VALUE: "+s)
       if (s == undefined) {
         return '\r\n'
       }
@@ -67,7 +67,7 @@ lineValue
       if (sp !== null) {
         result = '\r\n'
       }
-      console.log("LINE: "+v.join(''))
+      //console.log("LINE: "+v.join(''))
       result += v.join('')+" "
       return result
     }

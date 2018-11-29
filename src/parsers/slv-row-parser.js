@@ -152,8 +152,8 @@ function peg$parse(input, options) {
             }
           },
       peg$c1 = function(k, v) {
-          console.log(k,v)
-          console.log("__________")
+          //console.log(k,v)
+          //console.log("__________")
           return {
             key:k,
             rawValue:v
@@ -171,11 +171,11 @@ function peg$parse(input, options) {
       peg$c9 = "#",
       peg$c10 = peg$literalExpectation("#", false),
       peg$c11 = function(s) {
-            //console.log("KEY: "+s.join(''))
+            ////console.log("KEY: "+s.join(''))
             return s.join('')
           },
       peg$c12 = function(s) {
-            console.log("VALUE: "+s)
+            //console.log("VALUE: "+s)
             if (s == undefined) {
               return '\r\n'
             }
@@ -190,7 +190,7 @@ function peg$parse(input, options) {
             if (sp !== null) {
               result = '\r\n'
             }
-            console.log("LINE: "+v.join(''))
+            //console.log("LINE: "+v.join(''))
             result += v.join('')+" "
             return result
           },

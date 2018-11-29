@@ -144,7 +144,7 @@ function peg$parse(input, options) {
       peg$c0 = " ",
       peg$c1 = peg$literalExpectation(" ", false),
       peg$c2 = function(n) {
-            console.log("number "+n.join(''))
+            //console.log("number "+n.join(''))
             let value = parseFloat(n.join(''))
             return {
               type: "number",
@@ -156,7 +156,7 @@ function peg$parse(input, options) {
       peg$c5 = "&",
       peg$c6 = peg$literalExpectation("&", false),
       peg$c7 = function(n) {
-            console.log("any numbers "+n.join('')+";")
+            //console.log("any numbers "+n.join('')+";")
             let numbers = n.join('') // 1,8,2,.,4,4, ,5,6 =>182.44 56
             let matrix = numbers.trim().split('\r\n')
             let value = matrix.map((line) => {
@@ -221,8 +221,8 @@ function peg$parse(input, options) {
       peg$c22 = ";",
       peg$c23 = peg$literalExpectation(";", false),
       peg$c24 = function(lhs, rhs) {
-            console.log(`LHS: ${lhs.join('')}`)
-            console.log(`RHS: ${rhs.join('')}`)
+            //console.log(`LHS: ${lhs.join('')}`)
+            //console.log(`RHS: ${rhs.join('')}`)
             return {
               type: "numeric",
               value: {
@@ -252,9 +252,9 @@ function peg$parse(input, options) {
       peg$c28 = "#dbs#",
       peg$c29 = peg$literalExpectation("#dbs#", false),
       peg$c30 = function(a) {
-            console.log(`RECORD ${a}`)
+            //console.log(`RECORD ${a}`)
             for (let i in a) {
-              console.log(`   V: ${a[i].value}|`)
+              //console.log(`   V: ${a[i].value}|`)
             }
             return a
           },
@@ -283,7 +283,7 @@ function peg$parse(input, options) {
       peg$c43 = "}",
       peg$c44 = peg$literalExpectation("}", false),
       peg$c45 = function(cond, then, otherwise) {
-            console.log("Cond")
+            //console.log("Cond")
             return {
               type: "conditionExpression",
               condition: cond.join(''),
