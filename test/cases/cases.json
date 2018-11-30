@@ -1,0 +1,206 @@
+[
+  {
+    "name": "multylineComment",
+    "input": "DBSolve Optimum (new parser) 1 Jul 2006\r\nSLV25.00*\r\nkey\r\n#\r\n/*multyline lineComment\r\nnext string\r\n*/\r\nlast comment\r\n#\r\n0\r\n<xml>\r\n</xml>\r\n",
+    "expected": {
+      "sourceFormat": "SLV",
+      "content": {
+        "header": "DBSolve Optimum (new parser) 1 Jul 2006\r,\nSLV25.00*",
+        "map": [
+          {
+            "key": "key",
+            "rawValue": [
+              "\r\n/*multyline lineComment \r\nnext string \r\n*/ "
+            ],
+            "parsedValue": [
+              [
+                {
+                  "type": "multylineComment",
+                  "value": "multyline lineComment \r\nnext string \r\n"
+                }
+              ]
+            ]
+          },
+          {
+            "key": "last comment",
+            "rawValue": [
+              "\r\n0 \r\n<xml> \r\n</xml> "
+            ],
+            "parsedValue": [
+              [
+                [],
+                {
+                  "type": "string",
+                  "value": "<xml> \r\n</xml> "
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "linecomment",
+    "input": "DBSolve Optimum (new parser) 1 Jul 2006\r\nSLV25.00*\r\nkey\r\n# //one newline comment\r\n//one line comment\r\nlast comment\r\n#\r\n0\r\n<xml>\r\n</xml>\r\n",
+    "expected": {}
+  },
+  {
+    "name": "number",
+    "input": "DBSolve Optimum (new parser) 1 Jul 2006\r\nSLV25.00*\r\nNumbeCase1 #2\r\nNumbeCase1\r\n#2\r\nNumbeCase1 #\r\n2\r\nlast comment\r\n#\r\n0\r\n<xml>\r\n</xml>\r\n",
+    "expected": {
+      "sourceFormat": "SLV",
+      "content": {
+        "header": "DBSolve Optimum (new parser) 1 Jul 2006\r,\nSLV25.00*",
+        "map": [
+          {
+            "key": "NumbeCase1 ",
+            "rawValue": [
+              "2 "
+            ],
+            "parsedValue": [
+              {
+                "type": "number",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "key": "NumbeCase1",
+            "rawValue": [
+              "2 "
+            ],
+            "parsedValue": [
+              {
+                "type": "number",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "key": "NumbeCase1 ",
+            "rawValue": [
+              "\r\n2 "
+            ],
+            "parsedValue": [
+              {
+                "type": "number",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "key": "last comment",
+            "rawValue": [
+              "\r\n0 \r\n<xml> \r\n</xml> "
+            ],
+            "parsedValue": [
+              [
+                [],
+                {
+                  "type": "string",
+                  "value": "<xml> \r\n</xml> "
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "numbers",
+    "input": "DBSolve Optimum (new parser) 1 Jul 2006\r\nSLV25.00*\r\nkey #1 2\r\n#1 2\r\n#\r\n2\r\n1\r\nStoichiometric Matrix\r\n#1 1 -1\r\n1 2 1\r\n2 2 -1\r\n0 0 0.0\r\n&\r\nlast comment\r\n#\r\n0\r\n<xml>\r\n</xml>\r\n",
+    "expected": {
+      "sourceFormat": "SLV",
+      "content": {
+        "header": "DBSolve Optimum (new parser) 1 Jul 2006\r,\nSLV25.00*",
+        "map": [
+          {
+            "key": "key ",
+            "rawValue": [
+              "1 2 ",
+              "1 2 ",
+              "\r\n2 \r\n1 "
+            ],
+            "parsedValue": [
+              {
+                "type": "arrayNumber",
+                "value": [
+                  1,
+                  2
+                ]
+              },
+              {
+                "type": "arrayNumber",
+                "value": [
+                  1,
+                  2
+                ]
+              },
+              {
+                "type": "arrayNumber",
+                "value": [
+                  [
+                    2
+                  ],
+                  [
+                    1
+                  ]
+                ]
+              }
+            ]
+          },
+          {
+            "key": "Stoichiometric Matrix",
+            "rawValue": [
+              "1 1 -1 \r\n1 2 1 \r\n2 2 -1 \r\n0 0 0.0 \r\n& "
+            ],
+            "parsedValue": [
+              {
+                "type": "arrayNumber",
+                "value": [
+                  [
+                    1,
+                    1,
+                    -1
+                  ],
+                  [
+                    1,
+                    2,
+                    1
+                  ],
+                  [
+                    2,
+                    2,
+                    -1
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ]
+              }
+            ]
+          },
+          {
+            "key": "last comment",
+            "rawValue": [
+              "\r\n0 \r\n<xml> \r\n</xml> "
+            ],
+            "parsedValue": [
+              [
+                [],
+                {
+                  "type": "string",
+                  "value": "<xml> \r\n</xml> "
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  }
+]
