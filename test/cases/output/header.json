@@ -6,20 +6,26 @@
       {
         "key": "key",
         "rawValue": [
-          " //one newline comment \r\n//one line comment "
+          "\r\n//! header1 \r\n//!! header2 \r\n//!!! header3 "
         ],
         "parsedValue": [
           [
             {
               "type": "lineComment",
-              "header": 0,
-              "value": "one newline comment ",
+              "header": 1,
+              "value": " header1 ",
               "newLine": true
             },
             {
               "type": "lineComment",
-              "header": 0,
-              "value": "one line comment",
+              "header": 2,
+              "value": " header2 ",
+              "newLine": true
+            },
+            {
+              "type": "lineComment",
+              "header": 3,
+              "value": " header3",
               "newLine": true
             }
           ]

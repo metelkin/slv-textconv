@@ -188,7 +188,7 @@ function peg$parse(input, options) {
       peg$c12 = peg$literalExpectation("!", false),
       peg$c13 = function(b, level, comment) {
             let newLine = false
-            if ((b.join('').indexOf('\r\n') != -1) || (location().start.column - location().start.offset == 1)) {
+            if ((b.join('').indexOf('\r\n') != -1) || (location().start.column == 1)) {
               newLine = true
             }
             let headerLevel = 0

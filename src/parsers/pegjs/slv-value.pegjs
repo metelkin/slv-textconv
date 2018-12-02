@@ -65,7 +65,7 @@ lineComment
     break?
     {
       let newLine = false
-      if ((b.join('').indexOf('\r\n') != -1) || (location().start.column - location().start.offset == 1)) {
+      if ((b.join('').indexOf('\r\n') != -1) || (location().start.column == 1)) {
         newLine = true
       }
       let headerLevel = 0

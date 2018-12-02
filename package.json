@@ -5,7 +5,8 @@
   "main": "index.js",
   "bin": "cli.js",
   "scripts": {
-    "test": "node test/cases/build.js&&mocha",
+    "test": "mocha",
+    "build-test": "node test/cases/build.js",
     "build": "pegjs -o src/parsers/slv-row-parser.js src/parsers/pegjs/slv.pegjs && pegjs -o src/parsers/slv-value-parser.js src/parsers/pegjs/slv-value.pegjs && pegjs -o src/parsers/dat-parser.js src/parsers/pegjs/dat.pegjs"
   },
   "repository": {

@@ -1,5 +1,54 @@
 [
   {
+    "name": "linecomment",
+    "input": "DBSolve Optimum (new parser) 1 Jul 2006\r\nSLV25.00*\r\nkey\r\n# //one newline comment\r\n//one line comment\r\nlast comment\r\n#\r\n0\r\n<xml>\r\n</xml>\r\n",
+    "expected": {
+      "sourceFormat": "SLV",
+      "content": {
+        "header": "DBSolve Optimum (new parser) 1 Jul 2006\r,\nSLV25.00*",
+        "map": [
+          {
+            "key": "key",
+            "rawValue": [
+              " //one newline comment \r\n//one line comment "
+            ],
+            "parsedValue": [
+              [
+                {
+                  "type": "lineComment",
+                  "header": 0,
+                  "value": "one newline comment ",
+                  "newLine": true
+                },
+                {
+                  "type": "lineComment",
+                  "header": 0,
+                  "value": "one line comment",
+                  "newLine": true
+                }
+              ]
+            ]
+          },
+          {
+            "key": "last comment",
+            "rawValue": [
+              "\r\n0 \r\n<xml> \r\n</xml> "
+            ],
+            "parsedValue": [
+              [
+                [],
+                {
+                  "type": "string",
+                  "value": "<xml> \r\n</xml> "
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
     "name": "multylineComment",
     "input": "DBSolve Optimum (new parser) 1 Jul 2006\r\nSLV25.00*\r\nkey\r\n#\r\n/*multyline lineComment\r\nnext string\r\n*/\r\nlast comment\r\n#\r\n0\r\n<xml>\r\n</xml>\r\n",
     "expected": {
@@ -39,11 +88,6 @@
         ]
       }
     }
-  },
-  {
-    "name": "linecomment",
-    "input": "DBSolve Optimum (new parser) 1 Jul 2006\r\nSLV25.00*\r\nkey\r\n# //one newline comment\r\n//one line comment\r\nlast comment\r\n#\r\n0\r\n<xml>\r\n</xml>\r\n",
-    "expected": {}
   },
   {
     "name": "number",
@@ -87,6 +131,61 @@
                 "type": "number",
                 "value": 2
               }
+            ]
+          },
+          {
+            "key": "last comment",
+            "rawValue": [
+              "\r\n0 \r\n<xml> \r\n</xml> "
+            ],
+            "parsedValue": [
+              [
+                [],
+                {
+                  "type": "string",
+                  "value": "<xml> \r\n</xml> "
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "header",
+    "input": "DBSolve Optimum (new parser) 1 Jul 2006\r\nSLV25.00*\r\nkey\r\n#\r\n//! header1\r\n//!! header2\r\n//!!! header3\r\nlast comment\r\n#\r\n0\r\n<xml>\r\n</xml>\r\n",
+    "expected": {
+      "sourceFormat": "SLV",
+      "content": {
+        "header": "DBSolve Optimum (new parser) 1 Jul 2006\r,\nSLV25.00*",
+        "map": [
+          {
+            "key": "key",
+            "rawValue": [
+              "\r\n//! header1 \r\n//!! header2 \r\n//!!! header3 "
+            ],
+            "parsedValue": [
+              [
+                {
+                  "type": "lineComment",
+                  "header": 1,
+                  "value": " header1 ",
+                  "newLine": true
+                },
+                {
+                  "type": "lineComment",
+                  "header": 2,
+                  "value": " header2 ",
+                  "newLine": true
+                },
+                {
+                  "type": "lineComment",
+                  "header": 3,
+                  "value": " header3",
+                  "newLine": true
+                }
+              ]
             ]
           },
           {
