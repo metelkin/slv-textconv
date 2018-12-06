@@ -48,7 +48,7 @@ variable
         }
     }
 sentence
-  = !(space* "//")
+  = !(space* signLineComment)
     s:words+
     {
       let value = s.join('')
@@ -59,7 +59,7 @@ sentence
     }
 lineComment
   = b:(break/space)*
-    "//"
+    signLineComment
     level:("!")*
     comment:CommentSymbols+
     break?
@@ -80,18 +80,7 @@ lineComment
         newLine
       }
     }
-unusualComment
-    = (break/space)*
-    "<?"
-    (break/space)*
-    comment:unusualCommentSymbolsRule+
-    "?>"
-    {
-      return {
-        type: "multylineComment",
-        value: `<?${comment.join('')}?>`
-      }
-    }
+
 multylineComment
   = (space/break)*
     "/*"
@@ -108,11 +97,6 @@ multyCommentSymbolsRule
   = !"*/" s:multyCommentSymbols {
     return s
   }
-
-unusualCommentSymbolsRule
-    = !"?>" s:multyCommentSymbols {
-      return s
-    }
 
 numeric
   = b:(break/space)*
@@ -171,7 +155,6 @@ oneValue
   }
 record
   = a:(condExpression/
-    unusualComment/
     multylineComment/
     lineComment/
     emptyNumeric/
@@ -273,6 +256,7 @@ space = ' '
 conditionSymbols = [0-9 .<>=A-Za-z]
 comparisonSings = [<>=!]
 expressionSymbols = [0-9 .+\-*/A-Za-z()[\]_\r\n]
+signLineComment = "//"/"<?NE?>"/"<?NB?>"
 simpleDataTypes
     = number/
       numbers/
