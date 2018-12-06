@@ -8,7 +8,7 @@ commander
   .description('Clear slv file')
   .usage("[inputPath]")
   .action((input) => {
-    fs.readFile(path.resolve(__dirname, '../', input), 'utf8', (err, contents) => {
+    fs.readFile(input, 'utf8', (err, contents) => {
       if (err) throw err;
       let result = slvClear(contents);
       process.stdout.write(result);
