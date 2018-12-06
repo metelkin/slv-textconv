@@ -1,0 +1,49 @@
+{
+  "sourceFormat": "SLV",
+  "content": {
+    "header": "DBSolve Optimum (new parser) 1 Jul 2006\r,\nSLV25.00*",
+    "map": [
+      {
+        "key": "key",
+        "rawValue": [
+          "\r\n<?NE?><?Rate Laws?> \r\n<?NB?><?Differential Equations?> "
+        ],
+        "parsedValue": [
+          [
+            {
+              "type": "multylineComment",
+              "value": "<?NE?>"
+            },
+            {
+              "type": "multylineComment",
+              "value": "<?Rate Laws?>"
+            },
+            {
+              "type": "multylineComment",
+              "value": "<?NB?>"
+            },
+            {
+              "type": "multylineComment",
+              "value": "<?Differential Equations?>"
+            }
+          ]
+        ]
+      },
+      {
+        "key": "last key",
+        "rawValue": [
+          "\r\n0 \r\n<xml> \r\n</xml> "
+        ],
+        "parsedValue": [
+          [
+            [],
+            {
+              "type": "string",
+              "value": "<xml> \r\n</xml> "
+            }
+          ]
+        ]
+      }
+    ]
+  }
+}

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Utilities for working with SLV and DAT files.",
   "main": "index.js",
-  "bin": "cli.js",
+  "bin": "./bin/slv-utils.js",
   "scripts": {
     "test": "mocha",
     "build-test": "node test/cases/build.js",
@@ -30,6 +30,7 @@
     "pegjs": "^0.10.0"
   },
   "devDependencies": {
+    "commander": "^2.19.0",
     "mocha": "^5.2.0"
   }
 }

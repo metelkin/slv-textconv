@@ -53,8 +53,8 @@ sentence
     {
       let value = s.join('')
       return {
-          type: "string",
-          value
+          type: "strings",
+          value: value.split(' ')
         }
     }
 lineComment
@@ -80,6 +80,18 @@ lineComment
         newLine
       }
     }
+unusualComment
+    = (break/space)*
+    "<?"
+    (break/space)*
+    comment:unusualCommentSymbolsRule+
+    "?>"
+    {
+      return {
+        type: "multylineComment",
+        value: `<?${comment.join('')}?>`
+      }
+    }
 multylineComment
   = (space/break)*
     "/*"
@@ -96,6 +108,11 @@ multyCommentSymbolsRule
   = !"*/" s:multyCommentSymbols {
     return s
   }
+
+unusualCommentSymbolsRule
+    = !"?>" s:multyCommentSymbols {
+      return s
+    }
 
 numeric
   = (break/space)*
@@ -148,6 +165,7 @@ oneValue
   }
 record
   = a:(condExpression/
+    unusualComment/
     multylineComment/
     lineComment/
     emptyNumeric/

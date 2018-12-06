@@ -6,6 +6,7 @@ getTestData().then((result) => {
 function getTestData() {
   let fileList = getTestFilesList()
   let testObj = []
+  let j = 0
   return new Promise(function(resolve, reject) {
     fileList.forEach((file, i) => {
       let testName = getFileName(file)
@@ -19,7 +20,8 @@ function getTestData() {
           input: contents,
           expected: require(`./output/${testName}.json`)
         })
-        if (i === fileList.length - 1) {
+        j++
+        if (j === fileList.length) {
           resolve(testObj)
         }
       });
