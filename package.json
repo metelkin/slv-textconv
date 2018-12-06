@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "description": "Utilities for working with SLV and DAT files.",
   "main": "index.js",
-  "bin": "./bin/slv-utils.js",
+  "bin": {
+    "slv": "./bin/slv.js",
+    "slv-parse": "./bin/slv-parse.js"
+  },
   "scripts": {
     "test": "mocha",
     "build-test": "node test/cases/build.js",
