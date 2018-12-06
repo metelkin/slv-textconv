@@ -78,11 +78,9 @@ header = s:[A-Za-z0-9]+
     return s.join('')
   }
 number
-  = a:digit+
-    dote:decimal_point?
-    b:digit*
+  = n:digit+
     {
-      return a+dote+b
+      return n.join('')
     }
 condition
 = c:conditionRange+
@@ -91,7 +89,7 @@ condition
   }
 
 startRubbish = r:[%#\r\n]
-digit = [0-9]
+digit = [0-9.]
 decimal_point = "."
 spaces = [\r\n" "]
 conditionRange = [A-Za-z0-9.]

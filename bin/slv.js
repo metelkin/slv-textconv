@@ -9,4 +9,5 @@ commander
   .description('Command line utilities for working with dbsolve files.')
   .command('parse [inputPath]', 'parse slv file')
   .command('clear [inputPath]', 'Convert slv file')
+  .command('dat-parse [inputPath]', 'Parsing dat file')
   .parse(process.argv)
