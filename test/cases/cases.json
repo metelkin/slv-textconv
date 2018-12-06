@@ -1,7 +1,7 @@
 [
   {
-    "name": "linecomment",
-    "input": "DBSolve Optimum (new parser) 1 Jul 2006\r\nSLV25.00*\r\nkey\r\n# //one newline comment\r\n//one line comment\r\nlast comment\r\n#\r\n0\r\n<xml>\r\n</xml>\r\n",
+    "name": "if-else",
+    "input": "DBSolve Optimum (new parser) 1 Jul 2006\r\nSLV25.00*\r\nkey\r\n#\r\nif (C1>0) {k1=12;}\r\nelse {k1=0;}\r\n#\r\nif (C1==0) {\r\n  k2=13;k4=5;\r\n  if (C2<0){k3=2;}\r\n  else {k3=6;}\r\n}\r\nelse {\r\n  k3=0;\r\n  if (C2>0) {k3=5;}\r\n  else {k3=0;}\r\n  }\r\nlast comment\r\n#\r\n0\r\n<xml>\r\n</xml>\r\n",
     "expected": {
       "sourceFormat": "SLV",
       "content": {
@@ -10,21 +10,148 @@
           {
             "key": "key",
             "rawValue": [
-              " //one newline comment \r\n//one line comment "
+              "\r\nif (C1>0) {k1=12;} \r\nelse {k1=0;} ",
+              "\r\nif (C1==0) { \r\n  k2=13;k4=5; \r\n  if (C2<0){k3=2;} \r\n  else {k3=6;} \r\n} \r\nelse { \r\n  k3=0; \r\n  if (C2>0) {k3=5;} \r\n  else {k3=0;} \r\n  } "
             ],
             "parsedValue": [
               [
                 {
-                  "type": "lineComment",
-                  "header": 0,
-                  "value": "one newline comment ",
-                  "newLine": true
-                },
+                  "type": "conditionExpression",
+                  "condition": {
+                    "lhs": "C1",
+                    "rhs": "0",
+                    "sign": ">"
+                  },
+                  "then": [
+                    [
+                      {
+                        "type": "numeric",
+                        "value": {
+                          "lhs": "k1",
+                          "rhs": "12",
+                          "newLine": false
+                        }
+                      }
+                    ]
+                  ],
+                  "else": [
+                    [
+                      {
+                        "type": "numeric",
+                        "value": {
+                          "lhs": "k1",
+                          "rhs": "0",
+                          "newLine": false
+                        }
+                      }
+                    ]
+                  ]
+                }
+              ],
+              [
                 {
-                  "type": "lineComment",
-                  "header": 0,
-                  "value": "one line comment",
-                  "newLine": true
+                  "type": "conditionExpression",
+                  "condition": {
+                    "lhs": "C1",
+                    "rhs": "0",
+                    "sign": "=="
+                  },
+                  "then": [
+                    [
+                      {
+                        "type": "numeric",
+                        "value": {
+                          "lhs": "k2",
+                          "rhs": "13",
+                          "newLine": true
+                        }
+                      },
+                      {
+                        "type": "numeric",
+                        "value": {
+                          "lhs": "k4",
+                          "rhs": "5",
+                          "newLine": false
+                        }
+                      },
+                      {
+                        "type": "conditionExpression",
+                        "condition": {
+                          "lhs": "C2",
+                          "rhs": "0",
+                          "sign": "<"
+                        },
+                        "then": [
+                          [
+                            {
+                              "type": "numeric",
+                              "value": {
+                                "lhs": "k3",
+                                "rhs": "2",
+                                "newLine": false
+                              }
+                            }
+                          ]
+                        ],
+                        "else": [
+                          [
+                            {
+                              "type": "numeric",
+                              "value": {
+                                "lhs": "k3",
+                                "rhs": "6",
+                                "newLine": false
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    ]
+                  ],
+                  "else": [
+                    [
+                      {
+                        "type": "numeric",
+                        "value": {
+                          "lhs": "k3",
+                          "rhs": "0",
+                          "newLine": true
+                        }
+                      },
+                      {
+                        "type": "conditionExpression",
+                        "condition": {
+                          "lhs": "C2",
+                          "rhs": "0",
+                          "sign": ">"
+                        },
+                        "then": [
+                          [
+                            {
+                              "type": "numeric",
+                              "value": {
+                                "lhs": "k3",
+                                "rhs": "5",
+                                "newLine": false
+                              }
+                            }
+                          ]
+                        ],
+                        "else": [
+                          [
+                            {
+                              "type": "numeric",
+                              "value": {
+                                "lhs": "k3",
+                                "rhs": "0",
+                                "newLine": false
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    ]
+                  ]
                 }
               ]
             ]
@@ -104,6 +231,67 @@
     }
   },
   {
+    "name": "linecomment",
+    "input": "DBSolve Optimum (new parser) 1 Jul 2006\r\nSLV25.00*\r\nkey\r\n# //one newline comment\r\n//one line comment\r\n<?NE?><?one line commment?>\r\n<?NB?><?one line commment?>\r\nlast comment\r\n#\r\n0\r\n<xml>\r\n</xml>\r\n",
+    "expected": {
+      "sourceFormat": "SLV",
+      "content": {
+        "header": "DBSolve Optimum (new parser) 1 Jul 2006\r,\nSLV25.00*",
+        "map": [
+          {
+            "key": "key",
+            "rawValue": [
+              " //one newline comment \r\n//one line comment \r\n<?NE?><?one line commment?> \r\n<?NB?><?one line commment?> "
+            ],
+            "parsedValue": [
+              [
+                {
+                  "type": "lineComment",
+                  "header": 0,
+                  "value": "one newline comment ",
+                  "newLine": true
+                },
+                {
+                  "type": "lineComment",
+                  "header": 0,
+                  "value": "one line comment ",
+                  "newLine": true
+                },
+                {
+                  "type": "lineComment",
+                  "header": 0,
+                  "value": "<?one line commment?> ",
+                  "newLine": true
+                },
+                {
+                  "type": "lineComment",
+                  "header": 0,
+                  "value": "<?one line commment?>",
+                  "newLine": true
+                }
+              ]
+            ]
+          },
+          {
+            "key": "last comment",
+            "rawValue": [
+              "\r\n0 \r\n<xml> \r\n</xml> "
+            ],
+            "parsedValue": [
+              [
+                [],
+                {
+                  "type": "string",
+                  "value": "<xml> \r\n</xml> "
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
     "name": "multylineComment",
     "input": "DBSolve Optimum (new parser) 1 Jul 2006\r\nSLV25.00*\r\nkey\r\n#\r\n/*multyline lineComment\r\nnext string\r\n*/\r\nlast comment\r\n#\r\n0\r\n<xml>\r\n</xml>\r\n",
     "expected": {
@@ -123,6 +311,69 @@
                   "value": "multyline lineComment \r\nnext string \r\n"
                 }
               ]
+            ]
+          },
+          {
+            "key": "last comment",
+            "rawValue": [
+              "\r\n0 \r\n<xml> \r\n</xml> "
+            ],
+            "parsedValue": [
+              [
+                [],
+                {
+                  "type": "string",
+                  "value": "<xml> \r\n</xml> "
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "number",
+    "input": "DBSolve Optimum (new parser) 1 Jul 2006\r\nSLV25.00*\r\nNumbeCase1 #2\r\nNumbeCase1\r\n#2\r\nNumbeCase1 #\r\n2\r\nlast comment\r\n#\r\n0\r\n<xml>\r\n</xml>\r\n",
+    "expected": {
+      "sourceFormat": "SLV",
+      "content": {
+        "header": "DBSolve Optimum (new parser) 1 Jul 2006\r,\nSLV25.00*",
+        "map": [
+          {
+            "key": "NumbeCase1 ",
+            "rawValue": [
+              "2 "
+            ],
+            "parsedValue": [
+              {
+                "type": "number",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "key": "NumbeCase1",
+            "rawValue": [
+              "2 "
+            ],
+            "parsedValue": [
+              {
+                "type": "number",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "key": "NumbeCase1 ",
+            "rawValue": [
+              "\r\n2 "
+            ],
+            "parsedValue": [
+              {
+                "type": "number",
+                "value": 2
+              }
             ]
           },
           {
@@ -217,69 +468,6 @@
                     0
                   ]
                 ]
-              }
-            ]
-          },
-          {
-            "key": "last comment",
-            "rawValue": [
-              "\r\n0 \r\n<xml> \r\n</xml> "
-            ],
-            "parsedValue": [
-              [
-                [],
-                {
-                  "type": "string",
-                  "value": "<xml> \r\n</xml> "
-                }
-              ]
-            ]
-          }
-        ]
-      }
-    }
-  },
-  {
-    "name": "number",
-    "input": "DBSolve Optimum (new parser) 1 Jul 2006\r\nSLV25.00*\r\nNumbeCase1 #2\r\nNumbeCase1\r\n#2\r\nNumbeCase1 #\r\n2\r\nlast comment\r\n#\r\n0\r\n<xml>\r\n</xml>\r\n",
-    "expected": {
-      "sourceFormat": "SLV",
-      "content": {
-        "header": "DBSolve Optimum (new parser) 1 Jul 2006\r,\nSLV25.00*",
-        "map": [
-          {
-            "key": "NumbeCase1 ",
-            "rawValue": [
-              "2 "
-            ],
-            "parsedValue": [
-              {
-                "type": "number",
-                "value": 2
-              }
-            ]
-          },
-          {
-            "key": "NumbeCase1",
-            "rawValue": [
-              "2 "
-            ],
-            "parsedValue": [
-              {
-                "type": "number",
-                "value": 2
-              }
-            ]
-          },
-          {
-            "key": "NumbeCase1 ",
-            "rawValue": [
-              "\r\n2 "
-            ],
-            "parsedValue": [
-              {
-                "type": "number",
-                "value": 2
               }
             ]
           },

@@ -6,7 +6,7 @@
       {
         "key": "key",
         "rawValue": [
-          " //one newline comment \r\n//one line comment "
+          " //one newline comment \r\n//one line comment \r\n<?NE?><?one line commment?> \r\n<?NB?><?one line commment?> "
         ],
         "parsedValue": [
           [
@@ -19,7 +19,19 @@
             {
               "type": "lineComment",
               "header": 0,
-              "value": "one line comment",
+              "value": "one line comment ",
+              "newLine": true
+            },
+            {
+              "type": "lineComment",
+              "header": 0,
+              "value": "<?one line commment?> ",
+              "newLine": true
+            },
+            {
+              "type": "lineComment",
+              "header": 0,
+              "value": "<?one line commment?>",
               "newLine": true
             }
           ]
