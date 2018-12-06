@@ -7,12 +7,13 @@
     "slv": "./bin/slv.js",
     "slv-parse": "./bin/slv-parse.js",
     "slv-clear": "./bin/slv-clear.js",
-    "slv-dat-parse": "./bin/slv-dat-parse.js"
+    "slv-dat-parse": "./bin/slv-dat-parse.js",
+    "slv-rct-parse": "./bin/slv-rct-parse.js"
   },
   "scripts": {
     "test": "mocha",
     "build-test": "node test/cases/build.js",
-    "build": "pegjs -o src/parsers/slv-row-parser.js src/parsers/pegjs/slv.pegjs && pegjs -o src/parsers/slv-value-parser.js src/parsers/pegjs/slv-value.pegjs && pegjs -o src/parsers/dat-parser.js src/parsers/pegjs/dat.pegjs"
+    "build": "pegjs -o src/parsers/slv-row-parser.js src/parsers/pegjs/slv.pegjs && pegjs -o src/parsers/slv-value-parser.js src/parsers/pegjs/slv-value.pegjs && pegjs -o src/parsers/dat-parser.js src/parsers/pegjs/dat.pegjs && pegjs -o src/parsers/rct-parser.js src/parsers/pegjs/rct.pegjs"
   },
   "repository": {
     "type": "git",

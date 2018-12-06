@@ -10,4 +10,5 @@ commander
   .command('parse [inputPath]', 'parse slv file')
   .command('clear [inputPath]', 'Convert slv file')
   .command('dat-parse [inputPath]', 'Parsing dat file')
+  .command('rct-parse [inputPath]', 'Parsing rct file')
   .parse(process.argv)
