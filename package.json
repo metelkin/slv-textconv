@@ -5,7 +5,8 @@
   "main": "index.js",
   "bin": {
     "slv": "./bin/slv.js",
-    "slv-parse": "./bin/slv-parse.js"
+    "slv-parse": "./bin/slv-parse.js",
+    "slv-clear": "./bin/slv-clear.js"
   },
   "scripts": {
     "test": "mocha",

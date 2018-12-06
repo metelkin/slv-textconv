@@ -1,20 +1,20 @@
 #!/usr/bin/env node
-var commander = require('commander')
-var fs = require('fs')
-var path = require('path')
-var slvUtils = require('../src')
+const commander = require('commander')
+const fs = require('fs')
+const path = require('path')
+const slvParse = require('../src').slvParse
 
 commander
   .description('parse slv file')
   .usage("[inputPath]")
   .option('-o, --output <path>', 'output file after parse')
-  .action(function (input, cmd) {
-    var output = cmd.output
-    fs.readFile(path.resolve(__dirname, '../', input), 'utf8', function(err, contents) {
+  .action((input, cmd) => {
+    let output = cmd.output
+    fs.readFile(path.resolve(__dirname, '../', input), 'utf8', (err, contents) => {
       if (err) throw err
-      var DAT = slvUtils.slvParse.parse(contents)
+      let result = slvParse.parse(contents)
 
-      fs.writeFile(path.resolve(__dirname, '../', output), JSON.stringify(DAT, null, 2))
+      fs.writeFile(path.resolve(__dirname, '../', output), JSON.stringify(result, null, 2))
     })
   })
   .parse(process.argv)
