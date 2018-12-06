@@ -1,5 +1,54 @@
 [
   {
+    "name": "linecomment",
+    "input": "DBSolve Optimum (new parser) 1 Jul 2006\r\nSLV25.00*\r\nkey\r\n# //one newline comment\r\n//one line comment\r\nlast comment\r\n#\r\n0\r\n<xml>\r\n</xml>\r\n",
+    "expected": {
+      "sourceFormat": "SLV",
+      "content": {
+        "header": "DBSolve Optimum (new parser) 1 Jul 2006\r,\nSLV25.00*",
+        "map": [
+          {
+            "key": "key",
+            "rawValue": [
+              " //one newline comment \r\n//one line comment "
+            ],
+            "parsedValue": [
+              [
+                {
+                  "type": "lineComment",
+                  "header": 0,
+                  "value": "one newline comment ",
+                  "newLine": true
+                },
+                {
+                  "type": "lineComment",
+                  "header": 0,
+                  "value": "one line comment",
+                  "newLine": true
+                }
+              ]
+            ]
+          },
+          {
+            "key": "last comment",
+            "rawValue": [
+              "\r\n0 \r\n<xml> \r\n</xml> "
+            ],
+            "parsedValue": [
+              [
+                [],
+                {
+                  "type": "string",
+                  "value": "<xml> \r\n</xml> "
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
     "name": "header",
     "input": "DBSolve Optimum (new parser) 1 Jul 2006\r\nSLV25.00*\r\nkey\r\n#\r\n//! header1\r\n//!! header2\r\n//!!! header3\r\nlast comment\r\n#\r\n0\r\n<xml>\r\n</xml>\r\n",
     "expected": {
@@ -74,118 +123,6 @@
                   "value": "multyline lineComment \r\nnext string \r\n"
                 }
               ]
-            ]
-          },
-          {
-            "key": "last comment",
-            "rawValue": [
-              "\r\n0 \r\n<xml> \r\n</xml> "
-            ],
-            "parsedValue": [
-              [
-                [],
-                {
-                  "type": "string",
-                  "value": "<xml> \r\n</xml> "
-                }
-              ]
-            ]
-          }
-        ]
-      }
-    }
-  },
-  {
-    "name": "linecomment",
-    "input": "DBSolve Optimum (new parser) 1 Jul 2006\r\nSLV25.00*\r\nkey\r\n# //one newline comment\r\n//one line comment\r\nlast comment\r\n#\r\n0\r\n<xml>\r\n</xml>\r\n",
-    "expected": {
-      "sourceFormat": "SLV",
-      "content": {
-        "header": "DBSolve Optimum (new parser) 1 Jul 2006\r,\nSLV25.00*",
-        "map": [
-          {
-            "key": "key",
-            "rawValue": [
-              " //one newline comment \r\n//one line comment "
-            ],
-            "parsedValue": [
-              [
-                {
-                  "type": "lineComment",
-                  "header": 0,
-                  "value": "one newline comment ",
-                  "newLine": true
-                },
-                {
-                  "type": "lineComment",
-                  "header": 0,
-                  "value": "one line comment",
-                  "newLine": true
-                }
-              ]
-            ]
-          },
-          {
-            "key": "last comment",
-            "rawValue": [
-              "\r\n0 \r\n<xml> \r\n</xml> "
-            ],
-            "parsedValue": [
-              [
-                [],
-                {
-                  "type": "string",
-                  "value": "<xml> \r\n</xml> "
-                }
-              ]
-            ]
-          }
-        ]
-      }
-    }
-  },
-  {
-    "name": "number",
-    "input": "DBSolve Optimum (new parser) 1 Jul 2006\r\nSLV25.00*\r\nNumbeCase1 #2\r\nNumbeCase1\r\n#2\r\nNumbeCase1 #\r\n2\r\nlast comment\r\n#\r\n0\r\n<xml>\r\n</xml>\r\n",
-    "expected": {
-      "sourceFormat": "SLV",
-      "content": {
-        "header": "DBSolve Optimum (new parser) 1 Jul 2006\r,\nSLV25.00*",
-        "map": [
-          {
-            "key": "NumbeCase1 ",
-            "rawValue": [
-              "2 "
-            ],
-            "parsedValue": [
-              {
-                "type": "number",
-                "value": 2
-              }
-            ]
-          },
-          {
-            "key": "NumbeCase1",
-            "rawValue": [
-              "2 "
-            ],
-            "parsedValue": [
-              {
-                "type": "number",
-                "value": 2
-              }
-            ]
-          },
-          {
-            "key": "NumbeCase1 ",
-            "rawValue": [
-              "\r\n2 "
-            ],
-            "parsedValue": [
-              {
-                "type": "number",
-                "value": 2
-              }
             ]
           },
           {
@@ -303,41 +240,51 @@
     }
   },
   {
-    "name": "unusualComment",
-    "input": "DBSolve Optimum (new parser) 1 Jul 2006\r\nSLV25.00*\r\nkey\r\n#\r\n<?NE?><?Rate Laws?>\r\n<?NB?><?Differential Equations?>\r\nlast key\r\n#\r\n0\r\n<xml>\r\n</xml>\r\n",
+    "name": "number",
+    "input": "DBSolve Optimum (new parser) 1 Jul 2006\r\nSLV25.00*\r\nNumbeCase1 #2\r\nNumbeCase1\r\n#2\r\nNumbeCase1 #\r\n2\r\nlast comment\r\n#\r\n0\r\n<xml>\r\n</xml>\r\n",
     "expected": {
       "sourceFormat": "SLV",
       "content": {
         "header": "DBSolve Optimum (new parser) 1 Jul 2006\r,\nSLV25.00*",
         "map": [
           {
-            "key": "key",
+            "key": "NumbeCase1 ",
             "rawValue": [
-              "\r\n<?NE?><?Rate Laws?> \r\n<?NB?><?Differential Equations?> "
+              "2 "
             ],
             "parsedValue": [
-              [
-                {
-                  "type": "multylineComment",
-                  "value": "<?NE?>"
-                },
-                {
-                  "type": "multylineComment",
-                  "value": "<?Rate Laws?>"
-                },
-                {
-                  "type": "multylineComment",
-                  "value": "<?NB?>"
-                },
-                {
-                  "type": "multylineComment",
-                  "value": "<?Differential Equations?>"
-                }
-              ]
+              {
+                "type": "number",
+                "value": 2
+              }
             ]
           },
           {
-            "key": "last key",
+            "key": "NumbeCase1",
+            "rawValue": [
+              "2 "
+            ],
+            "parsedValue": [
+              {
+                "type": "number",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "key": "NumbeCase1 ",
+            "rawValue": [
+              "\r\n2 "
+            ],
+            "parsedValue": [
+              {
+                "type": "number",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "key": "last comment",
             "rawValue": [
               "\r\n0 \r\n<xml> \r\n</xml> "
             ],

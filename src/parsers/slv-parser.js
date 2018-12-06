@@ -9,7 +9,7 @@ function parse(slv) {
     let rawValue = item.rawValue
     let value = rawValue.map((x, i) => {
       //console.log(`Key ${item.key}`)
-      ////console.log(`Now parse ${x.trim()};`)
+      //console.log(`Now parse ${x.trim()};`)
       let value = null;
       if (index != countValues - 1) {
         return SVP.parse(x.trim())

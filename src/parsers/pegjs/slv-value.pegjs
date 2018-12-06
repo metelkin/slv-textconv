@@ -40,7 +40,8 @@ numbers
       }
     }
 variable
-    = s:word+ {
+    = &(break)
+      s:word+ {
       let value = s.join('')
       return {
           type: "string",
@@ -107,8 +108,8 @@ numeric
     rhs:digits+
     ";"
     {
-      //console.log(`LHS: ${lhs.join('')}`)
-      //console.log(`RHS: ${rhs.join('')}`)
+      //console.log(`numeric LHS: ${lhs.join('')}`)
+      //console.log(`numeric RHS: ${rhs.join('')}`)
 
       let newLine = ((location().start.column == 1) || b.join('').match(/\r\n/)) ? true:false
       return {
@@ -149,7 +150,7 @@ emptyNumeric
     }
   }
 oneValue
-  = !"/*" r:simpleDataTypes !simpleDataTypes
+  = !("/*"/"if ") r:simpleDataTypes !simpleDataTypes
   {
     return r
   }
@@ -166,18 +167,9 @@ record
     {
       //console.log(`RECORD ${a}`)
       for (let i in a) {
-        //console.log(`   V: ${a[i].value}|`)
+        //console.log(`   V: ${a[i].value}; - ${a[i].type}`)
       }
       return a
-    }
-xmlPattern
-  = (break/space)*
-    xml:xmlSymbols+
-    {
-      return {
-        type: "xml",
-        value: xml.join('')
-      }
     }
 familySign
   = [*] {
@@ -190,9 +182,7 @@ condExpression
   = (break/space)*
     "if"
     space+
-    "("
-    cond:conditionSymbols+
-    ")"
+    cond:condition
     (break/space)*
     "{"
     then:branchPattern+
@@ -200,40 +190,43 @@ condExpression
     "}"
     otherwise:otherwiseBranch?
      {
-      //console.log("Cond")
+      //console.log("CondExpr")
       return {
         type: "conditionExpression",
-        condition: cond.join(''),
+        condition: cond,
         then: then,
         else: otherwise
       }
     }
-/*
+
 condition
   = (break/space)*
-
     "("
     space*
     lhs:word+
     space*
-    sign:conditionSings+
+    sign:comparisonSings+
     space*
-    lhs:word+
+    rhs:word+
     space*
     ")"
     {
+      //console.log('Cond')
+      //console.log(`conditional LHS: ${lhs.join('')}`)
+      //console.log(`conditional RHS: ${rhs.join('')}`)
       return {
         lhs: lhs.join(''),
         rhs: rhs.join(''),
         sign: sign.join('')
       }
     }
-*/
 
 branchPattern
   = !((break/space)* "}")
     result:(oneValue/record)
+    &"}"
     {
+      //console.log('branch')
       return result
     }
 otherwiseBranch
@@ -244,6 +237,7 @@ otherwiseBranch
     value:branchPattern+
     (break/space)*
     "}"
+    (break/space)*
     {
       return value
     }

@@ -165,7 +165,7 @@ function peg$parse(input, options) {
       peg$c5 = peg$literalExpectation("SLV", false),
       peg$c6 = /^[0-9.*]/,
       peg$c7 = peg$classExpectation([["0", "9"], ".", "*"], false, false),
-      peg$c8 = function(h1, sp1, h2) {
+      peg$c8 = function(h1, sp1, h2) {    
             return h1+sp1+h2[0]+h2[1].join('')
           },
       peg$c9 = "#",

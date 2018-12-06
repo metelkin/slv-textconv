@@ -29,7 +29,7 @@ header
   = h1:"DBSolve Optimum (new parser) 1 Jul 2006"
     sp1:spaces*
     h2:("SLV"[0-9.*]+)
-    {
+    {    
       return h1+sp1+h2[0]+h2[1].join('')
     }
 
