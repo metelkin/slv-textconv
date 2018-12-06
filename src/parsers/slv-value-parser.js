@@ -240,14 +240,17 @@ function peg$parse(input, options) {
       peg$c28 = peg$literalExpectation("=", false),
       peg$c29 = ";",
       peg$c30 = peg$literalExpectation(";", false),
-      peg$c31 = function(lhs, rhs) {
+      peg$c31 = function(b, lhs, rhs) {
             //console.log(`LHS: ${lhs.join('')}`)
             //console.log(`RHS: ${rhs.join('')}`)
+
+            let newLine = ((location().start.column == 1) || b.join('').match(/\r\n/)) ? true:false
             return {
               type: "numeric",
               value: {
                 'lhs': lhs.join(''),
-                'rhs': rhs.join('')
+                'rhs': rhs.join(''),
+                newLine
               }
             }
           },
@@ -256,14 +259,17 @@ function peg$parse(input, options) {
               type: "expression",
               value: {
                 'lhs': lhs.join(''),
-                'rhs': rhs.join('')
+                'rhs': rhs.join(''),
+                'newLine': location().start.column == 1
               }
             }
           },
-      peg$c33 = function() {
+      peg$c33 = function(b) {
+            let newLine = ((location().start.column == 1) || b.join('').match(/\r\n/)) ? true:false
             return {
               type: "emptyNumeric",
-              value: ''
+              value: '',
+              newLine
           }
         },
       peg$c34 = function(r) {
@@ -1073,7 +1079,7 @@ function peg$parse(input, options) {
                 }
                 if (s7 !== peg$FAILED) {
                   peg$savedPos = s0;
-                  s1 = peg$c31(s2, s6);
+                  s1 = peg$c31(s1, s2, s6);
                   s0 = s1;
                 } else {
                   peg$currPos = s0;
@@ -1232,7 +1238,7 @@ function peg$parse(input, options) {
       }
       if (s2 !== peg$FAILED) {
         peg$savedPos = s0;
-        s1 = peg$c33();
+        s1 = peg$c33(s1);
         s0 = s1;
       } else {
         peg$currPos = s0;

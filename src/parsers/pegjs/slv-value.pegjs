@@ -115,7 +115,7 @@ unusualCommentSymbolsRule
     }
 
 numeric
-  = (break/space)*
+  = b:(break/space)*
     lhs:word+
     space*
     "="
@@ -125,11 +125,14 @@ numeric
     {
       //console.log(`LHS: ${lhs.join('')}`)
       //console.log(`RHS: ${rhs.join('')}`)
+
+      let newLine = ((location().start.column == 1) || b.join('').match(/\r\n/)) ? true:false
       return {
         type: "numeric",
         value: {
           'lhs': lhs.join(''),
-          'rhs': rhs.join('')
+          'rhs': rhs.join(''),
+          newLine
         }
       }
     }
@@ -145,17 +148,20 @@ mathExpression
         type: "expression",
         value: {
           'lhs': lhs.join(''),
-          'rhs': rhs.join('')
+          'rhs': rhs.join(''),
+          'newLine': location().start.column == 1
         }
       }
     }
 emptyNumeric
-  = (break/space)*
+  = b:(break/space)*
     ";"
     {
+      let newLine = ((location().start.column == 1) || b.join('').match(/\r\n/)) ? true:false
       return {
         type: "emptyNumeric",
-        value: ''
+        value: '',
+        newLine
     }
   }
 oneValue
