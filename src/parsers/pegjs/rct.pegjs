@@ -22,6 +22,7 @@ reaction
     {
       return {
         type: "reaction",
+        id: id.join(''),
         left,
         right
       }

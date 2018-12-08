@@ -157,6 +157,7 @@ function peg$parse(input, options) {
       peg$c8 = function(id, left, right) {
             return {
               type: "reaction",
+              id: id.join(''),
               left,
               right
             }
