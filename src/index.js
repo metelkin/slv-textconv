@@ -4,5 +4,6 @@ module.exports = {
   slvClear: require('./slv-clear'),
   slvParse: require('./parsers/slv-parser'),
   datParse: require('./parsers/dat-parser'),
-  rctParse: require('./parsers/rct-parser')
+  rctParse: require('./parsers/rct-parser'),
+  rctTemplate: require('./template-engine').RCT
 };

@@ -8,7 +8,8 @@
     "slv-parse": "./bin/slv-parse.js",
     "slv-clear": "./bin/slv-clear.js",
     "slv-dat-parse": "./bin/slv-dat-parse.js",
-    "slv-rct-parse": "./bin/slv-rct-parse.js"
+    "slv-rct-parse": "./bin/slv-rct-parse.js",
+    "slv-rct-template": "./bin/slv-rct-template.js"
   },
   "scripts": {
     "test": "mocha",
