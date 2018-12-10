@@ -1,7 +1,9 @@
 {%- if species.stoichiometry > 0 -%}
-  +
+  {%- if loop.first == false -%}
+    +
+  {%- endif %}
 {% endif %}
 {% if species.stoichiometry != 1 and species.stoichiometry != -1 %}
-  {{ species.stoichiometry }}
-{% endif -%}
-{{ species.species }}
+  {{- species.stoichiometry -}}*
+{%- endif -%}
+{{- species.species -}}

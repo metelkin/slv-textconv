@@ -1,12 +1,12 @@
-{% for item in content %}
-  {% if item.type === 'reaction' %}
+{%- for item in content -%}
+  {%- if item.type === 'reaction' -%}
     {{- item.id }}:
     {%- for species in item.left -%}
-      {% include "./layouts/rct-hs.njk" %}
-    {% endfor -%}
+      {%- include "./layouts/rct-hs.njk" -%}
+    {%- endfor -%}
     =
-    {% for species in item.right %}
-      {% include "./layouts/rct-hs.njk" %}
-    {% endfor %}
+    {%- for species in item.right -%}
+      {%- include "./layouts/rct-hs.njk" -%}
+    {%- endfor %};
   {% endif %}
 {% endfor %}
