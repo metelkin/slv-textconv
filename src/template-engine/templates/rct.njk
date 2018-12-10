@@ -1,7 +1,7 @@
 {% for item in content %}
   {% if item.type === 'reaction' %}
-    {{ item.id }}:
-    {% for species in item.left %}
+    {{- item.id }}:
+    {%- for species in item.left -%}
       {% include "./layouts/rct-hs.njk" %}
     {% endfor -%}
     =

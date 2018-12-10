@@ -30,15 +30,15 @@ reaction
 
 hs
   = sign:signSymbols?
-    stoichemetry:digit*
+    stoichiometry:digit*
     "*"?
     species:nameSymbols+
     {
       let signStoich = sign == '-' ? '-':''
-      let numberStoich = (stoichemetry && stoichemetry.join('')) || 1
+      let numberStoich = (stoichiometry && stoichiometry.join('')) || 1
       return {
         type: "species",
-        stoichemetry: signStoich + numberStoich,
+        stoichiometry: signStoich + numberStoich,
         species: species.join('')
       }
     }

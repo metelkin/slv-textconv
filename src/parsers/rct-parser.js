@@ -164,12 +164,12 @@ function peg$parse(input, options) {
           },
       peg$c9 = "*",
       peg$c10 = peg$literalExpectation("*", false),
-      peg$c11 = function(sign, stoichemetry, species) {
+      peg$c11 = function(sign, stoichiometry, species) {
             let signStoich = sign == '-' ? '-':''
-            let numberStoich = (stoichemetry && stoichemetry.join('')) || 1
+            let numberStoich = (stoichiometry && stoichiometry.join('')) || 1
             return {
               type: "species",
-              stoichemetry: signStoich + numberStoich,
+              stoichiometry: signStoich + numberStoich,
               species: species.join('')
             }
           },
