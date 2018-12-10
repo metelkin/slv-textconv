@@ -9,7 +9,7 @@
     "slv-clear": "./bin/slv-clear.js",
     "slv-dat-parse": "./bin/slv-dat-parse.js",
     "slv-rct-parse": "./bin/slv-rct-parse.js",
-    "slv-rct-serelize": "./bin/slv-rct-serelize.js"
+    "slv-rct-serialize": "./bin/slv-rct-serialize.js"
   },
   "scripts": {
     "test": "mocha",

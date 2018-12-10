@@ -11,5 +11,5 @@ commander
   .command('clear [inputPath]', 'Convert slv file')
   .command('dat-parse [inputPath]', 'Parsing dat file')
   .command('rct-parse [inputPath]', 'Parsing rct file')
-  .command('rct-serelize [inputPath]', 'Template rct file')
+  .command('rct-serialize [inputPath]', 'Template rct file')
   .parse(process.argv)
