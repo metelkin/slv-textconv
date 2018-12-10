@@ -12,4 +12,5 @@ commander
   .command('dat-parse [inputPath]', 'Parsing dat file')
   .command('rct-parse [inputPath]', 'Parsing rct file')
   .command('rct-serialize [inputPath]', 'Template rct file')
+  .command('excel2json [inputPath]', 'Conver excel files to json')
   .parse(process.argv)

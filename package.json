@@ -9,7 +9,8 @@
     "slv-clear": "./bin/slv-clear.js",
     "slv-dat-parse": "./bin/slv-dat-parse.js",
     "slv-rct-parse": "./bin/slv-rct-parse.js",
-    "slv-rct-serialize": "./bin/slv-rct-serialize.js"
+    "slv-rct-serialize": "./bin/slv-rct-serialize.js",
+    "slv-excel2json": "./bin/slv-excel2json.js"
   },
   "scripts": {
     "test": "mocha",
@@ -34,6 +35,7 @@
   },
   "homepage": "https://github.com/insysbio/slv-utils",
   "dependencies": {
+    "excel-as-json": "^2.0.2",
     "pegjs": "^0.10.0"
   },
   "devDependencies": {
