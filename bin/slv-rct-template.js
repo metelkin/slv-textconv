@@ -14,7 +14,7 @@ commander
       if (err) throw err;
       let result = rctTemplate(contents);
 
-      fs.writeFile(output, JSON.stringify(result, null, 2));
+      fs.writeFile(output, result);
     })
   })
   .parse(process.argv);

@@ -29,9 +29,13 @@ reaction
     }
 
 hs
-  = sign:signSymbols?
+  = space*
+    sign:signSymbols?
+    space*
     stoichiometry:digit*
+    space*
     "*"?
+    space*
     species:nameSymbols+
     {
       let signStoich = sign == '-' ? '-':''
