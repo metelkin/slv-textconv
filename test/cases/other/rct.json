@@ -1,0 +1,87 @@
+{
+  "sourceFormat": "RCT",
+  "content": [
+    {
+      "type": "reaction",
+      "id": "V_in",
+      "left": [],
+      "right": [
+        {
+          "type": "species",
+          "stoichiometry": "2",
+          "species": "A"
+        }
+      ]
+    },
+    {
+      "type": "lineComment",
+      "header": 2,
+      "value": " in case of influx the left part of the equation  is empty",
+      "newLine": true
+    },
+    {
+      "type": "reaction",
+      "id": "V1",
+      "left": [
+        {
+          "type": "species",
+          "stoichiometry": "2",
+          "species": "A"
+        },
+        {
+          "type": "species",
+          "stoichiometry": "1",
+          "species": "C"
+        }
+      ],
+      "right": [
+        {
+          "type": "species",
+          "stoichiometry": "4",
+          "species": "B"
+        },
+        {
+          "type": "species",
+          "stoichiometry": "1",
+          "species": "D"
+        }
+      ]
+    },
+    {
+      "type": "reaction",
+      "id": "V2",
+      "left": [
+        {
+          "type": "species",
+          "stoichiometry": "1",
+          "species": "D"
+        }
+      ],
+      "right": [
+        {
+          "type": "species",
+          "stoichiometry": "1",
+          "species": "C"
+        }
+      ]
+    },
+    {
+      "type": "reaction",
+      "id": "V_out",
+      "left": [
+        {
+          "type": "species",
+          "stoichiometry": "1",
+          "species": "B"
+        }
+      ],
+      "right": []
+    },
+    {
+      "type": "lineComment",
+      "header": 0,
+      "value": " in case of efflux the right part of the equation  is empty",
+      "newLine": false
+    }
+  ]
+}
