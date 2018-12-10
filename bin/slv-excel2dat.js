@@ -2,7 +2,7 @@
 const commander = require('commander');
 const fs = require('fs');
 const path = require('path');
-const excel2json = require('../src').excel2json;
+const excel2dat = require('../src').excel2dat;
 
 commander
   .description('parse slv file')
@@ -10,9 +10,9 @@ commander
   .option('-o, --output <path>', 'output file after parse')
   .action((input, cmd) => {
     let output = cmd.output;
-    let result = excel2json(input)
+    let result = excel2dat(input)
       .then((result) => {
-        fs.writeFile(output, JSON.stringify(result, null, 2));
+        fs.writeFile(output, result);
       });
 
   })

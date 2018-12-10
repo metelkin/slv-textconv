@@ -33,7 +33,11 @@ function excel2json(path) {
       if (err) throw err;
       data.splice(0, 3);
       let result = _jsonExcelParse(data);
-      resolve(result);
+      let DAT = {
+        "sourceFormat": "DAT",
+        content: result
+      }
+      resolve(DAT);
     });
   });
 }

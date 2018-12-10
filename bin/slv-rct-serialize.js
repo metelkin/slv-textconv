@@ -12,7 +12,7 @@ commander
     let output = cmd.output;
     fs.readFile(input, 'utf8', (err, contents) => {
       if (err) throw err;
-      let result = rctTemplate(contents);
+      let result = rctTemplate((JSON.parse(contents)));
 
       fs.writeFile(output, result);
     })

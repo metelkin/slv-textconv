@@ -10,14 +10,14 @@ nunjucks.configure(
 function rctTemplate(rctJson) {
   let result = nunjucks.render(
     path.resolve(__dirname, 'templates/rct.njk'),
-    { content: JSON.parse(rctJson).content });
+    { content: rctJson.content });
   return result
 }
 
 function datTemplate(datJson) {
   let result = nunjucks.render(
     path.resolve(__dirname, 'templates/dat.njk'),
-    { content: JSON.parse(datJson).content });
+    { content: datJson.content });
   return result
 }
 
