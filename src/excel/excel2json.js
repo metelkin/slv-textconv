@@ -7,14 +7,10 @@ const opt = {
 
 function _jsonExcelParse(data) {
   let DAT = []
-  let dataSet = {
-    data: [],
-    conditions: [],
-    header: []
-  }
+  let dataSet;
   data.forEach((item) => {
     if (item.num !== '') { //new DataSet, save headers
-      DAT.push(dataSet);
+      if (dataSet) DAT.push(dataSet);
       dataSet = {
         data: [],
         conditions: [],

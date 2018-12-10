@@ -6,5 +6,6 @@ module.exports = {
   datParse: require('./parsers/dat-parser'),
   rctParse: require('./parsers/rct-parser'),
   rctTemplate: require('./template-engine').RCT,
+  datTemplate: require('./template-engine').DAT,
   excel2json: require('./excel/excel2json').default
 };

@@ -14,6 +14,14 @@ function rctTemplate(rctJson) {
   return result
 }
 
+function datTemplate(datJson) {
+  let result = nunjucks.render(
+    path.resolve(__dirname, 'templates/dat.njk'),
+    { content: JSON.parse(datJson).content });
+  return result
+}
+
 module.exports = {
-  RCT: rctTemplate
+  RCT: rctTemplate,
+  DAT: datTemplate
 }
