@@ -11,7 +11,6 @@ function rctTemplate(rctJson) {
   let result = nunjucks.render(
     path.resolve(__dirname, 'templates/rct.njk'),
     { content: JSON.parse(rctJson).content });
-  console.log(result);
   return result
 }
 
