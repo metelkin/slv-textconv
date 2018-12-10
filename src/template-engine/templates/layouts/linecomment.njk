@@ -1,0 +1,7 @@
+{%- if item.type === 'lineComment' %}
+//
+{%- for i in range(0, item.header) %}
+!
+{%- endfor %}
+{{- item.value }}
+{% endif %}

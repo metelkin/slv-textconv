@@ -1,6 +1,6 @@
-{%- for item in content -%}
-  {%- if item.type === 'reaction' -%}
-    {{- item.id }}:
+{% for item in content %}
+  {% if item.type === 'reaction' %}
+    {{ item.id }}:
     {%- for species in item.left -%}
       {%- include "./layouts/rct-hs.njk" -%}
     {%- endfor -%}
@@ -8,5 +8,6 @@
     {%- for species in item.right -%}
       {%- include "./layouts/rct-hs.njk" -%}
     {%- endfor %};
-  {% endif %}
+  {%- endif %}
+  {%- include "./layouts/linecomment.njk" %}
 {% endfor %}
