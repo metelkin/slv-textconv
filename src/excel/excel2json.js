@@ -19,8 +19,13 @@ function _jsonExcelParse(data) {
       dataSet.header.push(item.method, item.include, item.x, item.y);
     }
     else { //dataSet continius
-      dataSet.data.push([item.x || 0, item.y || 0, item.weight || 0, item.sd || 0]);
-      dataSet.conditions.push([item.vars, item.values || 0]);
+      let data = [];
+      [item.x, item.y, item.weight, item.sd].forEach((dataItem) => {
+        if (dataItem) data.push(dataItem);
+      });
+
+      dataSet.data.push(data);
+      dataSet.conditions.push([item.vars || "tmp", item.values || 0]);
     }
   })
   DAT.push(dataSet);
