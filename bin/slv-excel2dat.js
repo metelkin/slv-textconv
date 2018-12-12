@@ -12,7 +12,14 @@ commander
     let output = cmd.output;
     let result = excel2dat(input)
       .then((result) => {
-        fs.writeFile(output, result);
+        if (cmd.output) {
+          fs.writeFile(cmd.output, result, (err) => {
+            console.log('Result successfully written to file');
+          });
+        }
+        else {
+          process.stdout.write(result);
+        }
       });
 
   })

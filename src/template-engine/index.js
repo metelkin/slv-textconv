@@ -6,7 +6,7 @@ nunjucks.configure(
     trimBlocks: true,
     lstripBlocks: true
   });
-
+  
 function rctTemplate(rctJson) {
   let result = nunjucks.render(
     path.resolve(__dirname, 'templates/rct.njk'),
