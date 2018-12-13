@@ -8,9 +8,10 @@ commander
   .description('parse slv file')
   .usage("[inputPath]")
   .option('-o, --output <path>', 'output file after parse')
+  .option('-t, --table <number>', 'number of parsing excel table')
   .action((input, cmd) => {
-    let output = cmd.output;
-    let result = excel2dat(input)
+    let numTable = cmd.table || 1;
+    let result = excel2dat(input, numTable)
       .then((result) => {
         if (cmd.output) {
           fs.writeFile(cmd.output, result, (err) => {
