@@ -73,7 +73,7 @@ colCondition
     }
 
 // --- LEXIS ---
-header = s:[A-Za-z0-9]+
+header = s:wordSymbols+
   {
     return s.join('')
   }
@@ -83,13 +83,13 @@ number
       return n.join('')
     }
 condition
-= c:conditionRange+
+= c:wordSymbols+
   {
     return c
   }
 
 startRubbish = r:[%#\r\n]
-digit = [0-9.]
+digit = [0-9.e+-]
 decimal_point = "."
 spaces = [\r\n" "]
-conditionRange = [A-Za-z0-9.]
+wordSymbols = [A-Za-z0-9.[\]+()_$'"!.,:=:;-]
