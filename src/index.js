@@ -8,5 +8,6 @@ module.exports = {
   rctTemplate: require('./template-engine').RCT,
   datTemplate: require('./template-engine').DAT,
   excel2json: require('./excel/excel2json').default,
-  excel2dat: require('./excel/excel2dat').default
+  excel2dat: require('./excel/excel2dat').default,
+  json2excel: require('./excel/json2excel').default
 };

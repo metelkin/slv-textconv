@@ -30,7 +30,6 @@ function _jsonExcelParse(data) {
 function excel2json(path, numTable = 1) {
   return new Promise((resolve, reject) => {
     convertExcel(path, null, {sheet: numTable}, (err, data) => {
-      console.log(data)
       if (err) throw err;
       data.splice(0, 3);
       let result = _jsonExcelParse(data, numTable);
