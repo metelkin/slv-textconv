@@ -10,9 +10,7 @@ const templateItem = {
   sd: '',
   vars: '',
   values: '',
-  irtRef: {
-    pubmed: []
-  },
+  "irtRef\.pubmed[]": [],
   notes: ''
 }
 function _datJson2excelJson(json) {
