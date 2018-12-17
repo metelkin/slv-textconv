@@ -18,7 +18,7 @@ function _datJson2excelJson(json) {
   .chain(json)
   .map((item, i) => {
     let dataHeader = Object.assign({}, templateItem);
-    dataHeader['num'] = i;
+    dataHeader['num'] = item.num || i;
     dataHeader['method'] = item.header[0];
     dataHeader['include'] = item.header[1];
     dataHeader['x'] = item.header[2];

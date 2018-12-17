@@ -1,4 +1,5 @@
 const convertExcel = require('excel-as-json').processFile;
+const _ = require('lodash');
 
 function _jsonExcelParse(data) {
   const methods = {
@@ -8,27 +9,38 @@ function _jsonExcelParse(data) {
   };
   let DAT = []
   let dataSet;
-  data.forEach((item) => {
-    if (item.num !== '') { //new DataSet, save headers
+
+  data.map((item) => {
+    if (item.num !== '') { //new DataSet
       if (dataSet) DAT.push(dataSet);
-      dataSet = {
-        num,
+      dataSet = { //Save headers and num
+        num: item.num,
         data: [],
         conditions: [],
-        header: []
+        header: [item.include, methods[item.method], item.x, item.y],
+        irtRef: { pubmed: item.aux.irtRef.pubmed },
+        notes: [item.notes]
       };
-      dataSet.header.push(item.include, methods[item.method], item.x, item.y);
     }
     else { //dataSet continius
-      let data = [];
-      [item.x, item.y, item.weight, item.sd].forEach((dataItem) => {
-        if (dataItem) data.push(dataItem);
-      });
-
-      dataSet.data.push(data);
       dataSet.conditions.push([item.values || 0, item.vars || "tmp"]);
+
+      let isEmptyData = _
+      .chain([item.x, item.y, item.weight, item.sd])
+      .compact()
+      .isEmpty()
+      .value();
+      let data = [];
+      if (!isEmptyData) {
+        data = [item.x, item.y, item.weight, item.sd].map(x => x || undefined);
+
+      }
+      dataSet.data.push(data);
+
+      dataSet.irtRef.pubmed.push(item.aux.irtRef.pubmed);
+      dataSet.notes.push(item.notes);
     }
-  })
+  });
   DAT.push(dataSet);
   return DAT;
 }
