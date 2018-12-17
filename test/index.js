@@ -2,13 +2,39 @@ const assert = require('assert');
 const slvUtils = require('../src');
 const cases = require('./cases/cases.json')
 
-describe('Base tests', function() {
-  cases.forEach((test) => {
-    it(test.name, function() {
-      assert.deepEqual(
-        slvUtils.slvParse.parse(test.input),
-        test.expected
-      )
+for (nameGroupTest in cases) {
+  switch(nameGroupTest) {
+    case 'slv-parse':
+      runSlvParseTests(cases[nameGroupTest]);
+      break;
+    case 'dat-serialize':
+      runDatSerializeTests(cases[nameGroupTest]);
+      break;
+  }
+}
+
+function runSlvParseTests(listTests) {
+  describe(nameGroupTest, () => {
+    listTests.forEach((test) => {
+      it(test.name, function() {
+        assert.deepEqual(
+          slvUtils.slvParse.parse(test.input),
+          test.expected
+        )
+      })
     })
-  })
-})
+  });
+}
+
+function runDatSerializeTests(listTests) {
+  describe(nameGroupTest, () => {
+    listTests.forEach((test) => {
+      it(test.name, function() {
+        assert.equal(
+          slvUtils.datTemplate(test.input),
+          test.expected
+        )
+      })
+    })
+  });
+}

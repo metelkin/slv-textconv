@@ -1,9 +1,11 @@
 const fs = require('fs');
 const extensionOutputFiles = {
-  'slv-parse': 'json'
+  'slv-parse': 'json',
+  'dat-serialize': 'dat'
 }
 let casesDirs = fs.readdirSync("./test/cases");
 delete casesDirs[casesDirs.indexOf('other')];
+delete casesDirs[casesDirs.indexOf('cases.json')];
 let tests = casesDirs.reduce((result, dir) => {
   let path = `./test/cases/${dir}/`;
   let files = fs.readdirSync(path+'input/');
@@ -17,7 +19,7 @@ let tests = casesDirs.reduce((result, dir) => {
   return result;
 }, {});
 
-fs.writeFile("./test/cases.json", JSON.stringify(tests, null, 2), (err) => {
+fs.writeFile("./test/cases/cases.json", JSON.stringify(tests, null, 2), (err) => {
   if (err) throw err;
   console.log('Tests build');
 })
@@ -30,7 +32,11 @@ function makeCaseObj(type, input, expected, name) {
   switch(type) {
     case 'slv-parse':
     // input no change
-    expected = JSON.parse(expected)
+    expected = JSON.parse(expected);
+    break;
+    case 'dat-serialize':
+    input = JSON.parse(input);
+    //expected no change
     break;
   }
   return {
