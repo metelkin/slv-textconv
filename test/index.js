@@ -9,6 +9,9 @@ for (var nameGroupTest in cases) {
     case 'slv-parse':
       runSlvParseTests(cases[nameGroupTest]);
       break;
+    case 'rct-parse':
+      runRctParseTests(cases[nameGroupTest]);
+      break;
     case 'dat-serialize':
       runDatSerializeTests(cases[nameGroupTest]);
       break;
@@ -24,6 +27,19 @@ function runSlvParseTests(listTests) {
       it(test.name, function() {
         assert.deepEqual(
           slvUtils.slvParse.parse(test.input),
+          test.expected
+        )
+      })
+    })
+  });
+}
+
+function runRctParseTests(listTests) {
+  describe(nameGroupTest, () => {
+    listTests.forEach((test) => {
+      it(test.name, function() {
+        assert.deepEqual(
+          slvUtils.rctParse.parse(test.input),
           test.expected
         )
       })
