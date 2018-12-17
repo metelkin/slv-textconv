@@ -1,4 +1,4 @@
-SRP = require('./slv-row-parser.js')
+SRP = require('./slv-raw-parser.js')
 SVP = require('./slv-value-parser.js')
 
 function parse(slv) {
