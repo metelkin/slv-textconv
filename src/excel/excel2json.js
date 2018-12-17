@@ -1,17 +1,23 @@
 const convertExcel = require('excel-as-json').processFile;
 
 function _jsonExcelParse(data) {
+  const methods = {
+    'Explicit': 0,
+    'ODE': 1,
+    'Implicit': 2
+  };
   let DAT = []
   let dataSet;
   data.forEach((item) => {
     if (item.num !== '') { //new DataSet, save headers
       if (dataSet) DAT.push(dataSet);
       dataSet = {
+        num,
         data: [],
         conditions: [],
         header: []
       };
-      dataSet.header.push(item.method, item.include, item.x, item.y);
+      dataSet.header.push(item.include, methods[item.method], item.x, item.y);
     }
     else { //dataSet continius
       let data = [];
@@ -20,7 +26,7 @@ function _jsonExcelParse(data) {
       });
 
       dataSet.data.push(data);
-      dataSet.conditions.push([item.vars || "tmp", item.values || 0]);
+      dataSet.conditions.push([item.values || 0, item.vars || "tmp"]);
     }
   })
   DAT.push(dataSet);
