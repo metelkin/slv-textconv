@@ -3,7 +3,8 @@
 const fs = require('fs');
 const extensionOutputFiles = {
   'slv-parse': 'json',
-  'dat-serialize': 'dat'
+  'dat-serialize': 'dat',
+  'rct-serialize': 'rct'
 }
 let casesDirs = fs.readdirSync("./test/cases");
 delete casesDirs[casesDirs.indexOf('other')];
@@ -33,13 +34,17 @@ function getFileName(filename) {
 function makeCaseObj(type, input, expected, name) {
   switch(type) {
     case 'slv-parse':
-    // input no change
-    expected = JSON.parse(expected);
-    break;
+      // input no change
+      expected = JSON.parse(expected);
+      break;
     case 'dat-serialize':
-    input = JSON.parse(input);
-    //expected no change
-    break;
+      input = JSON.parse(input);
+      //expected no change
+      break;
+    case 'rct-serialize':
+      input = JSON.parse(input);
+      //expected no change
+      break;
   }
   return {
     name,

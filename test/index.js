@@ -12,6 +12,9 @@ for (var nameGroupTest in cases) {
     case 'dat-serialize':
       runDatSerializeTests(cases[nameGroupTest]);
       break;
+    case 'rct-serialize':
+      runRctSerializeTests(cases[nameGroupTest]);
+      break;
   }
 }
 
@@ -35,6 +38,19 @@ function runDatSerializeTests(listTests) {
         assert.equal(
           slvUtils.datTemplate(test.input),
           test.expected
+        )
+      })
+    })
+  });
+}
+
+function runRctSerializeTests(listTests) {
+  describe(nameGroupTest, () => {
+    listTests.forEach((test) => {
+      it(test.name, function() {
+        assert.equal(
+          slvUtils.rctTemplate(test.input).trim(),
+          test.expected.trim()
         )
       })
     })
