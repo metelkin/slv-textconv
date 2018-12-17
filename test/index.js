@@ -1,8 +1,10 @@
+'use strict';
+
 const assert = require('assert');
 const slvUtils = require('../src');
 const cases = require('./cases/cases.json')
 
-for (nameGroupTest in cases) {
+for (var nameGroupTest in cases) {
   switch(nameGroupTest) {
     case 'slv-parse':
       runSlvParseTests(cases[nameGroupTest]);

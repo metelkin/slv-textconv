@@ -1,3 +1,5 @@
+'use strict';
+
 const _ = require('lodash');
 const json2xls = require('json2xls');
 const templateItem = {
@@ -12,7 +14,8 @@ const templateItem = {
   values: '',
   "irtRef\.pubmed[]": [],
   notes: ''
-}
+};
+
 function _datJson2excelJson(json) {
   return _
   .chain(json)
@@ -54,9 +57,9 @@ function _datJson2excelJson(json) {
 function json2excel(data) {
   let result = _datJson2excelJson(data);
   result.unshift(templateItem, templateItem);
-  console.log(result)
   return json2xls(result);
 }
+
 module.exports = {
   default: json2excel
 }
