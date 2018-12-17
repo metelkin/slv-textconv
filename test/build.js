@@ -5,7 +5,8 @@ const extensionOutputFiles = {
   'slv-parse': 'json',
   'dat-serialize': 'dat',
   'rct-serialize': 'rct',
-  'rct-parse': 'json'
+  'rct-parse': 'json',
+  'dat-parse': 'json'
 }
 let casesDirs = fs.readdirSync("./test/cases");
 delete casesDirs[casesDirs.indexOf('other')];
@@ -39,6 +40,10 @@ function makeCaseObj(type, input, expected, name) {
       expected = JSON.parse(expected);
       break;
     case 'rct-parse':
+      // input no change
+      expected = JSON.parse(expected);
+      break;
+    case 'dat-parse':
       // input no change
       expected = JSON.parse(expected);
       break;
