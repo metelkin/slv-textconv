@@ -7,13 +7,15 @@ const pkg = require('../package');
 commander
   .version(pkg.version, '-v, --version')
   .description('Command line utilities for working with dbsolve files.')
-  .command('parse [inputPath]', 'parse slv file')
-  .command('clear [inputPath]', 'Convert slv file')
-  .command('dat-parse [inputPath]', 'Parsing dat file')
-  .command('dat-serialize [inputPath]', 'Template dat file')
-  .command('rct-parse [inputPath]', 'Parsing rct file')
-  .command('rct-serialize [inputPath]', 'Template rct file')
-  .command('excel2json [inputPath]', 'Conver excel files to json')
-  .command('excel2dat [inputPath]', 'Conver excel files to dat files')
-  .command('json2excel [inputPath]', 'Conver dat-object to excel')
+  .command('clear <inputFile>', 'Display cleared .SLV')
+  .command('parse <inputFile>', 'Parse .SLV file')
+
+  .command('dat-parse <inputFile>', 'Parse .DAT file')
+  .command('dat-serialize <inputFile>', 'Serialize .DAT file')
+  .command('json2excel <inputFile>', 'Convert .DATJS to .XLSX')
+  .command('excel2json <inputFile>', 'Convert .XLSX files to .DATJS')
+  .command('excel2dat <inputFile>', 'Convert .XLSX files to .DAT')
+
+  .command('rct-parse <inputFile>', 'Parse .RCT file')
+  .command('rct-serialize <inputFile>', 'Serialize .RCT file')
   .parse(process.argv);

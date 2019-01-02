@@ -9,7 +9,7 @@ function excel2dat(path, numTable) {
     excel2json(path, numTable).then((datJson) => {
       let result = json2dat(datJson);
       resolve(result);
-    });
+    }).catch(reject);
   });
 }
 

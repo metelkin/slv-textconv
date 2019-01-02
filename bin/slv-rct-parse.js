@@ -2,24 +2,27 @@
 const commander = require('commander');
 const fs = require('fs');
 // const path = require('path');
-const rctParse = require('../src').rctParse;
+const {rctParse} = require('../src');
 
 commander
-  .description('parse rct file')
-  .usage('[inputPath]')
-  .option('-o, --output <path>', 'output file after parse')
+  .description('Parse .RCT file')
+  .usage('[inputFile]')
+  .option('-o, --output <path>', 'save result to file')
   .action((input, cmd) => {
-    fs.readFile(input, 'utf8', (err, contents) => {
-      if (err) throw err;
-      let result = rctParse.parse(contents);
-
-      if (cmd.output) {
-        fs.writeFile(cmd.output, JSON.stringify(result, null, 2), (err) => {
-          if (err) throw err;
-          console.log('Result successfully written to file');
-        });
+    fs.readFile(input, 'utf8', (err, content) => {
+      if (err) {
+        process.stderr.write(err.message);
       } else {
-        process.stdout.write(JSON.stringify(result, null, 2));
+        let result = rctParse.parse(content);
+
+        if (cmd.output) {
+          fs.writeFile(cmd.output, JSON.stringify(result, null, 2), (err) => {
+            if (err) throw err;
+            process.stdout.write(`Result successfully written to file: ${cmd.output}.`);
+          });
+        } else {
+          process.stdout.write(JSON.stringify(result, null, 2));
+        }
       }
     });
   })

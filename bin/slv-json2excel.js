@@ -2,17 +2,20 @@
 const commander = require('commander');
 const fs = require('fs');
 // const path = require('path');
-const json2excel = require('../src').json2excel;
+const {json2excel} = require('../src');
 
 commander
-  .description('create excel file from dat-object')
-  .usage('[inputPath]')
-  .option('-o, --output <path>', 'output file after parse')
+  .description('Convert .DATJS to .XLSX')
+  .usage('[inputFile]')
+  .option('-o, --output <path>', 'save result to file')
   .action((input, cmd) => {
-    fs.readFile(input, 'utf8', (err, contents) => {
-      if (err) throw err;
-      let result = json2excel(JSON.parse(contents).content);
-      fs.writeFileSync(cmd.output, result, 'binary');
+    fs.readFile(input, 'utf8', (err, content) => {
+      if (err) {
+        process.stderr.write(err.message);
+      } else {
+        let result = json2excel(JSON.parse(content).content);
+        fs.writeFileSync(cmd.output, result, 'binary');
+      }
     });
   })
   .parse(process.argv);

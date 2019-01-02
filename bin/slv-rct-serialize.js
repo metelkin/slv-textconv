@@ -5,21 +5,24 @@ const fs = require('fs');
 const {rctTemplate} = require('../src');
 
 commander
-  .description('template rct file')
+  .description('Serialize .RCT file')
   .usage('[inputPath]')
-  .option('-o, --output <path>', 'output file after template')
+  .option('-o, --output <path>', 'save result to file')
   .action((input, cmd) => {
-    fs.readFile(input, 'utf8', (err, contents) => {
-      if (err) throw err;
-      let result = rctTemplate((JSON.parse(contents)));
-
-      if (cmd.output) {
-        fs.writeFile(cmd.output, result, (err) => {
-          if (err) throw err;
-          console.log('Result successfully written to file');
-        });
+    fs.readFile(input, 'utf8', (err, content) => {
+      if (err) {
+        process.stderr.write(err.message);
       } else {
-        process.stdout.write(result);
+        let result = rctTemplate(JSON.parse(content));
+
+        if (cmd.output) {
+          fs.writeFile(cmd.output, result, (err) => {
+            if (err) throw err;
+            process.stdout.write(`Result successfully written to file: ${cmd.output}.`);
+          });
+        } else {
+          process.stdout.write(result);
+        }
       }
     });
   })

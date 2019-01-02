@@ -5,22 +5,26 @@ const fs = require('fs');
 const {slvParse} = require('../src');
 
 commander
-  .description('Parse slv file')
-  .usage('[inputPath]')
-  .option('-o, --output <path>', 'output file after parse')
+  .description('Parse .SLV to .SLVJS')
+  .usage('[inputFile]')
+  .option('-o, --output <path>', 'save result to file')
   .action((input, cmd) => {
     fs.readFile(input, 'utf8', (err, contents) => {
-      if (err) throw err;
-      let result = slvParse.parse(contents);
-
-      if (cmd.output) {
-        fs.writeFile(cmd.output, JSON.stringify(result, null, 2), (err) => {
-          if (err) throw err;
-          console.log('Result successfully written to file');
-        });
+      if (err) {
+        process.stderr.write(err.message);
       } else {
-        process.stdout.write(JSON.stringify(result, null, 2));
+        let result = slvParse.parse(contents);
+
+        if (cmd.output) {
+          fs.writeFile(cmd.output, JSON.stringify(result, null, 2), (err) => {
+            if (err) throw err;
+            process.stdout.write(`Result successfully written to file: ${cmd.output}.`);
+          });
+        } else {
+          process.stdout.write(JSON.stringify(result, null, 2));
+        }
       }
     });
   })
   .parse(process.argv);
+  

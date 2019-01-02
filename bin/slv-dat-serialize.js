@@ -2,24 +2,26 @@
 const commander = require('commander');
 const fs = require('fs');
 // const path = require('path');
-const datTemplate = require('../src').datTemplate;
+const {datTemplate} = require('../src');
 
 commander
-  .description('template rct file')
-  .usage('[inputPath]')
-  .option('-o, --output <path>', 'output file after template')
+  .description('Serialize .DAT from .DATJS')
+  .usage('[inputFile]')
+  .option('-o, --output <path>', 'save result to file')
   .action((input, cmd) => {
-    fs.readFile(input, 'utf8', (err, contents) => {
-      if (err) throw err;
-      let result = datTemplate(JSON.parse(contents));
-      if (cmd.output) {
-        fs.writeFile(cmd.output, result, (err) => {
-          if (err) throw err;
-          console.log('Result successfully written to file');
-        });
-      }
-      else {
-        process.stdout.write(result);
+    fs.readFile(input, 'utf8', (err, content) => {
+      if (err) {
+        process.stderr.write(err.message);
+      } else {
+        let result = datTemplate(JSON.parse(content));
+        if (cmd.output) {
+          fs.writeFile(cmd.output, result, (err) => {
+            if (err) throw err;
+            process.stdout.write(`Result successfully written to file: ${cmd.output}.`);
+          });
+        } else {
+          process.stdout.write(result);
+        }
       }
     });
   })
