@@ -1,10 +1,12 @@
 # slv-utils
+
+Utilities for working with SLV and DAT files.
+
 [![GitHub license](https://img.shields.io/github/license/insysbio/slv-utils.svg)](https://github.com/insysbio/slv-utils/blob/master/LICENSE)
 [![GitHub release](https://img.shields.io/github/release/insysbio/slv-utils.svg)](https://github.com/insysbio/slv-utils/releases/)
 [![Build Status](https://travis-ci.org/insysbio/slv-utils.svg?branch=master)](https://travis-ci.org/insysbio/slv-utils)
 [![GitHub issues](https://img.shields.io/github/issues/insysbio/slv-utils.svg)](https://GitHub.com/insysbio/slv-utils/issues/)
 [![GitHub npm](https://img.shields.io/npm/v/slv-utils.svg)](https://www.npmjs.com/package/slv-utils)
-Utilities for working with SLV and DAT files.
 
 ## Installation
 
