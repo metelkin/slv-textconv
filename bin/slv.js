@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 
-const commander = require('commander')
-const pkg = require('../package')
+const commander = require('commander');
+const pkg = require('../package');
 
 commander
   .version(pkg.version, '-v, --version')
@@ -16,4 +16,4 @@ commander
   .command('excel2json [inputPath]', 'Conver excel files to json')
   .command('excel2dat [inputPath]', 'Conver excel files to dat files')
   .command('json2excel [inputPath]', 'Conver dat-object to excel')
-  .parse(process.argv)
+  .parse(process.argv);

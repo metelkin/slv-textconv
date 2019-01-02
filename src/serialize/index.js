@@ -1,7 +1,7 @@
 'use strict';
 
-const fs = require('fs');
-const nunjucks  = require('nunjucks');
+// const fs = require('fs');
+const nunjucks = require('nunjucks');
 const path = require('path');
 nunjucks.configure(
   { autoescape: true,
@@ -26,4 +26,4 @@ function datTemplate(datJson) {
 module.exports = {
   RCT: rctTemplate,
   DAT: datTemplate
-}
+};

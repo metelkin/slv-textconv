@@ -1,8 +1,8 @@
 {
   "name": "slv-utils",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Utilities for working with SLV and DAT files.",
-  "main": "index.js",
+  "main": "src/index.js",
   "bin": {
     "slv": "./bin/slv.js",
     "slv-parse": "./bin/slv-parse.js",

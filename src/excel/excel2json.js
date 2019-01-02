@@ -9,7 +9,7 @@ function _jsonExcelParse(data) {
     'ODE': 1,
     'Implicit': 2
   };
-  let DAT = []
+  let DAT = [];
   let DatItem;
 
   data.map((item) => {
@@ -23,21 +23,20 @@ function _jsonExcelParse(data) {
         irtRef: { pubmed: item.aux.irtRef.pubmed },
         notes: [item.notes]
       };
-    }
-    else { //DatItem continius
+    } else { //DatItem continius
       let data = [];
       //check that line with data no empty
       let isEmptyData = _
-      .chain([item.x, item.y, item.weight, item.sd])
-      .compact()
-      .isEmpty()
-      .value();
+        .chain([item.x, item.y, item.weight, item.sd])
+        .compact()
+        .isEmpty()
+        .value();
       if (!isEmptyData) {
         data = [item.x, item.y, item.weight, item.sd].map(x => x || undefined);
       }
       DatItem.data.push(data);
 
-      DatItem.conditions.push([item.values || 0, item.vars || "tmp"]);
+      DatItem.conditions.push([item.values || 0, item.vars || 'tmp']);
       DatItem.irtRef.pubmed.push(item.aux.irtRef.pubmed);
       DatItem.notes.push(item.notes);
     }
@@ -55,13 +54,13 @@ function excel2json(path, numTable = 1) {
       let result = _jsonExcelParse(data, numTable);
 
       let DAT = {
-        "sourceFormat": "DAT",
+        sourceFormat: 'DAT',
         content: result
-      }
+      };
       resolve(DAT);
     });
   });
 }
 module.exports = {
   default: excel2json
-}
+};
