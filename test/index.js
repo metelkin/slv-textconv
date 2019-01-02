@@ -1,26 +1,27 @@
+/*global describe it*/
 'use strict';
 
 const assert = require('assert');
 const slvUtils = require('../src');
-const cases = require('./cases/cases.json')
+const cases = require('./cases/cases.json');
 
 for (var nameGroupTest in cases) {
   switch(nameGroupTest) {
-    case 'slv-parse':
-      runSlvParseTests(cases[nameGroupTest]);
-      break;
-    case 'rct-parse':
-      runRctParseTests(cases[nameGroupTest]);
-      break;
-    case 'dat-parse':
-      runDatParseTests(cases[nameGroupTest]);
-      break;
-    case 'dat-serialize':
-      runDatSerializeTests(cases[nameGroupTest]);
-      break;
-    case 'rct-serialize':
-      runRctSerializeTests(cases[nameGroupTest]);
-      break;
+  case 'slv-parse':
+    runSlvParseTests(cases[nameGroupTest]);
+    break;
+  case 'rct-parse':
+    runRctParseTests(cases[nameGroupTest]);
+    break;
+  case 'dat-parse':
+    runDatParseTests(cases[nameGroupTest]);
+    break;
+  case 'dat-serialize':
+    runDatSerializeTests(cases[nameGroupTest]);
+    break;
+  case 'rct-serialize':
+    runRctSerializeTests(cases[nameGroupTest]);
+    break;
   }
 }
 
@@ -31,9 +32,9 @@ function runSlvParseTests(listTests) {
         assert.deepEqual(
           slvUtils.slvParse.parse(test.input),
           test.expected
-        )
-      })
-    })
+        );
+      });
+    });
   });
 }
 
@@ -44,9 +45,9 @@ function runRctParseTests(listTests) {
         assert.deepEqual(
           slvUtils.rctParse.parse(test.input),
           test.expected
-        )
-      })
-    })
+        );
+      });
+    });
   });
 }
 
@@ -57,9 +58,9 @@ function runDatParseTests(listTests) {
         assert.deepEqual(
           slvUtils.datParse.parse(test.input),
           test.expected
-        )
-      })
-    })
+        );
+      });
+    });
   });
 }
 
@@ -70,9 +71,9 @@ function runDatSerializeTests(listTests) {
         assert.equal(
           slvUtils.datTemplate(test.input),
           test.expected
-        )
-      })
-    })
+        );
+      });
+    });
   });
 }
 
@@ -83,8 +84,8 @@ function runRctSerializeTests(listTests) {
         assert.equal(
           slvUtils.rctTemplate(test.input).trim(),
           test.expected.trim()
-        )
-      })
-    })
+        );
+      });
+    });
   });
 }
