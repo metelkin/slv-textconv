@@ -1,6 +1,8 @@
 'use strict';
 
 const fs = require('fs');
+const path = require('path');
+
 const extensionOutputFiles = {
   'slv-parse': 'json',
   'dat-serialize': 'dat',
@@ -12,12 +14,17 @@ let casesDirs = fs.readdirSync('./test/cases');
 delete casesDirs[casesDirs.indexOf('other')];
 delete casesDirs[casesDirs.indexOf('cases.json')];
 let tests = casesDirs.reduce((result, dir) => {
-  let path = `./test/cases/${dir}/`;
-  let files = fs.readdirSync(path+'input/');
+  let files = fs.readdirSync(
+    path.join('./test/cases', dir, 'input/')
+  );
   let cases = files.map((caseName) => {
-    let input = fs.readFileSync(path+'input/'+caseName).toString();
+    let input = fs.readFileSync(
+      path.join('./test/cases', dir, 'input', caseName)
+    ).toString();
     let name = getFileName(caseName);
-    let expected = fs.readFileSync(path+'output\\'+name+'.'+extensionOutputFiles[dir]).toString();
+    let expected = fs.readFileSync(
+      path.join('./test/cases', dir, 'output', name + '.' + extensionOutputFiles[dir])
+    ).toString();
     return makeCaseObj(dir, input, expected, name);
   });
   result[dir] = cases;
