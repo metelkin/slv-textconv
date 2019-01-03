@@ -3,4 +3,3 @@ test/dev-test.js
 test/result.txt
 result.txt
 case/
-src/parsers/*.js

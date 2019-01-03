@@ -4,4 +4,4 @@ node_js:
 - 'node'
 - 'lts/*'
 script:
-- npm build
+- npm test
