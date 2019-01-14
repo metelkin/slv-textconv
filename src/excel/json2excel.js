@@ -34,21 +34,24 @@ function _datJson2excelJson(json) {
         .zipWith(item.conditions, (data = [], conditions = []) => {
           return {data, conditions};
         })
-        .map(x => {
-          return {
-            num: '',
-            method: '',
-            include: '',
-            x: x.data[0] || 0,
-            y: x.data[1] || 0,
-            weight: x.data[2] || 0,
-            sd: x.data[3] || 0,
-            vars: x.conditions[1],
-            values: x.conditions[0],
-            'irtRef\.pubmed[]': [],
-            notes: ''
-          };
-        })
+        .reduce((result, x) => {
+          if (x.conditions[1] !== 'tmp') {
+            result.push({
+              num: '',
+              method: '',
+              include: '',
+              x: x.data[0] || 0,
+              y: x.data[1] || 0,
+              weight: x.data[2] || 0,
+              sd: x.data[3] || 0,
+              vars: x.conditions[1],
+              values: x.conditions[0],
+              'irtRef\.pubmed[]': [],
+              notes: ''
+            });
+          }
+          return result;
+        }, [])
         .value();
 
       return _.flatten([dataHeader, rows]);
