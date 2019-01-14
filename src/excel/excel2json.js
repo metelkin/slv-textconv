@@ -19,7 +19,7 @@ function _jsonExcelParse(data) {
         num: item.num,
         data: [],
         conditions: [],
-        header: [item.include, methods[item.method], item.x, item.y],
+        header: [methods[item.method], item.include, item.x, item.y],
         irtRef: { pubmed: item.aux.irtRef.pubmed },
         notes: [item.notes]
       };
