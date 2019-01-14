@@ -242,7 +242,7 @@ otherwiseBranch
       return value
     }
 /** LEXIS **/
-break = '\r\n'
+break = '\r\n'/'\r\r\n'
 digits = [0-9e.+\-]
 word = [A-Za-z0-9\-[\]#{}_]
 words = [ A-Za-z0-9.\-:=/[\]#{}_]
