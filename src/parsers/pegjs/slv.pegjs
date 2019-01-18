@@ -15,7 +15,7 @@ start
 
 // --- GRAMMAR ---
 keyValuePars
-  = k:(dictKey/key)
+  = k:key
     v:value+ {
     console.log(k,v)
     console.log("__________")
@@ -33,7 +33,7 @@ header
       return h1+sp1+h2[0]+h2[1].join('')
     }
 
-key
+keyPattern
   = break+
     s:keySymbols+
     break?
@@ -46,8 +46,8 @@ key
 value
   = break*
     "#"
-    s:(lineValue+/&dictKey/&key/&(break+ "#"))
-    &(break* "#"/dictKey/key/"#"/break+ !(value))
+    s:(lineValue+/&key/&(break+ "#"))
+    &(break* "#"/break* key/"#"/break+ !(value))
     {
       console.log("VALUE: "+s)
       if (s == undefined) {
@@ -59,9 +59,10 @@ value
     }
 
 lineValue
-  = !(key/dictKey/break key)
+  = !(key)
     sp:break?
-    v:(valueSymbols+/break? "#dbs#"/break &lineValue)
+    v:(valueSymbols+/break? "#dbs#"/sharps+/break &lineValue)
+    &break*
     {
       let result = ''
       if (sp !== null) {
@@ -72,19 +73,26 @@ lineValue
       return result
     }
 
+key = dictionaryKey/keyPattern
 // --- LEXIS ---
 keySymbols = [\&*\'A-Za-z0-9-<>_" "()+-.:\[\]]
-valueSymbols = [/\'*A-Za-z0-9<>_" "(){}+-`!?,.:;\[\]&�%]/"##"+"#"?
+valueSymbols = [/\'*A-Za-z0-9<>_" "(){}+-`!?,.:;\[\]&�%]
 spaces = [\r\n" "]
-break = "\r\n"/"\r\r\n"
-dictKey = "\r\nRight Hand Sides &&\r\nInitial Values &&\r\nComments Or Selkov DB record"/
-"\r\n\r\nPIN->UserLaws\r\n<P Use User's mechanisms"/
-"\r\n\r\nPON->UserLaws\r\n<P Use User's mechanisms"/
-"\r\n\r\nTCN->UserLaws\r\n<P Use User's mechanisms"/
-"\r\n\r\nPATH->UserLaws\r\n<P Use User's mechanisms"/
-"\r\n<Total Cellular Process Names\r\n<Total Entity Names\r\n<Index Link to metabolic"/
-"\r\n<Interaction Regulation GeneProductName\r\n<InteractionRegulation"/
-"\r\nInteraction GeneProductName\r\nInteractionNetwork"/
-"\r\nGene Name Operon\r\nOperon Structure"/
-"\r\nMetabolic Regulation CompoundName\r\nMetabolicRegulation"/
-"\r\nGeneticNetwork GeneProductName\r\nGenetic Network"
+sharps = s:"##"+ "#"? {
+  console.log(`sharp is ${s}`)
+  return s.join('')
+}
+break =  s:" "* "\r"+ "\n" {
+  return s.join('')
+}
+dictionaryKey = break* "Right Hand Sides &&" break* "Initial Values &&" break* "Comments Or Selkov DB record"/
+break* "PIN->UserLaws" break* "<P Use User's mechanisms"/
+break* "PON->UserLaws" break* "<P Use User's mechanisms"/
+break* "TCN->UserLaws" break* "<P Use User's mechanisms"/
+break* "PATH->UserLaws" break* "<P Use User's mechanisms"/
+break* "<Total Cellular Process Names" break* "<Total Entity Names" break* "<Index Link to metabolic"/
+break* "<Interaction Regulation GeneProductName" break* "<InteractionRegulation"/
+break* "Interaction GeneProductName" break* "InteractionNetwork"/
+break* "Gene Name Operon" break* "Operon Structure"/
+break* "Metabolic Regulation CompoundName" break* "MetabolicRegulation"/
+break* "GeneticNetwork GeneProductName" break* "Genetic Network"

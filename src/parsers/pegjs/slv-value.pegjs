@@ -242,14 +242,14 @@ otherwiseBranch
       return value
     }
 /** LEXIS **/
-break = '\r\n'/'\r\r\n'
+break = "\r\n"/"\r\r\n"
 digits = [0-9e.+\-]
-word = [A-Za-z0-9\-[\]#{}_]
-words = [ A-Za-z0-9.\-:=/[\]#{}_]
+word = [A-Za-z0-9\-[\]#()%{}_]
+words = [ A-Za-z0-9.\-:=/()%[\]#{}_]
 space = ' '
 conditionSymbols = [0-9 .<>=A-Za-z]
 comparisonSings = [<>=!]
-expressionSymbols = [0-9 .+\-*/A-Za-z()[\]_\r\n]
+expressionSymbols = [0-9 .+\-*^/A-Za-z()[\]_\r\n]
 signLineComment = "//"/"<?NE?>"/"<?NB?>"
 simpleDataTypes
     = number/
@@ -265,6 +265,6 @@ emptyValue
     value: null
   }
 }
-CommentSymbols = [ A-Za-z0-9,.{}:;~=/[\]+\-#()@$%^&*#?!<>\'\"]
+CommentSymbols = [ A-Za-z0-9,.{}:;~=/[\]+\-#()@$%^&*#?!<>^_\�'\"]
 xmlSymbols = [ '"<>=A-Za-z0-9\r\n/]
-multyCommentSymbols = [ A-Za-z0-9,.{}:;~=/[\]+\-#\r\n()@$%^&*#?!<>\'\"]
+multyCommentSymbols = [ A-Za-z0-9,.{}:;~=/[\]+\-#\r\n()@$%^&*#?!<>_�\'\"]
