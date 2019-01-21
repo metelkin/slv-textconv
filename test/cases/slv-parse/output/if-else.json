@@ -19,16 +19,14 @@
                 "sign": ">"
               },
               "then": [
-                [
-                  {
-                    "type": "numeric",
-                    "value": {
-                      "lhs": "k1",
-                      "rhs": "12",
-                      "newLine": false
-                    }
+                {
+                  "type": "numeric",
+                  "value": {
+                    "lhs": "k1",
+                    "rhs": "12",
+                    "newLine": false
                   }
-                ]
+                }
               ],
               "else": [
                 [
@@ -78,16 +76,14 @@
                       "sign": "<"
                     },
                     "then": [
-                      [
-                        {
-                          "type": "numeric",
-                          "value": {
-                            "lhs": "k3",
-                            "rhs": "2",
-                            "newLine": false
-                          }
+                      {
+                        "type": "numeric",
+                        "value": {
+                          "lhs": "k3",
+                          "rhs": "2",
+                          "newLine": false
                         }
-                      ]
+                      }
                     ],
                     "else": [
                       [
@@ -106,23 +102,23 @@
               ],
               "else": [
                 [
-                  {
-                    "type": "numeric",
-                    "value": {
-                      "lhs": "k3",
-                      "rhs": "0",
-                      "newLine": true
-                    }
-                  },
-                  {
-                    "type": "conditionExpression",
-                    "condition": {
-                      "lhs": "C2",
-                      "rhs": "0",
-                      "sign": ">"
+                  [
+                    {
+                      "type": "numeric",
+                      "value": {
+                        "lhs": "k3",
+                        "rhs": "0",
+                        "newLine": true
+                      }
                     },
-                    "then": [
-                      [
+                    {
+                      "type": "conditionExpression",
+                      "condition": {
+                        "lhs": "C2",
+                        "rhs": "0",
+                        "sign": ">"
+                      },
+                      "then": [
                         {
                           "type": "numeric",
                           "value": {
@@ -131,21 +127,21 @@
                             "newLine": false
                           }
                         }
-                      ]
-                    ],
-                    "else": [
-                      [
-                        {
-                          "type": "numeric",
-                          "value": {
-                            "lhs": "k3",
-                            "rhs": "0",
-                            "newLine": false
+                      ],
+                      "else": [
+                        [
+                          {
+                            "type": "numeric",
+                            "value": {
+                              "lhs": "k3",
+                              "rhs": "0",
+                              "newLine": false
+                            }
                           }
-                        }
+                        ]
                       ]
-                    ]
-                  }
+                    }
+                  ]
                 ]
               ]
             }

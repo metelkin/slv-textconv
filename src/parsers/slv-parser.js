@@ -7,13 +7,13 @@ const fs = require('fs');
 function parse(slv) {
   let SLV = SRP.parse(slv); //parse slv files, values is raw
   fs.writeFileSync('raw-out.txt', JSON.stringify(SLV, null, 2));
-  console.log('!!!ROW-VALUE TO PARSED-VALUE!!!');
+  //console.log('!!!ROW-VALUE TO PARSED-VALUE!!!');
   let countValues = SLV.content.map.length;
   SLV.content.map.forEach((item, index) => {
     let rawValue = item.rawValue;
     let value = rawValue.map((x, i) => {
-      console.log(`Key: ${item.key};`);
-      console.log(`Now parse: ${x.trim()};`);
+      //console.log(`Key: ${item.key};`);
+      //console.log(`Now parse: ${x.trim()};`);
       // check that item is not last comment, last comment parsed with itself rule
       if (index != countValues - 1) {
         return SVP.parse(x.trim());
@@ -23,14 +23,14 @@ function parse(slv) {
       }
     });
     item['parsedValue'] = value;
-    console.log('__________________________________');
+    //console.log('__________________________________');
   });
 
   return SLV;
 }
 
 function lastCommentParse(inputComment) {
-  console.log('Start last comment');
+  //console.log('Start last comment');
   let xmlStart = inputComment.match(/<[a-zA-Z]+>/).index;
   let xml = inputComment.substring(xmlStart);
   let comment = inputComment
@@ -42,10 +42,10 @@ function lastCommentParse(inputComment) {
   let i = 0;
   while(i < l) {
     let j = parseInt(comment[i].trim());
-    console.log(`j is ${j}`);
+    //console.log(`j is ${j}`);
     let cell = [];
     for(let k = 0; k < j; k++) {
-      console.log(` value is ${comment[i+k+1]}`);
+      //console.log(` value is ${comment[i+k+1]}`);
       cell.push(comment[i+k+1]);
     }
     result.push(cell);

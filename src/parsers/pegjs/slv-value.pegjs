@@ -4,30 +4,64 @@ start
     familySign/
     emptyValue
 
-
-
 /*Grammar*/
+
+oneValue
+  = !("/*"/"if ") r:simpleDataTypes !simpleDataTypes
+  {
+    return r
+  }
+
+record
+  = a:(
+    condExpression/
+    multylineComment/
+    variable/
+    numeric/
+    mathExpression/
+    sentence/
+    lineComment/
+    emptyNumeric/
+    numbers)+
+    ((space/break)*"#dbs#")?
+    {
+      //console.log(`RECORD ${a.length}`)
+      for (let i in a) {
+        ////console.log(a[i])
+        //console.log(`   V: ${a[i].value}; - ${a[i].type}`)
+      }
+      return a
+    }
+
 number
   = n:digits+!' ' {
       //console.log("number "+n.join(''))
+      let number = n.join('')
       let value = parseFloat(n.join(''))
+      value = isNaN(value) ? null : value
       return {
         type: "number",
         value
       }
   }
+
 numbers
-  = n:[' '0-9e.+\-\r\n]+
+  = n:(digits/space/break)+
     "&"?
     {
-      //console.log("any numbers "+n.join('')+";")
       let numbers = n.join('') // 1,8,2,.,4,4, ,5,6 =>182.44 56
       let matrix = numbers.trim().split('\r\n')
       let value = matrix.map((line) => {
         return line
           .trim()
           .split(' ')
-          .map(x => parseFloat(x))
+          .map((x) => {
+              let value = parseFloat(x)
+              //console.log(`before ${value}`)
+              value = isNaN(value) ? null : value
+              //console.log(`after ${value}`)
+              return value
+          })
       })
 
       if (value.length === 1) {
@@ -41,7 +75,7 @@ numbers
     }
 variable
     = &(break)
-      s:word+ {
+      s:variableName+ {
       let value = s.join('')
       return {
           type: "string",
@@ -50,7 +84,7 @@ variable
     }
 sentence
   = !(space* signLineComment)
-    s:words+
+    s:(variableName/digits/otherSings/quoteSings/space/brackets)+
     {
       let value = s.join('')
       return {
@@ -62,7 +96,7 @@ lineComment
   = b:(break/space)*
     signLineComment
     level:("!")*
-    comment:CommentSymbols+
+    comment:(variableName/digits/otherSings/brackets/[{}]/quoteSings/space/mathSings)+
     break?
     {
       let newLine = false
@@ -93,15 +127,13 @@ multylineComment
         value: s.join('')
       }
     }
-
 multyCommentSymbolsRule
-  = !"*/" s:multyCommentSymbols {
-    return s
+  = !"*/" s:(variableName/digits/otherSings/brackets/[{}]/quoteSings/space/mathSings/break) {
+      return s
   }
-
 numeric
   = b:(break/space)*
-    lhs:word+
+    lhs:variableName+
     space*
     "="
     space*
@@ -122,13 +154,15 @@ numeric
       }
     }
 mathExpression
-  = lhs:word+
+  = (break/space)*
+    lhs:variableName+
     (break/space)*
     "="
-    (break/space)*
     rhs:expressionSymbols+
     ";"
+    (break/space)*
     {
+      //console.log('expr')
       return {
         type: "expression",
         value: {
@@ -149,28 +183,7 @@ emptyNumeric
         newLine
     }
   }
-oneValue
-  = !("/*"/"if ") r:simpleDataTypes !simpleDataTypes
-  {
-    return r
-  }
-record
-  = a:(condExpression/
-    multylineComment/
-    lineComment/
-    emptyNumeric/
-    numeric/
-    numbers/
-    mathExpression/
-    variable)+
-    ((space/break)*"#dbs#")?
-    {
-      //console.log(`RECORD ${a}`)
-      for (let i in a) {
-        //console.log(`   V: ${a[i].value}; - ${a[i].type}`)
-      }
-      return a
-    }
+
 familySign
   = [*] {
     return {
@@ -188,7 +201,7 @@ condExpression
     then:branchPattern+
     (break/space)*
     "}"
-    otherwise:otherwiseBranch?
+    otherwise:otherwiseBranch+
      {
       //console.log("CondExpr")
       return {
@@ -203,11 +216,11 @@ condition
   = (break/space)*
     "("
     space*
-    lhs:word+
+    lhs:variableName+
     space*
     sign:comparisonSings+
     space*
-    rhs:word+
+    rhs:variableName+
     space*
     ")"
     {
@@ -242,12 +255,16 @@ otherwiseBranch
       return value
     }
 /** LEXIS **/
-break = "\r\n"/"\r\r\n"
+break =  s:(" "* "\r"+ "\n") {
+  return s.join('')
+}
+variableName = [A-Za-z_0-9]/[[\]]
 digits = [0-9e.+\-]
-word = [A-Za-z0-9\-[\]#()%{}_]
-words = [ A-Za-z0-9.\-:=/()%[\]#{}_]
+mathSings = [*/+-^%]
+brackets = [\[\]()]
+otherSings = [?!.,$@~№%&:;<>/|\\�#]
+quoteSings = ['"`]
 space = ' '
-conditionSymbols = [0-9 .<>=A-Za-z]
 comparisonSings = [<>=!]
 expressionSymbols = [0-9 .+\-*^/A-Za-z()[\]_\r\n]
 signLineComment = "//"/"<?NE?>"/"<?NB?>"
@@ -265,6 +282,3 @@ emptyValue
     value: null
   }
 }
-CommentSymbols = [ A-Za-z0-9,.{}:;~=/[\]+\-#()@$%^&*#?!<>^_\�'\"]
-xmlSymbols = [ '"<>=A-Za-z0-9\r\n/]
-multyCommentSymbols = [ A-Za-z0-9,.{}:;~=/[\]+\-#\r\n()@$%^&*#?!<>_�\'\"]

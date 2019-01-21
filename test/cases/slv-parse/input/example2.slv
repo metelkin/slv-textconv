@@ -1,23 +1,23 @@
 DBSolve Optimum (new parser) 1 Jul 2006
 SLV24.00*
-Number of rows in matrix (Number of activities) #2
+Number of rows in matrix (Number of activities) #1
 Number of cols in matrix (Number of compounds) #2
-Initial System dimension #2
-Selected Variable(Always TIME for ODE) #3
-Maximum Value of the Selected Variable #1.250000e+02
+Initial System dimension #1
+Selected Variable(Always TIME for ODE) #2
+Maximum Value of the Selected Variable #1.000000e+02
 Minimum Value of the Selected Variable #0.000000e+00
 Initial Step #1.000000e-03
-Method Accuracy #1.000000e-06
+Method Accuracy #1.000000e-05
 Maximum Number of Method Steps #10000
-1st Variale for plotting   #t
-2nd Variable for plotting: #C1
+1st Variale for plotting   #X[0]
+2nd Variable for plotting: #X[1]
 1st Value Maximum for plotting #1.000000e+02
 1st Value Minimum for plotting #0.000000e+00
 2nd Value Maximum for plotting #1.000000e+00
 2nd Value Minimum for plotting #0.000000e+00
 Distance between Plotting points #1.000000e+02
 Step for Numerical derivation #1.000000e-05
-(Internal) DbsolveStep WWW Demo #701
+(Internal) DbsolveStep WWW Demo #501
 Elementary Constant #1
 FileOutput #0
 TextOutput #1
@@ -26,13 +26,12 @@ TransferLast #0
 Stoichiometric Matrix
 #1 1 -1
 1 2 1
-2 2 -1
 0 0 0.0
 &
 Elementary Constants
-#1.944853e+00  1.931480e+00  1.084404e+00  1.097818e+00
+#1.944853e+00  1.101696e+00  1.898501e+00
 Initial concentrations
-#0.000000e+00  0.000000e+00
+#1.766963e+00  1.074859e+00
 Initial Stiffness
 #0.000000e+00 0.000000e+00
 Initial Family Steps
@@ -44,81 +43,75 @@ Number of scan parameters
 ABsolute Fitting
 #1
 Variables for FileOutput
-#kcat  Vd  Km  kabs  F[0]  X[6]  X[7]  tmp  tmp  tmp  tmp  tmp
+#S1  v1  X[3]  X[4]  X[5]  X[6]  X[7]  tmp  tmp  tmp  tmp  tmp
 (Internal) Temporary Print Option
-#151732605
+#0
 LeastFitting
 #1
 Output File Name
-#output.txt
+#output2.txt
 Experimental Data File Name
-#example4.dat
+#data0.dat
 Right Hand Sides &&
 Initial Values &&
 Comments Or Selkov DB record
 #
-//! Rate Laws
-DoseF=Dose*F;
-//!!vabs
-vabs=Default*(kabs*C0);
-//!!vel
-vel=Vd*(kcat*C1/(Km+C1));
-//! Differential Equations
-//for C0
-F[1]=(-vabs)/Default;
-//for C1
-F[2]=(vabs-vel)/Vd;
-//! Explicit Functions
-// Explicit Functions text
+//! Pools
+P=-S+Pool[1];// for P
+//! Volume of compartments
+//! Compound administration
+//! Rate laws
+//!!v1
+v1=Vmax*S^h/(Km^h+S^h);
+//! Differential equations
+//for S
+F[1]=-v1;
+//for P
+F[2]=v1;
+//! Explicit functions
 
 #
 //! Data comments
-//! Compartments volumes
-Default=1;       // {--}
-Vd=9;                     //{L}
-F=0.72;
-//! Initial concentration
-Dose=5;                     // {umole}
-T=24;
-C0=0;                      // {umole}
-C1=0;                      // {uM}
+//! Compound administration
+//! Compound action on target
+//! Auxiliary parameters
+//! Compartment volumes
+//! Initial concentrations
+S=0.01;
+P=0;
 //! Kinetic parameters
-kabs=4;                  // {hr-1}
-kcat=0.8;                  // {uM/hr}
-Km=5;                    // {uM}
-//!!! F0=0.020335 2:16:09 PM 5/23/2014
-kcat=7.375000e-01;
-Vd=5.275000e+00;
-Km=5.528412e+00;
-kabs=2.064588e+00;
+Vmax=10;//v1
+Km=0.5;
+h=3.2;
+//! Buffered concentrations
+//! Parameters for fitting
+//! Pools initial
+Pool[1]=P+S;
 
 #
-//!kfdsklj
-dkklj
-lkal;
-ll;l
-//!! hello
-';dsld
+//! Annotation of model variables
+//! Literature cited
+//! Description of experimental data presented in �dat� files
 
 #dbs#
 The Number of Active P[i] for fitting
-#4
+#2
 Relative step
-#2.000000e-01
+#1.000000e-01
 Tolerance for fitting sens
 #1.000000e-03
 Tolerance for fitting
-#-1.000000e+00
+#1.000000e-05
 Step for fitting
-#1.000000e-06
+#1.000000e-03
 Indexes of P[i] for fitting
-#1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53
+#1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 0 0 0
 Minimum for fitting
 #0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00
 Maximum for fitting
-#1.000000e+02 1.000000e+02 1.000000e+02 1.000000e+02 1.000000e+00 1.000000e+02 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00
+#1.000000e+02 1.000000e+02 1.000000e+02 1.000000e+02 1.000000e+02 1.000000e+02 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00
 Step for fitting
-#1.475000e-01 1.055000e+00 1.106000e+00 4.129000e-01 1.440000e-01 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00
+#1.000000e-02 1.000000e-02 1.000000e-02 1.000000e-02 1.000000e-02 1.000000e-02 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00
 IsLog flag for fitting
 #0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 Use Implicit Solving Method  Flag
@@ -126,15 +119,15 @@ Use Implicit Solving Method  Flag
 Use Experimental Data Flag
 #1
 The Number of Active P[i] for scan
-#1
+#2
 Minimum for param scan
-#1.500000e-01 1.200000e+00 1.700000e+00 0.000000e+00 5.000000e-01 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00
+#0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00
 Maximum for param scan
-#1.000000e+00 9.000000e+00 2.600000e+00 1.000000e+00 4.000000e+00 1.000000e+02 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00
+#1.000000e+02 1.000000e+02 1.000000e+02 1.000000e+02 1.000000e+02 1.000000e+02 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00
 Divisions for param scan
-#50 50 50 50 50 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+#0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 Iterations for param scan
-#1 100 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+#0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 Pathway Name
 #Name_of_the_process
 Chart file Name
@@ -144,41 +137,37 @@ Compound index
 Compound Location
 #0.000000e+00  0.000000e+00
 EC code index
-#0.000000e+00  0.000000e+00
+#0.000000e+00
 Enzyme location
-#0.000000e+00  0.000000e+00
+#0.000000e+00
 Compound concentration
 #0.000000e+00  0.000000e+00
 Enzyme Concentrations
-#0.000000e+00  0.000000e+00
+#0.000000e+00
 Indexes of Mechanisms
-#0  0
+#0
 Cleland Indexes 1->A 2->B 3->C -1->P -2->Q
 #0 0 0
 Elementary constants
 #0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00
-#0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00
 Kinetic constants
-#-1.097230e+06  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00
 #0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00
 X Concentration
 #0.000000e+00  0.000000e+00
 Organism Indexes(only for Enzymes)
-#0 0
+#0
 >Tigr_Sequence_IDs
-#
 #
 >E.coli_Ids
 #
-#
 >Similarity_Comment_IDs
-#0 0
+#0
 FamilyOption
 #0
 FamilyTimes
-#3
+#1
 FamilyStep
-#2.000000e+00
+#1.000000e+00
 Title for X Axes
 #0
 Title for Y Axes
@@ -202,15 +191,15 @@ Use Linlbf Solver Flag for fitting
 Redraw Plot Window
 #0
 Variable for Family
-#Dose
+#k1
 Sign for Family
-#*
+#+
 Initial  for Family
-#5.000000e+00
+#1.000000e+00
 Implicit Algebraic System Dimension
-#3
+#2
 Implicit Selected Variable
-#3
+#2
 Implicit Selected Variable Min
 #0.000000e+00
 Implicit Selected Variable Max
@@ -224,13 +213,13 @@ Implicit Tolerance
 Explicit Selected Variable
 #5
 Explicit Selected Variable Min
-#-1.000000e+02
+#0.000000e+00
 Explicit Selected Variable Max
-#1.000000e+02
+#3.000000e+00
 Explicit Initial Step
-#1.000000
+#0.010000
 Bifurcation Algebraic System Dimension
-#2
+#0
 Bifurcation Selected Variable
 #4
 Bifurcation Selected Variable Min
@@ -243,16 +232,16 @@ Bifurcation Initial Step
 #0.100000
 Bifurcation Tolerance
 #1.000000e-03
-ODE 1st Variale for plotting  #t
-ODE 2nd Variable for plotting #C1
+ODE 1st Variale for plotting  #X[0]
+ODE 2nd Variable for plotting #X[1]
 ODE 1st Value Maximum for plotting #0.000000e+00
 ODE 1st Value Minimum for plotting #0.000000e+00
 ODE 2nd Value Maximum for plotting #0.000000e+00
 ODE 2nd Value Minimum for plotting #0.000000e+00
 ODE Title for X Axes
-#t
+#Time
 ODE Title for Y Axes
-#C1
+#X[1]
 BET 1st Variale for plotting  #k1
 BET 2nd Variable for plotting #X[1]
 BET 1st Value Maximum for plotting #0.000000e+00
@@ -263,16 +252,16 @@ BET Title for X Axes
 #k1
 BET Title for Y Axes
 #X[1]
-ALG 1st Variale for plotting  #k1
-ALG 2nd Variable for plotting #F[1]
+ALG 1st Variale for plotting  #S
+ALG 2nd Variable for plotting #v1
 ALG 1st Value Maximum for plotting #0.000000e+00
 ALG 1st Value Minimum for plotting #0.000000e+00
 ALG 2nd Value Maximum for plotting #0.000000e+00
 ALG 2nd Value Minimum for plotting #0.000000e+00
 ALG Title for X Axes
-#k1
+#S
 ALG Title for Y Axes
-#F[1]
+#v1
 BIF 1st Variale for plotting  #k1
 BIF 2nd Variable for plotting #k2
 BIF 1st Value Maximum for plotting #0.000000e+00
@@ -283,32 +272,31 @@ BIF Title for X Axes
 #k1
 BIF Title for Y Axes
 #k2
-FIT 1st Variale for plotting  #fitterIteration
-FIT 2nd Variable for plotting #F[0]
+FIT 1st Variale for plotting  #k1
+FIT 2nd Variable for plotting #k2
 FIT 1st Value Maximum for plotting #0.000000e+00
 FIT 1st Value Minimum for plotting #0.000000e+00
 FIT 2nd Value Maximum for plotting #0.000000e+00
 FIT 2nd Value Minimum for plotting #0.000000e+00
 FIT Title for X Axes
-#fitterIteration
+#k1
 FIT Title for Y Axes
-#F[0]
+#k2
 >Reaction Names
-#vabs
-#vel
+#v1
 >Compound Names
-#C0
-#C1
+#S
+#P
 >Mechanism Rate Low expression -Kinetic or Elementary constants
-#0 0
+#0
 >Mechanism  Rate (Fast)
-#0 0
+#0
 >Parameters for Fitting
-#kcat
-#Vd
-#Km
-#kabs
-#F
+#k1
+#k2
+#k3
+#k4
+#k5
 #k6
 #P[7]
 #P[8]
@@ -358,11 +346,11 @@ FIT Title for Y Axes
 #P[2]
 #P[3]
 >Parameters for Scan
-#kcat
-#Vd
-#kabs
-#F
-#Km
+#k1
+#k2
+#k3
+#k4
+#k5
 #k6
 #P[7]
 #P[8]
@@ -520,7 +508,7 @@ FIT Title for Y Axes
 #X[10]
 #X[11]
 >Parameters for Explicit
-#k1
+#S
 #X[11]
 #X[12]
 #X[13]
@@ -640,7 +628,6 @@ Z axis FIT#
 #
 >Selkov ReactionName
 #
-#
 Metabolic Regulation ReactionName
 #0 0
 Metabolic Regulation CompoundName
@@ -667,9 +654,9 @@ InteractionNetwork
 <InteractionRegulation
 #0 0 0
 <PATH->ReverseReactionID
-#0 0
+#0
 <PATH->ExternalFluxID
-#0 0
+#0
 <PATH->Type
 #0 0
 <PON->Type
@@ -677,7 +664,7 @@ InteractionNetwork
 <PIN->Type
 #
 <Metabolic model Dimension
-#2 2
+#1 2
 <Total Cellular Model Dimension
 #0 0
 <Total Cellular Process Names
@@ -699,7 +686,7 @@ InteractionNetwork
 <E Index Metabolic
 #0 0
 <P Index Metabolic
-#0 0
+#0
 <E Index Genetic
 #
 <P Index Genetic
@@ -714,7 +701,7 @@ InteractionNetwork
 #
 
 <P Use User's mechanisms
-#0 0
+#0
 
 <POOLS 0
 #
@@ -723,6 +710,8 @@ InteractionNetwork
 
 <POOLS 1
 #
+//! Pools
+P=-S+Pool[1];//=2.841822e+00 for P
 
 #
 
@@ -743,19 +732,19 @@ InteractionNetwork
 
 <RHS 1
 #
-//! Rate Laws
-DoseF=Dose*F;
-//!!vabs
-vabs=Default*(kabs*C0);
-//!!vel
-vel=Vd*(kcat*C1/(Km+C1));
-//! Differential Equations
-//for C0
-F[1]=(-vabs)/Default;
-//for C1
-F[2]=(vabs-vel)/Vd;
-//! Explicit Functions
-// Explicit Functions text
+//! Pools
+P=-S+Pool[1];// for P
+//! Volume of compartments
+//! Compound administration
+//! Rate laws
+//!!v1
+v1=Vmax*S^h/(Km^h+S^h);
+//! Differential equations
+//for S
+F[1]=-v1;
+//for P
+F[2]=v1;
+//! Explicit functions
 
 #
 
@@ -777,24 +766,21 @@ F[2]=(vabs-vel)/Vd;
 <INI 1
 #
 //! Data comments
-//! Compartments volumes
-Default=1;       // {--}
-Vd=9;                     //{L}
-F=0.72;
-//! Initial concentration
-Dose=5;                     // {umole}
-T=24;
-C0=0;                      // {umole}
-C1=0;                      // {uM}
+//! Compound administration
+//! Compound action on target
+//! Auxiliary parameters
+//! Compartment volumes
+//! Initial concentrations
+S=0.01;
+P=0;
 //! Kinetic parameters
-kabs=4;                  // {hr-1}
-kcat=0.8;                  // {uM/hr}
-Km=5;                    // {uM}
-//!!! F0=0.020335 2:16:09 PM 5/23/2014
-kcat=7.375000e-01;
-Vd=5.275000e+00;
-Km=5.528412e+00;
-kabs=2.064588e+00;
+Vmax=10;//v1
+Km=0.5;
+h=3.2;
+//! Buffered concentrations
+//! Parameters for fitting
+//! Pools initial
+Pool[1]=P+S;
 
 #
 
@@ -888,7 +874,7 @@ UseUsersPools[4]
 
 PATH->UserLaws
 <P Use User's mechanisms
-#0 0
+#0
 
 TCN->UserLaws
 <P Use User's mechanisms
@@ -902,7 +888,6 @@ PIN->UserLaws
 <P Use User's mechanisms
 #
 FBA internal fluxes constraints
-#0 0.000000e+00  0 0.000000e+00  0 0.000000e+00
 #0 0.000000e+00  0 0.000000e+00  0 0.000000e+00
 External metabolites
 #0  0
@@ -928,7 +913,7 @@ Biomass objective function contribution
 Maintenance energy requirements objective function contribution
 #0
 Internal fluxes objective function contribution
-#0  0
+#0
 Exchange fluxes objective function contribution
 #0  0
 Maximize objective function
@@ -941,12 +926,9 @@ Maximize objective function
 
 <COMMENTS 1
 #
-//!kfdsklj
-dkklj
-lkal;
-ll;l
-//!! hello
-';dsld
+//! Annotation of model variables
+//! Literature cited
+//! Description of experimental data presented in �dat� files
 
 #dbs#
 
@@ -983,39 +965,33 @@ ll;l
 0
 0
 0
-2
+1
 Default
-Vd
-0
-2
 0
 1
+0
+1
+
+1
+true
+0
+1
+1.0
+1
+3
+2
+S
+P
+0
+2
+Default
+Default
 2
 
-Default
+
 2
-true
-true
-0
-2
-1.000000
-2.000000
-2
-3
-3
-2
-C0
-C1
-0
-2
-Default
-Vd
-2
-0.0
-0.0
-2
-0.000000
-0.000000
+
+
 0
 0
 0
@@ -1038,13 +1014,9 @@ false
 0
 0
 0
-2
-vabs
-vabs
-0 1
-0
-vel
-vel
+1
+v1
+v1
 0 1
 0
 0
@@ -1075,27 +1047,21 @@ k1
 0
 100
 2.000000
-3
+-1
+-1
 0
 0
-1
-20
-1
+1000
+0
 1.000000
 0.500000
-1
-1
-1
--1.000000
-1000000
-1
-1
-C0
-1
-DoseF
 0
-24
+0
 1
+0.000010
+1000000
+0
+0
 <listModelData>
    <item>
       <name></name>

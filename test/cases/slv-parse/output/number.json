@@ -18,31 +18,31 @@
       {
         "key": "NumbeCase1",
         "rawValue": [
-          "2 "
+          "200e+1 "
         ],
         "parsedValue": [
           {
             "type": "number",
-            "value": 2
+            "value": 2000
           }
         ]
       },
       {
         "key": "NumbeCase1 ",
         "rawValue": [
-          "\r\n2 "
+          "\r\n22 "
         ],
         "parsedValue": [
           {
             "type": "number",
-            "value": 2
+            "value": 22
           }
         ]
       },
       {
         "key": "last comment",
         "rawValue": [
-          "\r\n0 \r\n<xml> \r\n</xml> "
+          "\r\n<xml> \r\n</xml> "
         ],
         "parsedValue": [
           [
