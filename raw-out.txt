@@ -1,0 +1,28 @@
+{
+  "sourceFormat": "SLV",
+  "content": {
+    "header": "DBSolve Optimum (new parser) 1 Jul 2006\r,\nSLV25.00*",
+    "map": [
+      {
+        "key": "key ",
+        "rawValue": [
+          "1 2 ",
+          "1 2 ",
+          "\r\n2 \r\n1 "
+        ]
+      },
+      {
+        "key": "Stoichiometric Matrix",
+        "rawValue": [
+          "1 1 -1 \r\n1 2 1 \r\n2 2 -1 \r\n0 0 0.0 \r\n& "
+        ]
+      },
+      {
+        "key": "last comment",
+        "rawValue": [
+          "\r\n0 \r\n<xml> \r\n</xml> "
+        ]
+      }
+    ]
+  }
+}

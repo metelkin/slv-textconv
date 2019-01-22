@@ -1,11 +1,22 @@
 {
   "name": "slv-utils",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Utilities for working with SLV and DAT files.",
-  "main": "index.js",
-  "bin": "cli.js",
+  "main": "src/index.js",
+  "bin": {
+    "slv": "./bin/slv.js",
+    "slv-parse": "./bin/slv-parse.js",
+    "slv-clear": "./bin/slv-clear.js",
+    "slv-dat-parse": "./bin/slv-dat-parse.js",
+    "slv-rct-parse": "./bin/slv-rct-parse.js",
+    "slv-rct-serialize": "./bin/slv-rct-serialize.js",
+    "slv-excel2json": "./bin/slv-excel2json.js",
+    "slv-dat-serialize": "./bin/slv-dat-serialize.js",
+    "slv-json2excel": "./bin/slv-json2excel.js"
+  },
   "scripts": {
-    "test": "echo No tests!"
+    "test": "npm run generate&& node test/build.js && mocha ./test/index.js",
+    "generate": "pegjs -o src/parsers/slv-raw-parser.js src/parsers/pegjs/slv.pegjs && pegjs -o src/parsers/slv-value-parser.js src/parsers/pegjs/slv-value.pegjs && pegjs -o src/parsers/dat-parser.js src/parsers/pegjs/dat.pegjs && pegjs -o src/parsers/rct-parser.js src/parsers/pegjs/rct.pegjs"
   },
   "repository": {
     "type": "git",
@@ -24,5 +35,15 @@
     "url": "https://github.com/insysbio/slv-utils/issues"
   },
   "homepage": "https://github.com/insysbio/slv-utils",
-  "dependencies": {}
+  "dependencies": {
+    "excel-as-json": "^2.0.2",
+    "json2xls": "^0.1.2",
+    "lodash": "^4.17.11",
+    "mocha": "^5.2.0",
+    "pegjs": "^0.10.0"
+  },
+  "devDependencies": {
+    "commander": "^2.19.0",
+    "nunjucks": "^3.1.4"
+  }
 }

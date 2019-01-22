@@ -1,0 +1,14 @@
+%
+
+#
+{% for item in content %}
+{% for dataItem in item.data %}
+@{{ dataItem.join(' ') }}
+{% endfor %}
+$
+#{{ item.header[0]}} {{ item.header[1]}} {{ item.header[2]}}
+#{{ item.header[3]}}
+{% for conditionItem in item.conditions %}
+#{{ conditionItem.join(' ') }}
+{% endfor %}
+{% endfor %}

@@ -1,0 +1,22 @@
+DBSolve Optimum (new parser) 1 Jul 2006
+SLV25.00*
+key
+#
+if (C1>0) {k1=12;}
+else {k1=0;}
+#
+if (C1==0) {
+  k2=13;k4=5;
+  if (C2<0){k3=2;}
+  else {k3=6;}
+}
+else {
+  k3=0;
+  if (C2>0) {k3=5;}
+  else {k3=0;}
+  }
+last comment
+#
+0
+<xml>
+</xml>

@@ -1,0 +1,51 @@
+{
+  "sourceFormat": "SLV",
+  "content": {
+    "header": "DBSolve Optimum (new parser) 1 Jul 2006\r,\nSLV25.00*",
+    "map": [
+      {
+        "key": "key",
+        "rawValue": [
+          "\r\n//! header1 \r\n//!! header2 \r\n//!!! header3 "
+        ],
+        "parsedValue": [
+          [
+            {
+              "type": "lineComment",
+              "header": 1,
+              "value": " header1 ",
+              "newLine": true
+            },
+            {
+              "type": "lineComment",
+              "header": 2,
+              "value": " header2 ",
+              "newLine": true
+            },
+            {
+              "type": "lineComment",
+              "header": 3,
+              "value": " header3",
+              "newLine": true
+            }
+          ]
+        ]
+      },
+      {
+        "key": "last comment",
+        "rawValue": [
+          "\r\n0 \r\n<xml> \r\n</xml> "
+        ],
+        "parsedValue": [
+          [
+            [],
+            {
+              "type": "string",
+              "value": "<xml> \r\n</xml> "
+            }
+          ]
+        ]
+      }
+    ]
+  }
+}

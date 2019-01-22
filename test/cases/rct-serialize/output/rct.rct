@@ -1,0 +1,5 @@
+V_in: =2*A;
+//!!  in case of influx the left part of the equation  is empty
+V1: 2*A+C=4*B+D;
+V2: D=C;
+V_out: B=;//  in case of efflux the right part of the equation  is empty

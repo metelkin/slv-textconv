@@ -1,0 +1,59 @@
+{
+  "sourceFormat": "SLV",
+  "content": {
+    "header": "DBSolve Optimum (new parser) 1 Jul 2006\r,\nSLV25.00*",
+    "map": [
+      {
+        "key": "NumbeCase1 ",
+        "rawValue": [
+          "2 "
+        ],
+        "parsedValue": [
+          {
+            "type": "number",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "key": "NumbeCase1",
+        "rawValue": [
+          "200e+1 "
+        ],
+        "parsedValue": [
+          {
+            "type": "number",
+            "value": 2000
+          }
+        ]
+      },
+      {
+        "key": "NumbeCase1 ",
+        "rawValue": [
+          "\r\n22 "
+        ],
+        "parsedValue": [
+          {
+            "type": "number",
+            "value": 22
+          }
+        ]
+      },
+      {
+        "key": "last comment",
+        "rawValue": [
+          "\r\n<xml> \r\n</xml> "
+        ],
+        "parsedValue": [
+          [
+            [],
+            {
+              "type": "string",
+              "value": "<xml> \r\n</xml> "
+            }
+          ]
+        ]
+      }
+    ]
+  }
+}
