@@ -6,7 +6,6 @@ const fs = require('fs');
 
 function parse(slv) {
   let SLV = SRP.parse(slv); //parse slv files, values is raw
-  fs.writeFileSync('raw-out.txt', JSON.stringify(SLV, null, 2));
   //console.log('!!!ROW-VALUE TO PARSED-VALUE!!!');
   let countValues = SLV.content.map.length;
   SLV.content.map.forEach((item, index) => {

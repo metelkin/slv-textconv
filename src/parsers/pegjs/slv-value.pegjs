@@ -52,7 +52,7 @@ numbers
     "&"?
     {
       let numbers = n.join('') // 1,8,2,.,4,4, ,5,6 =>182.44 56
-      let matrix = numbers.trim().split('\r\n')
+      let matrix = numbers.trim().replace(/\r/g, '').split('\n')
       let value = matrix.map((line) => {
         return line
           .trim()
@@ -101,7 +101,7 @@ lineComment
     break?
     {
       let newLine = false
-      if ((b.join('').indexOf('\r\n') != -1) || (location().start.column == 1)) {
+      if ((b.join('').indexOf('\n') != -1) || (location().start.column == 1)) {
         newLine = true
       }
       let headerLevel = 0
@@ -144,7 +144,7 @@ numeric
       //console.log(`numeric LHS: ${lhs.join('')}`)
       ////console.log(`numeric RHS: ${rhs.join('')}`)
 
-      let newLine = ((location().start.column == 1) || b.join('').match(/\r\n/)) ? true:false
+      let newLine = ((location().start.column == 1) || b.join('').match(/\n/)) ? true:false
       return {
         type: "numeric",
         value: {
@@ -168,7 +168,7 @@ mathExpression
         type: "expression",
         value: {
           'lhs': lhs.join(''),
-          'rhs': rhs.join(''),
+          'rhs': rhs.join('').replace(/\r/g, ''),
           'newLine': location().start.column == 1
         }
       }
@@ -177,7 +177,7 @@ emptyNumeric
   = b:(break/space)*
     ";"
     {
-      let newLine = ((location().start.column == 1) || b.join('').match(/\r\n/)) ? true:false
+      let newLine = ((location().start.column == 1) || b.join('').match(/\n/)) ? true:false
       return {
         type: "emptyNumeric",
         value: '',

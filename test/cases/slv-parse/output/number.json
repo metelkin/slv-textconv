@@ -1,7 +1,7 @@
 {
   "sourceFormat": "SLV",
   "content": {
-    "header": "DBSolve Optimum (new parser) 1 Jul 2006\r\nSLV25.00*",
+    "header": "DBSolve Optimum (new parser) 1 Jul 2006\nSLV25.00*",
     "map": [
       {
         "key": "NumbeCase1 ",
@@ -30,7 +30,7 @@
       {
         "key": "NumbeCase1 ",
         "rawValue": [
-          "\r\n22 "
+          "\n22 "
         ],
         "parsedValue": [
           {
@@ -42,14 +42,14 @@
       {
         "key": "last comment",
         "rawValue": [
-          "\r\n<xml> \r\n</xml> "
+          "\n<xml> \n</xml> "
         ],
         "parsedValue": [
           [
             [],
             {
               "type": "string",
-              "value": "<xml> \r\n</xml> "
+              "value": "<xml> \n</xml> "
             }
           ]
         ]

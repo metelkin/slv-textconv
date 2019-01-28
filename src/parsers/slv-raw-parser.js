@@ -177,7 +177,7 @@ function peg$parse(input, options) {
       peg$c12 = function(s) {
             //console.log("VALUE: "+s)
             if (s == undefined) {
-              return '\r\n'
+              return '\n'
             }
             else {
               return s.join('')
@@ -188,7 +188,7 @@ function peg$parse(input, options) {
       peg$c15 = function(sp, v) {
             let result = ''
             if (sp !== null) {
-              result = '\r\n'
+              result = '\n'
             }
             //console.log("LINE: "+v.join(''))
             result += v.join('')+" "
@@ -213,7 +213,7 @@ function peg$parse(input, options) {
       peg$c29 = "\n",
       peg$c30 = peg$literalExpectation("\n", false),
       peg$c31 = function(s) {
-        return s.join('')
+        return s.join('').replace(/\r/g, '')
       },
       peg$c32 = "Right Hand Sides &&",
       peg$c33 = peg$literalExpectation("Right Hand Sides &&", false),

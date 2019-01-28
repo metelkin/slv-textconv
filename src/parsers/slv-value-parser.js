@@ -172,7 +172,7 @@ function peg$parse(input, options) {
       peg$c10 = peg$literalExpectation("&", false),
       peg$c11 = function(n) {
             let numbers = n.join('') // 1,8,2,.,4,4, ,5,6 =>182.44 56
-            let matrix = numbers.trim().split('\r\n')
+            let matrix = numbers.trim().replace(/\r/g, '').split('\n')
             let value = matrix.map((line) => {
               return line
                 .trim()
@@ -215,7 +215,7 @@ function peg$parse(input, options) {
       peg$c17 = peg$classExpectation(["{", "}"], false, false),
       peg$c18 = function(b, level, comment) {
             let newLine = false
-            if ((b.join('').indexOf('\r\n') != -1) || (location().start.column == 1)) {
+            if ((b.join('').indexOf('\n') != -1) || (location().start.column == 1)) {
               newLine = true
             }
             let headerLevel = 0
@@ -249,7 +249,7 @@ function peg$parse(input, options) {
             //console.log(`numeric LHS: ${lhs.join('')}`)
             ////console.log(`numeric RHS: ${rhs.join('')}`)
 
-            let newLine = ((location().start.column == 1) || b.join('').match(/\r\n/)) ? true:false
+            let newLine = ((location().start.column == 1) || b.join('').match(/\n/)) ? true:false
             return {
               type: "numeric",
               value: {
@@ -265,13 +265,13 @@ function peg$parse(input, options) {
               type: "expression",
               value: {
                 'lhs': lhs.join(''),
-                'rhs': rhs.join(''),
+                'rhs': rhs.join('').replace(/\r/g, ''),
                 'newLine': location().start.column == 1
               }
             }
           },
       peg$c29 = function(b) {
-            let newLine = ((location().start.column == 1) || b.join('').match(/\r\n/)) ? true:false
+            let newLine = ((location().start.column == 1) || b.join('').match(/\n/)) ? true:false
             return {
               type: "emptyNumeric",
               value: '',

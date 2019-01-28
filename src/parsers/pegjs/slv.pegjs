@@ -51,7 +51,7 @@ value
     {
       //console.log("VALUE: "+s)
       if (s == undefined) {
-        return '\r\n'
+        return '\n'
       }
       else {
         return s.join('')
@@ -66,7 +66,7 @@ lineValue
     {
       let result = ''
       if (sp !== null) {
-        result = '\r\n'
+        result = '\n'
       }
       //console.log("LINE: "+v.join(''))
       result += v.join('')+" "
@@ -83,7 +83,7 @@ sharps = s:"##"+ "#"? {
   return s.join('')
 }
 break =  s:(" "* "\r"* "\n") {
-  return s.join('')
+  return s.join('').replace(/\r/g, '')
 }
 dictionaryKey = key:(break* "Right Hand Sides &&" break* "Initial Values &&" break* "Comments Or Selkov DB record"/
 break* "PIN->UserLaws" break* "<P Use User's mechanisms"/

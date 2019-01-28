@@ -1,7 +1,7 @@
 {
   "sourceFormat": "SLV",
   "content": {
-    "header": "DBSolve Optimum (new parser) 1 Jul 2006\r\nSLV24.00*",
+    "header": "DBSolve Optimum (new parser) 1 Jul 2006\nSLV24.00*",
     "map": [
       {
         "key": "Number of rows in matrix (Number of activities) ",
@@ -282,7 +282,7 @@
       {
         "key": "Stoichiometric Matrix",
         "rawValue": [
-          "1 1 1 \r\n2 1 -1 \r\n2 2 -1 \r\n2 3 1 \r\n2 4 1 \r\n3 2 1 \r\n3 4 -1 \r\n4 3 -1 \r\n0 0 0.0 \r\n& "
+          "1 1 1 \n2 1 -1 \n2 2 -1 \n2 3 1 \n2 4 1 \n3 2 1 \n3 4 -1 \n4 3 -1 \n0 0 0.0 \n& "
         ],
         "parsedValue": [
           {
@@ -555,11 +555,11 @@
         ]
       },
       {
-        "key": "\r\nRight Hand Sides &&\r\nInitial Values &&\r\nComments Or Selkov DB record",
+        "key": "\nRight Hand Sides &&\nInitial Values &&\nComments Or Selkov DB record",
         "rawValue": [
-          "\r\n//! Pools \r\nD=-C+Pool[1];// for D \r\n//! Volume of compartments \r\n//! Compound administration \r\n//! Rate laws \r\n//!!V_in \r\nV_in=k1; \r\n//!!V1 \r\nV1=k2*A*C; \r\n//!!V2 \r\nV2=k3*D; \r\n//!!V_out \r\nV_out=k4*B; \r\n//! Differential equations \r\n//for A \r\nF[1]=V_in-V1; \r\n//for C \r\nF[2]=-V1+V2; \r\n//for B \r\nF[3]=V1-V_out; \r\n//for D \r\nF[4]=V1-V2; \r\n//! Explicit functions ",
-          "\r\n//! Data comments \r\n\r\n //! Compound administration \r\n\r\n //! Compound action on target \r\n\r\n //! Auxiliary parameters \r\n\r\n //! Compartment volumes \r\n\r\n Default=1.000000e+00; \r\n\r\n //! Initial concentrations \r\n\r\n A=1.898501e+00; \r\n\r\n C=1.490793e+00; \r\n\r\n B=1.300637e+00; \r\n\r\n D=1.234049e+00; \r\n\r\n //! Kinetic parameters \r\n\r\n k1=1.944853e+00;//V_in \r\n\r\n k2=1.931480e+00;//V1 \r\n\r\n k3=1.738867e+00;//V2 \r\n\r\n k4=1.541431e+00;//V_out \r\n\r\n //! Buffered concentrations \r\n\r\n //! Parameters for fitting \r\n\r\n //! Pools initial \r\n\r\n Pool[1]=D+C; ",
-          "\r\n//! Annotation of model variables \r\n//! Literature cited \r\n//! Description of experimental data presented in �dat� files \r\n\r\n#dbs# "
+          "\n//! Pools \nD=-C+Pool[1];// for D \n//! Volume of compartments \n//! Compound administration \n//! Rate laws \n//!!V_in \nV_in=k1; \n//!!V1 \nV1=k2*A*C; \n//!!V2 \nV2=k3*D; \n//!!V_out \nV_out=k4*B; \n//! Differential equations \n//for A \nF[1]=V_in-V1; \n//for C \nF[2]=-V1+V2; \n//for B \nF[3]=V1-V_out; \n//for D \nF[4]=V1-V2; \n//! Explicit functions ",
+          "\n//! Data comments \n\n //! Compound administration \n\n //! Compound action on target \n\n //! Auxiliary parameters \n\n //! Compartment volumes \n\n Default=1.000000e+00; \n\n //! Initial concentrations \n\n A=1.898501e+00; \n\n C=1.490793e+00; \n\n B=1.300637e+00; \n\n D=1.234049e+00; \n\n //! Kinetic parameters \n\n k1=1.944853e+00;//V_in \n\n k2=1.931480e+00;//V1 \n\n k3=1.738867e+00;//V2 \n\n k4=1.541431e+00;//V_out \n\n //! Buffered concentrations \n\n //! Parameters for fitting \n\n //! Pools initial \n\n Pool[1]=D+C; ",
+          "\n//! Annotation of model variables \n//! Literature cited \n//! Description of experimental data presented in �dat� files \n\n#dbs# "
         ],
         "parsedValue": [
           [
@@ -2748,10 +2748,10 @@
       {
         "key": ">Tigr_Sequence_IDs",
         "rawValue": [
-          "\r\n",
-          "\r\n",
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n",
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -2775,10 +2775,10 @@
       {
         "key": ">E.coli_Ids",
         "rawValue": [
-          "\r\n",
-          "\r\n",
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n",
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -5179,7 +5179,7 @@
       {
         "key": "Z axis ODE",
         "rawValue": [
-          "\r\n"
+          "\n"
         ],
         "parsedValue": [
           {
@@ -5191,7 +5191,7 @@
       {
         "key": "Z axis BET",
         "rawValue": [
-          "\r\n"
+          "\n"
         ],
         "parsedValue": [
           {
@@ -5203,7 +5203,7 @@
       {
         "key": "Z axis ALG",
         "rawValue": [
-          "\r\n"
+          "\n"
         ],
         "parsedValue": [
           {
@@ -5215,7 +5215,7 @@
       {
         "key": "Z axis BIF",
         "rawValue": [
-          "\r\n"
+          "\n"
         ],
         "parsedValue": [
           {
@@ -5227,7 +5227,7 @@
       {
         "key": "Z axis FIT",
         "rawValue": [
-          "\r\n"
+          "\n"
         ],
         "parsedValue": [
           {
@@ -5511,10 +5511,10 @@
       {
         "key": ">Compound Selkov Names",
         "rawValue": [
-          "\r\n",
-          "\r\n",
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n",
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -5538,10 +5538,10 @@
       {
         "key": ">Selkov Location",
         "rawValue": [
-          "\r\n",
-          "\r\n",
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n",
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -5565,10 +5565,10 @@
       {
         "key": ">Selkov ReactionName",
         "rawValue": [
-          "\r\n",
-          "\r\n",
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n",
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -5605,7 +5605,7 @@
         ]
       },
       {
-        "key": "\r\nMetabolic Regulation CompoundName\r\nMetabolicRegulation",
+        "key": "\nMetabolic Regulation CompoundName\nMetabolicRegulation",
         "rawValue": [
           "0 0 0 "
         ],
@@ -5636,7 +5636,7 @@
         ]
       },
       {
-        "key": "\r\nGene Name Operon\r\nOperon Structure",
+        "key": "\nGene Name Operon\nOperon Structure",
         "rawValue": [
           "0 0 0 "
         ],
@@ -5667,7 +5667,7 @@
         ]
       },
       {
-        "key": "\r\nGeneticNetwork GeneProductName\r\nGenetic Network",
+        "key": "\nGeneticNetwork GeneProductName\nGenetic Network",
         "rawValue": [
           "0 0 0 "
         ],
@@ -5698,7 +5698,7 @@
         ]
       },
       {
-        "key": "\r\nInteraction GeneProductName\r\nInteractionNetwork",
+        "key": "\nInteraction GeneProductName\nInteractionNetwork",
         "rawValue": [
           "0 0 0 "
         ],
@@ -5729,7 +5729,7 @@
         ]
       },
       {
-        "key": "\r\n<Interaction Regulation GeneProductName\r\n<InteractionRegulation",
+        "key": "\n<Interaction Regulation GeneProductName\n<InteractionRegulation",
         "rawValue": [
           "0 0 0 "
         ],
@@ -5798,7 +5798,7 @@
       {
         "key": "<PON->Type",
         "rawValue": [
-          "\r\n"
+          "\n"
         ],
         "parsedValue": [
           {
@@ -5810,7 +5810,7 @@
       {
         "key": "<PIN->Type",
         "rawValue": [
-          "\r\n"
+          "\n"
         ],
         "parsedValue": [
           {
@@ -5850,9 +5850,9 @@
         ]
       },
       {
-        "key": "\r\n<Total Cellular Process Names\r\n<Total Entity Names\r\n<Index Link to metabolic",
+        "key": "\n<Total Cellular Process Names\n<Total Entity Names\n<Index Link to metabolic",
         "rawValue": [
-          "\r\n"
+          "\n"
         ],
         "parsedValue": [
           {
@@ -5864,7 +5864,7 @@
       {
         "key": "<Index Link to genetic",
         "rawValue": [
-          "\r\n"
+          "\n"
         ],
         "parsedValue": [
           {
@@ -5876,7 +5876,7 @@
       {
         "key": "<Index Link to protein",
         "rawValue": [
-          "\r\n"
+          "\n"
         ],
         "parsedValue": [
           {
@@ -5920,7 +5920,7 @@
       {
         "key": "<E Index Total",
         "rawValue": [
-          "\r\n"
+          "\n"
         ],
         "parsedValue": [
           {
@@ -5932,7 +5932,7 @@
       {
         "key": "<P Index Total",
         "rawValue": [
-          "\r\n"
+          "\n"
         ],
         "parsedValue": [
           {
@@ -5978,7 +5978,7 @@
       {
         "key": "<E Index Genetic",
         "rawValue": [
-          "\r\n"
+          "\n"
         ],
         "parsedValue": [
           {
@@ -5990,7 +5990,7 @@
       {
         "key": "<P Index Genetic",
         "rawValue": [
-          "\r\n"
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6002,7 +6002,7 @@
       {
         "key": "<E Index Protein",
         "rawValue": [
-          "\r\n"
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6014,7 +6014,7 @@
       {
         "key": "<P Index Protein",
         "rawValue": [
-          "\r\n"
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6026,10 +6026,10 @@
       {
         "key": "<M Reaction Laws",
         "rawValue": [
-          "\r\n",
-          "\r\n",
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n",
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6070,8 +6070,8 @@
       {
         "key": "<POOLS 0",
         "rawValue": [
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6087,8 +6087,8 @@
       {
         "key": "<POOLS 1",
         "rawValue": [
-          "\r\n//! Pools \r\nD=-C+Pool[1];//=2.724842e+00 for D ",
-          "\r\n"
+          "\n//! Pools \nD=-C+Pool[1];//=2.724842e+00 for D ",
+          "\n"
         ],
         "parsedValue": [
           [
@@ -6122,8 +6122,8 @@
       {
         "key": "<POOLS 2",
         "rawValue": [
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6139,8 +6139,8 @@
       {
         "key": "<POOLS 3",
         "rawValue": [
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6156,8 +6156,8 @@
       {
         "key": "<RHS 0",
         "rawValue": [
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6173,8 +6173,8 @@
       {
         "key": "<RHS 1",
         "rawValue": [
-          "\r\n//! Pools \r\nD=-C+Pool[1];// for D \r\n//! Volume of compartments \r\n//! Compound administration \r\n//! Rate laws \r\n//!!V_in \r\nV_in=k1; \r\n//!!V1 \r\nV1=k2*A*C; \r\n//!!V2 \r\nV2=k3*D; \r\n//!!V_out \r\nV_out=k4*B; \r\n//! Differential equations \r\n//for A \r\nF[1]=V_in-V1; \r\n//for C \r\nF[2]=-V1+V2; \r\n//for B \r\nF[3]=V1-V_out; \r\n//for D \r\nF[4]=V1-V2; \r\n//! Explicit functions ",
-          "\r\n"
+          "\n//! Pools \nD=-C+Pool[1];// for D \n//! Volume of compartments \n//! Compound administration \n//! Rate laws \n//!!V_in \nV_in=k1; \n//!!V1 \nV1=k2*A*C; \n//!!V2 \nV2=k3*D; \n//!!V_out \nV_out=k4*B; \n//! Differential equations \n//for A \nF[1]=V_in-V1; \n//for C \nF[2]=-V1+V2; \n//for B \nF[3]=V1-V_out; \n//for D \nF[4]=V1-V2; \n//! Explicit functions ",
+          "\n"
         ],
         "parsedValue": [
           [
@@ -6350,8 +6350,8 @@
       {
         "key": "<RHS 2",
         "rawValue": [
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6367,8 +6367,8 @@
       {
         "key": "<RHS 3",
         "rawValue": [
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6384,8 +6384,8 @@
       {
         "key": "<INI 0",
         "rawValue": [
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6401,8 +6401,8 @@
       {
         "key": "<INI 1",
         "rawValue": [
-          "\r\n//! Data comments \r\n\r\n //! Compound administration \r\n\r\n //! Compound action on target \r\n\r\n //! Auxiliary parameters \r\n\r\n //! Compartment volumes \r\n\r\n Default=1.000000e+00; \r\n\r\n //! Initial concentrations \r\n\r\n A=1.898501e+00; \r\n\r\n C=1.490793e+00; \r\n\r\n B=1.300637e+00; \r\n\r\n D=1.234049e+00; \r\n\r\n //! Kinetic parameters \r\n\r\n k1=1.944853e+00;//V_in \r\n\r\n k2=1.931480e+00;//V1 \r\n\r\n k3=1.738867e+00;//V2 \r\n\r\n k4=1.541431e+00;//V_out \r\n\r\n //! Buffered concentrations \r\n\r\n //! Parameters for fitting \r\n\r\n //! Pools initial \r\n\r\n Pool[1]=D+C; ",
-          "\r\n"
+          "\n//! Data comments \n\n //! Compound administration \n\n //! Compound action on target \n\n //! Auxiliary parameters \n\n //! Compartment volumes \n\n Default=1.000000e+00; \n\n //! Initial concentrations \n\n A=1.898501e+00; \n\n C=1.490793e+00; \n\n B=1.300637e+00; \n\n D=1.234049e+00; \n\n //! Kinetic parameters \n\n k1=1.944853e+00;//V_in \n\n k2=1.931480e+00;//V1 \n\n k3=1.738867e+00;//V2 \n\n k4=1.541431e+00;//V_out \n\n //! Buffered concentrations \n\n //! Parameters for fitting \n\n //! Pools initial \n\n Pool[1]=D+C; ",
+          "\n"
         ],
         "parsedValue": [
           [
@@ -6594,8 +6594,8 @@
       {
         "key": "<INI 2",
         "rawValue": [
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6611,8 +6611,8 @@
       {
         "key": "<INI 3",
         "rawValue": [
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6628,8 +6628,8 @@
       {
         "key": "<POOLS 4",
         "rawValue": [
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6645,8 +6645,8 @@
       {
         "key": "<POOLS 5",
         "rawValue": [
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6662,8 +6662,8 @@
       {
         "key": "<POOLS 6",
         "rawValue": [
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6679,8 +6679,8 @@
       {
         "key": "<POOLS 7",
         "rawValue": [
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6696,8 +6696,8 @@
       {
         "key": "<RHS 4",
         "rawValue": [
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6713,8 +6713,8 @@
       {
         "key": "<RHS 5",
         "rawValue": [
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6730,8 +6730,8 @@
       {
         "key": "<RHS 6",
         "rawValue": [
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6747,8 +6747,8 @@
       {
         "key": "<RHS 7",
         "rawValue": [
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6764,8 +6764,8 @@
       {
         "key": "<INI 4",
         "rawValue": [
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6781,8 +6781,8 @@
       {
         "key": "<INI 5",
         "rawValue": [
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6798,8 +6798,8 @@
       {
         "key": "<INI 6",
         "rawValue": [
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -6815,8 +6815,8 @@
       {
         "key": "<INI 7",
         "rawValue": [
-          "\r\n",
-          "\r\n"
+          "\n",
+          "\n"
         ],
         "parsedValue": [
           {
@@ -7142,7 +7142,7 @@
         ]
       },
       {
-        "key": "\r\n,\r\nPATH->UserLaws\r\n<P Use User's mechanisms",
+        "key": "\n,\nPATH->UserLaws\n<P Use User's mechanisms",
         "rawValue": [
           "0 0 0 0 "
         ],
@@ -7159,9 +7159,9 @@
         ]
       },
       {
-        "key": "\r\n,\r\nTCN->UserLaws\r\n<P Use User's mechanisms",
+        "key": "\n,\nTCN->UserLaws\n<P Use User's mechanisms",
         "rawValue": [
-          "\r\n"
+          "\n"
         ],
         "parsedValue": [
           {
@@ -7171,9 +7171,9 @@
         ]
       },
       {
-        "key": "\r\n,\r\nPON->UserLaws\r\n<P Use User's mechanisms",
+        "key": "\n,\nPON->UserLaws\n<P Use User's mechanisms",
         "rawValue": [
-          "\r\n"
+          "\n"
         ],
         "parsedValue": [
           {
@@ -7183,9 +7183,9 @@
         ]
       },
       {
-        "key": "\r\n,\r\nPIN->UserLaws\r\n<P Use User's mechanisms",
+        "key": "\n,\nPIN->UserLaws\n<P Use User's mechanisms",
         "rawValue": [
-          "\r\n"
+          "\n"
         ],
         "parsedValue": [
           {
@@ -7545,7 +7545,7 @@
       {
         "key": "<COMMENTS 0",
         "rawValue": [
-          "\r\n\r\n#dbs# "
+          "\n\n#dbs# "
         ],
         "parsedValue": [
           {
@@ -7557,7 +7557,7 @@
       {
         "key": "<COMMENTS 1",
         "rawValue": [
-          "\r\n//! Annotation of model variables \r\n//! Literature cited \r\n//! Description of experimental data presented in �dat� files \r\n\r\n#dbs# "
+          "\n//! Annotation of model variables \n//! Literature cited \n//! Description of experimental data presented in �dat� files \n\n#dbs# "
         ],
         "parsedValue": [
           [
@@ -7585,7 +7585,7 @@
       {
         "key": "<COMMENTS 2",
         "rawValue": [
-          "\r\n\r\n#dbs# "
+          "\n\n#dbs# "
         ],
         "parsedValue": [
           {
@@ -7597,7 +7597,7 @@
       {
         "key": "<COMMENTS 3",
         "rawValue": [
-          "\r\n\r\n#dbs# "
+          "\n\n#dbs# "
         ],
         "parsedValue": [
           {
@@ -7609,7 +7609,7 @@
       {
         "key": "<COMMENTS 4",
         "rawValue": [
-          "\r\n\r\n#dbs# "
+          "\n\n#dbs# "
         ],
         "parsedValue": [
           {
@@ -7621,7 +7621,7 @@
       {
         "key": "<COMMENTS 5",
         "rawValue": [
-          "\r\n\r\n#dbs# "
+          "\n\n#dbs# "
         ],
         "parsedValue": [
           {
@@ -7633,7 +7633,7 @@
       {
         "key": "<COMMENTS 6",
         "rawValue": [
-          "\r\n\r\n#dbs# "
+          "\n\n#dbs# "
         ],
         "parsedValue": [
           {
@@ -7645,14 +7645,14 @@
       {
         "key": "<COMMENTS 7",
         "rawValue": [
-          "\r\n\r\n#dbs# \r\n0 \r\n0 \r\n0 \r\n0 \r\n1 \r\nDefault \r\n0 \r\n1 \r\n0 \r\n1 \r\n\r\n 1 \r\ntrue \r\n0 \r\n1 \r\n1.0 \r\n1 \r\n3 \r\n4 \r\nA \r\nC \r\nB \r\nD \r\n0 \r\n4 \r\nDefault \r\nDefault \r\nDefault \r\nDefault \r\n4 \r\n\r\n \r\n\r\n \r\n4 \r\n\r\n \r\n\r\n \r\n0 \r\n0 \r\n0 \r\n4 \r\nfalse \r\nfalse \r\nfalse \r\nfalse \r\n0 \r\n4 \r\nfalse \r\nfalse \r\nfalse \r\nfalse \r\n4 \r\nfalse \r\nfalse \r\nfalse \r\nfalse \r\n0 \r\n0 \r\n0 \r\n0 \r\n0 \r\n0 \r\n0 \r\n0 \r\n0 \r\n4 \r\nV_in \r\nV_in \r\n0 1 \r\n0 \r\nV1 \r\nV1 \r\n0 1 \r\n0 \r\nV2 \r\nV2 \r\n0 1 \r\n0 \r\nV_out \r\nV_out \r\n0 1 \r\n0 \r\n0 \r\n2 \r\nmm \r\nmole \r\n1000 \r\n15 \r\nk1 \r\n1.000000 \r\n0.000000 \r\n15 \r\n1000 \r\nk1 \r\n1.000000 \r\n0 \r\n0 \r\n1.000000e-06 \r\n0 \r\n0 \r\n5 \r\nk1 \r\n0.001000 \r\nk1 \r\n0.001000 \r\n0 \r\n100 \r\n0 \r\n100 \r\n2.000000 \r\n-1 \r\n-1 \r\n0 \r\n0 \r\n1000 \r\n0 \r\n1.000000 \r\n0.500000 \r\n0 \r\n0 \r\n1 \r\n0.000010 \r\n1000000 \r\n0 \r\n2 \r\nk1 \r\n1.5 \r\n0 \r\n1 \r\n0 \r\n0 \r\nB \r\n1 \r\n1 \r\n2 \r\n5 \r\n1 \r\n<listModelData> \r\n   <item> \r\n      <name></name> \r\n      <organizm></organizm> \r\n      <modeltype>0</modeltype> \r\n      <expdata></expdata> \r\n   </item> \r\n</listModelData> \r\n<listUnits size=\"1\"> \r\n</listUnits> \r\n<listComp size=\"1\"> \r\n   <item> \r\n      <name>Default_mc</name> \r\n      <comment></comment> \r\n      <unit></unit> \r\n      <outside></outside> \r\n      <spdim>3</spdim> \r\n      <sizes>1</sizes> \r\n      <const>0</const> \r\n      <rrule></rrule> \r\n      <cdown></cdown> \r\n   </item> \r\n</listComp> \r\n<listSpecies size=\"0\"> \r\n</listSpecies> \r\n<listRepository size=\"1\" default=\"List1\"> \r\n   <item> \r\n      <name>List1</name> \r\n      <comment></comment> \r\n      <listParameters size=\"0\"> \r\n      </listParameters> \r\n   </item> \r\n</listRepository> \r\n<listRules size=\"0\"> \r\n</listRules> \r\n<listReactions size=\"0\"> \r\n</listReactions> \r\n<listcontent size=\"0\"> \r\n</listcontent> \r\n22jun2007 "
+          "\n\n#dbs# \n0 \n0 \n0 \n0 \n1 \nDefault \n0 \n1 \n0 \n1 \n\n 1 \ntrue \n0 \n1 \n1.0 \n1 \n3 \n4 \nA \nC \nB \nD \n0 \n4 \nDefault \nDefault \nDefault \nDefault \n4 \n\n \n\n \n4 \n\n \n\n \n0 \n0 \n0 \n4 \nfalse \nfalse \nfalse \nfalse \n0 \n4 \nfalse \nfalse \nfalse \nfalse \n4 \nfalse \nfalse \nfalse \nfalse \n0 \n0 \n0 \n0 \n0 \n0 \n0 \n0 \n0 \n4 \nV_in \nV_in \n0 1 \n0 \nV1 \nV1 \n0 1 \n0 \nV2 \nV2 \n0 1 \n0 \nV_out \nV_out \n0 1 \n0 \n0 \n2 \nmm \nmole \n1000 \n15 \nk1 \n1.000000 \n0.000000 \n15 \n1000 \nk1 \n1.000000 \n0 \n0 \n1.000000e-06 \n0 \n0 \n5 \nk1 \n0.001000 \nk1 \n0.001000 \n0 \n100 \n0 \n100 \n2.000000 \n-1 \n-1 \n0 \n0 \n1000 \n0 \n1.000000 \n0.500000 \n0 \n0 \n1 \n0.000010 \n1000000 \n0 \n2 \nk1 \n1.5 \n0 \n1 \n0 \n0 \nB \n1 \n1 \n2 \n5 \n1 \n<listModelData> \n   <item> \n      <name></name> \n      <organizm></organizm> \n      <modeltype>0</modeltype> \n      <expdata></expdata> \n   </item> \n</listModelData> \n<listUnits size=\"1\"> \n</listUnits> \n<listComp size=\"1\"> \n   <item> \n      <name>Default_mc</name> \n      <comment></comment> \n      <unit></unit> \n      <outside></outside> \n      <spdim>3</spdim> \n      <sizes>1</sizes> \n      <const>0</const> \n      <rrule></rrule> \n      <cdown></cdown> \n   </item> \n</listComp> \n<listSpecies size=\"0\"> \n</listSpecies> \n<listRepository size=\"1\" default=\"List1\"> \n   <item> \n      <name>List1</name> \n      <comment></comment> \n      <listParameters size=\"0\"> \n      </listParameters> \n   </item> \n</listRepository> \n<listRules size=\"0\"> \n</listRules> \n<listReactions size=\"0\"> \n</listReactions> \n<listcontent size=\"0\"> \n</listcontent> \n22jun2007 "
         ],
         "parsedValue": [
           [
             [],
             {
               "type": "string",
-              "value": "<listModelData> \r\n   <item> \r\n      <name></name> \r\n      <organizm></organizm> \r\n      <modeltype>0</modeltype> \r\n      <expdata></expdata> \r\n   </item> \r\n</listModelData> \r\n<listUnits size=\"1\"> \r\n</listUnits> \r\n<listComp size=\"1\"> \r\n   <item> \r\n      <name>Default_mc</name> \r\n      <comment></comment> \r\n      <unit></unit> \r\n      <outside></outside> \r\n      <spdim>3</spdim> \r\n      <sizes>1</sizes> \r\n      <const>0</const> \r\n      <rrule></rrule> \r\n      <cdown></cdown> \r\n   </item> \r\n</listComp> \r\n<listSpecies size=\"0\"> \r\n</listSpecies> \r\n<listRepository size=\"1\" default=\"List1\"> \r\n   <item> \r\n      <name>List1</name> \r\n      <comment></comment> \r\n      <listParameters size=\"0\"> \r\n      </listParameters> \r\n   </item> \r\n</listRepository> \r\n<listRules size=\"0\"> \r\n</listRules> \r\n<listReactions size=\"0\"> \r\n</listReactions> \r\n<listcontent size=\"0\"> \r\n</listcontent> \r\n22jun2007 "
+              "value": "<listModelData> \n   <item> \n      <name></name> \n      <organizm></organizm> \n      <modeltype>0</modeltype> \n      <expdata></expdata> \n   </item> \n</listModelData> \n<listUnits size=\"1\"> \n</listUnits> \n<listComp size=\"1\"> \n   <item> \n      <name>Default_mc</name> \n      <comment></comment> \n      <unit></unit> \n      <outside></outside> \n      <spdim>3</spdim> \n      <sizes>1</sizes> \n      <const>0</const> \n      <rrule></rrule> \n      <cdown></cdown> \n   </item> \n</listComp> \n<listSpecies size=\"0\"> \n</listSpecies> \n<listRepository size=\"1\" default=\"List1\"> \n   <item> \n      <name>List1</name> \n      <comment></comment> \n      <listParameters size=\"0\"> \n      </listParameters> \n   </item> \n</listRepository> \n<listRules size=\"0\"> \n</listRules> \n<listReactions size=\"0\"> \n</listReactions> \n<listcontent size=\"0\"> \n</listcontent> \n22jun2007 "
             }
           ]
         ]
