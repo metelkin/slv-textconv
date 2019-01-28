@@ -48,14 +48,14 @@ hs
     }
 
 lineComment
-  = b:(break/space)*
+  = b:[\r\n ]*
     signLineComment
     level:("!")*
     comment:CommentSymbols+
     break?
     {
       let newLine = false
-      if ((b.join('').indexOf('\r\n') != -1) || (location().start.column == 1)) {
+      if ((b.join('').indexOf('\n') != -1) || (location().start.column == 1)) {
         newLine = true
       }
       let headerLevel = 0
