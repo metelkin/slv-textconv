@@ -70,7 +70,7 @@ lineComment
         newLine
       }
     }
-break =  s:" "* "\r"+ "\n" {
+break =  s:" "* "\r"* "\n" {
   return s.join('')
 }
 nameSymbols = [_A-Za-z0-9]
