@@ -17,8 +17,8 @@ start
 keyValuePars
   = k:key
     v:value+ {
-    console.log(k,v)
-    console.log("__________")
+    //console.log(k,v)
+    //console.log("__________")
     return {
       key:k,
       rawValue:v
@@ -39,7 +39,7 @@ keyPattern
     break?
     &"#"
     {
-      console.log("KEY: "+s.join(''))
+      //console.log("KEY: "+s.join(''))
       return s.join('')
     }
 
@@ -49,7 +49,7 @@ value
     s:(lineValue+/&key/&(break+ "#"))
     &(break* "#"/break* key/"#"/break+ !(value))
     {
-      console.log("VALUE: "+s)
+      //console.log("VALUE: "+s)
       if (s == undefined) {
         return '\r\n'
       }
@@ -68,7 +68,7 @@ lineValue
       if (sp !== null) {
         result = '\r\n'
       }
-      console.log("LINE: "+v.join(''))
+      //console.log("LINE: "+v.join(''))
       result += v.join('')+" "
       return result
     }
@@ -79,7 +79,7 @@ keySymbols = [\&*\'A-Za-z0-9-<>_" "()+-.:\[\]]
 valueSymbols = [/\'*A-Za-z0-9<>_" "(){}+-`!?,.:;\[\]&�%]
 spaces = [\r\n" "]
 sharps = s:"##"+ "#"? {
-  console.log(`sharp is ${s}`)
+  //console.log(`sharp is ${s}`)
   return s.join('')
 }
 break =  s:" "* "\r"+ "\n" {
