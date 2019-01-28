@@ -70,7 +70,9 @@ lineComment
         newLine
       }
     }
-break = "\r\n"
+break =  s:" "* "\r"+ "\n" {
+  return s.join('')
+}
 nameSymbols = [_A-Za-z0-9]
 signSymbols = [+-]
 digit = [0-9]
