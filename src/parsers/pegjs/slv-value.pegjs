@@ -255,7 +255,7 @@ otherwiseBranch
       return value
     }
 /** LEXIS **/
-break =  s:(" "* "\r"+ "\n") {
+break =  s:(" "* "\r"* "\n") {
   return s.join('')
 }
 variableName = [A-Za-z_0-9]/[[\]]

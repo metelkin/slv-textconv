@@ -2014,19 +2014,15 @@ function peg$parse(input, options) {
         s4 = peg$FAILED;
         if (peg$silentFails === 0) { peg$fail(peg$c52); }
       }
-      if (s4 !== peg$FAILED) {
-        while (s4 !== peg$FAILED) {
-          s3.push(s4);
-          if (input.charCodeAt(peg$currPos) === 13) {
-            s4 = peg$c51;
-            peg$currPos++;
-          } else {
-            s4 = peg$FAILED;
-            if (peg$silentFails === 0) { peg$fail(peg$c52); }
-          }
+      while (s4 !== peg$FAILED) {
+        s3.push(s4);
+        if (input.charCodeAt(peg$currPos) === 13) {
+          s4 = peg$c51;
+          peg$currPos++;
+        } else {
+          s4 = peg$FAILED;
+          if (peg$silentFails === 0) { peg$fail(peg$c52); }
         }
-      } else {
-        s3 = peg$FAILED;
       }
       if (s3 !== peg$FAILED) {
         if (input.charCodeAt(peg$currPos) === 10) {

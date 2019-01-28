@@ -82,7 +82,7 @@ sharps = s:"##"+ "#"? {
   //console.log(`sharp is ${s}`)
   return s.join('')
 }
-break =  s:" "* "\r"+ "\n" {
+break =  s:" "* "\r"* "\n" {
   return s.join('')
 }
 dictionaryKey = break* "Right Hand Sides &&" break* "Initial Values &&" break* "Comments Or Selkov DB record"/
