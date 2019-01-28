@@ -7,23 +7,24 @@ start
 /*Grammar*/
 
 oneValue
-  = !("/*"/"if ") r:simpleDataTypes !simpleDataTypes
+  = !("/*"/"if "/emptyValueEndDBS) r:simpleDataTypes !simpleDataTypes
   {
     return r
   }
 
 record
-  = a:(
+  = !(emptyValueEndDBS)
+    a:(
     condExpression/
     multylineComment/
-    variable/
     numeric/
     mathExpression/
+    variable/
     sentence/
     lineComment/
     emptyNumeric/
     numbers)+
-    ((space/break)*"#dbs#")?
+    dbsPattern?
     {
       //console.log(`RECORD ${a.length}`)
       for (let i in a) {
@@ -34,7 +35,7 @@ record
     }
 
 number
-  = n:digits+!' ' {
+  =   n:digits+!' ' {
       //console.log("number "+n.join(''))
       let number = n.join('')
       let value = parseFloat(n.join(''))
@@ -46,7 +47,8 @@ number
   }
 
 numbers
-  = n:(digits/space/break)+
+  = !(emptyValueEndDBS)
+    n:(digits/space/break)+
     "&"?
     {
       let numbers = n.join('') // 1,8,2,.,4,4, ,5,6 =>182.44 56
@@ -59,7 +61,7 @@ numbers
               let value = parseFloat(x)
               //console.log(`before ${value}`)
               value = isNaN(value) ? null : value
-              //console.log(`after ${value}`)
+              ////console.log(`after ${value}`)
               return value
           })
       })
@@ -74,8 +76,7 @@ numbers
       }
     }
 variable
-    = &(break)
-      s:variableName+ {
+    = s:variableName+ !((break/space)+ variableName+) {
       let value = s.join('')
       return {
           type: "string",
@@ -83,7 +84,7 @@ variable
         }
     }
 sentence
-  = !(space* signLineComment)
+  = !((space* signLineComment)/emptyValueEndDBS)
     s:(variableName/digits/otherSings/quoteSings/space/brackets)+
     {
       let value = s.join('')
@@ -141,7 +142,7 @@ numeric
     ";"
     {
       //console.log(`numeric LHS: ${lhs.join('')}`)
-      //console.log(`numeric RHS: ${rhs.join('')}`)
+      ////console.log(`numeric RHS: ${rhs.join('')}`)
 
       let newLine = ((location().start.column == 1) || b.join('').match(/\r\n/)) ? true:false
       return {
@@ -203,7 +204,7 @@ condExpression
     "}"
     otherwise:otherwiseBranch+
      {
-      //console.log("CondExpr")
+      ////console.log("CondExpr")
       return {
         type: "conditionExpression",
         condition: cond,
@@ -239,7 +240,7 @@ branchPattern
     result:(oneValue/record)
     &"}"
     {
-      //console.log('branch')
+      ////console.log('branch')
       return result
     }
 otherwiseBranch
@@ -272,8 +273,10 @@ simpleDataTypes
     = number/
       numbers/
       numeric/
-      sentence/
-      variable
+      variable/
+      sentence
+
+
 emptyValue
   = ''
   ((space/break)*"#dbs#")? {
@@ -282,3 +285,12 @@ emptyValue
     value: null
   }
 }
+
+dbsPattern = (space/break)*"#dbs#" {
+  return {
+    "type": "string",
+    "value": "#dbs#"
+  }
+}
+
+emptyValueEndDBS = (break/space)* "#dbs#" (break/space)*

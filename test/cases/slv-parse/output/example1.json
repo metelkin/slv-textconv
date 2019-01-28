@@ -1,7 +1,7 @@
 {
   "sourceFormat": "SLV",
   "content": {
-    "header": "DBSolve Optimum (new parser) 1 Jul 2006\r,\nSLV24.00*",
+    "header": "DBSolve Optimum (new parser) 1 Jul 2006\r\nSLV24.00*",
     "map": [
       {
         "key": "Number of rows in matrix (Number of activities) ",
@@ -118,10 +118,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "X[0]"
-            ]
+            "type": "string",
+            "value": "X[0]"
           }
         ]
       },
@@ -132,10 +130,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "X[1]"
-            ]
+            "type": "string",
+            "value": "X[1]"
           }
         ]
       },
@@ -524,12 +520,18 @@
           "output.txt "
         ],
         "parsedValue": [
-          {
-            "type": "strings",
-            "value": [
-              "output.txt"
-            ]
-          }
+          [
+            {
+              "type": "string",
+              "value": "output"
+            },
+            {
+              "type": "strings",
+              "value": [
+                ".txt"
+              ]
+            }
+          ]
         ]
       },
       {
@@ -538,33 +540,26 @@
           "pw.dat "
         ],
         "parsedValue": [
-          {
-            "type": "strings",
-            "value": [
-              "pw.dat"
-            ]
-          }
+          [
+            {
+              "type": "string",
+              "value": "pw"
+            },
+            {
+              "type": "strings",
+              "value": [
+                ".dat"
+              ]
+            }
+          ]
         ]
       },
       {
-        "key": [
-          [
-            ""
-          ],
-          "Right Hand Sides &&",
-          [
-            ""
-          ],
-          "Initial Values &&",
-          [
-            ""
-          ],
-          "Comments Or Selkov DB record"
-        ],
+        "key": "\r\nRight Hand Sides &&\r\nInitial Values &&\r\nComments Or Selkov DB record",
         "rawValue": [
           "\r\n//! Pools \r\nD=-C+Pool[1];// for D \r\n//! Volume of compartments \r\n//! Compound administration \r\n//! Rate laws \r\n//!!V_in \r\nV_in=k1; \r\n//!!V1 \r\nV1=k2*A*C; \r\n//!!V2 \r\nV2=k3*D; \r\n//!!V_out \r\nV_out=k4*B; \r\n//! Differential equations \r\n//for A \r\nF[1]=V_in-V1; \r\n//for C \r\nF[2]=-V1+V2; \r\n//for B \r\nF[3]=V1-V_out; \r\n//for D \r\nF[4]=V1-V2; \r\n//! Explicit functions ",
-          "\r\n//! Data comments \r\n //! Compound administration \r\n //! Compound action on target \r\n //! Auxiliary parameters \r\n //! Compartment volumes \r\n Default=1.000000e+00; \r\n //! Initial concentrations \r\n A=1.898501e+00; \r\n C=1.490793e+00; \r\n B=1.300637e+00; \r\n D=1.234049e+00; \r\n //! Kinetic parameters \r\n k1=1.944853e+00;//V_in \r\n k2=1.931480e+00;//V1 \r\n k3=1.738867e+00;//V2 \r\n k4=1.541431e+00;//V_out \r\n //! Buffered concentrations \r\n //! Parameters for fitting \r\n //! Pools initial \r\n Pool[1]=D+C; ",
-          "\r\n//! Annotation of model variables \r\n//! Literature cited \r\n//! Description of experimental data presented in �dat� files \r\n#dbs# "
+          "\r\n//! Data comments \r\n\r\n //! Compound administration \r\n\r\n //! Compound action on target \r\n\r\n //! Auxiliary parameters \r\n\r\n //! Compartment volumes \r\n\r\n Default=1.000000e+00; \r\n\r\n //! Initial concentrations \r\n\r\n A=1.898501e+00; \r\n\r\n C=1.490793e+00; \r\n\r\n B=1.300637e+00; \r\n\r\n D=1.234049e+00; \r\n\r\n //! Kinetic parameters \r\n\r\n k1=1.944853e+00;//V_in \r\n\r\n k2=1.931480e+00;//V1 \r\n\r\n k3=1.738867e+00;//V2 \r\n\r\n k4=1.541431e+00;//V_out \r\n\r\n //! Buffered concentrations \r\n\r\n //! Parameters for fitting \r\n\r\n //! Pools initial \r\n\r\n Pool[1]=D+C; ",
+          "\r\n//! Annotation of model variables \r\n//! Literature cited \r\n//! Description of experimental data presented in �dat� files \r\n\r\n#dbs# "
         ],
         "parsedValue": [
           [
@@ -929,12 +924,6 @@
               "header": 1,
               "value": " Description of experimental data presented in �dat� files ",
               "newLine": true
-            },
-            {
-              "type": "strings",
-              "value": [
-                "#dbs#"
-              ]
             }
           ]
         ]
@@ -1636,10 +1625,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "Name_of_the_process"
-            ]
+            "type": "string",
+            "value": "Name_of_the_process"
           }
         ]
       },
@@ -1649,12 +1636,18 @@
           "tmp.bmp "
         ],
         "parsedValue": [
-          {
-            "type": "strings",
-            "value": [
-              "tmp.bmp"
-            ]
-          }
+          [
+            {
+              "type": "string",
+              "value": "tmp"
+            },
+            {
+              "type": "strings",
+              "value": [
+                ".bmp"
+              ]
+            }
+          ]
         ]
       },
       {
@@ -3010,10 +3003,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "k1"
-            ]
+            "type": "string",
+            "value": "k1"
           }
         ]
       },
@@ -3264,10 +3255,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "X[0]"
-            ]
+            "type": "string",
+            "value": "X[0]"
           }
         ]
       },
@@ -3278,10 +3267,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "A"
-            ]
+            "type": "string",
+            "value": "A"
           }
         ]
       },
@@ -3340,10 +3327,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "Time"
-            ]
+            "type": "string",
+            "value": "Time"
           }
         ]
       },
@@ -3354,10 +3339,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "A"
-            ]
+            "type": "string",
+            "value": "A"
           }
         ]
       },
@@ -3368,10 +3351,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "k1"
-            ]
+            "type": "string",
+            "value": "k1"
           }
         ]
       },
@@ -3382,10 +3363,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "A"
-            ]
+            "type": "string",
+            "value": "A"
           }
         ]
       },
@@ -3444,10 +3423,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "k1"
-            ]
+            "type": "string",
+            "value": "k1"
           }
         ]
       },
@@ -3458,10 +3435,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "A"
-            ]
+            "type": "string",
+            "value": "A"
           }
         ]
       },
@@ -3472,10 +3447,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "k1"
-            ]
+            "type": "string",
+            "value": "k1"
           }
         ]
       },
@@ -3486,10 +3459,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "F[1]"
-            ]
+            "type": "string",
+            "value": "F[1]"
           }
         ]
       },
@@ -3548,10 +3519,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "k1"
-            ]
+            "type": "string",
+            "value": "k1"
           }
         ]
       },
@@ -3562,10 +3531,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "F[1]"
-            ]
+            "type": "string",
+            "value": "F[1]"
           }
         ]
       },
@@ -3576,10 +3543,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "k1"
-            ]
+            "type": "string",
+            "value": "k1"
           }
         ]
       },
@@ -3590,10 +3555,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "k2"
-            ]
+            "type": "string",
+            "value": "k2"
           }
         ]
       },
@@ -3652,10 +3615,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "k1"
-            ]
+            "type": "string",
+            "value": "k1"
           }
         ]
       },
@@ -3666,10 +3627,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "k2"
-            ]
+            "type": "string",
+            "value": "k2"
           }
         ]
       },
@@ -3680,10 +3639,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "k1"
-            ]
+            "type": "string",
+            "value": "k1"
           }
         ]
       },
@@ -3694,10 +3651,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "k2"
-            ]
+            "type": "string",
+            "value": "k2"
           }
         ]
       },
@@ -3756,10 +3711,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "k1"
-            ]
+            "type": "string",
+            "value": "k1"
           }
         ]
       },
@@ -3770,10 +3723,8 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "k2"
-            ]
+            "type": "string",
+            "value": "k2"
           }
         ]
       },
@@ -3787,28 +3738,20 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "V_in"
-            ]
+            "type": "string",
+            "value": "V_in"
           },
           {
-            "type": "strings",
-            "value": [
-              "V1"
-            ]
+            "type": "string",
+            "value": "V1"
           },
           {
-            "type": "strings",
-            "value": [
-              "V2"
-            ]
+            "type": "string",
+            "value": "V2"
           },
           {
-            "type": "strings",
-            "value": [
-              "V_out"
-            ]
+            "type": "string",
+            "value": "V_out"
           }
         ]
       },
@@ -3822,28 +3765,20 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "A"
-            ]
+            "type": "string",
+            "value": "A"
           },
           {
-            "type": "strings",
-            "value": [
-              "C"
-            ]
+            "type": "string",
+            "value": "C"
           },
           {
-            "type": "strings",
-            "value": [
-              "B"
-            ]
+            "type": "string",
+            "value": "B"
           },
           {
-            "type": "strings",
-            "value": [
-              "D"
-            ]
+            "type": "string",
+            "value": "D"
           }
         ]
       },
@@ -3940,322 +3875,216 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "k1"
-            ]
+            "type": "string",
+            "value": "k1"
           },
           {
-            "type": "strings",
-            "value": [
-              "k2"
-            ]
+            "type": "string",
+            "value": "k2"
           },
           {
-            "type": "strings",
-            "value": [
-              "k3"
-            ]
+            "type": "string",
+            "value": "k3"
           },
           {
-            "type": "strings",
-            "value": [
-              "k4"
-            ]
+            "type": "string",
+            "value": "k4"
           },
           {
-            "type": "strings",
-            "value": [
-              "k5"
-            ]
+            "type": "string",
+            "value": "k5"
           },
           {
-            "type": "strings",
-            "value": [
-              "k6"
-            ]
+            "type": "string",
+            "value": "k6"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[7]"
-            ]
+            "type": "string",
+            "value": "P[7]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[8]"
-            ]
+            "type": "string",
+            "value": "P[8]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[9]"
-            ]
+            "type": "string",
+            "value": "P[9]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[10]"
-            ]
+            "type": "string",
+            "value": "P[10]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[11]"
-            ]
+            "type": "string",
+            "value": "P[11]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[12]"
-            ]
+            "type": "string",
+            "value": "P[12]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[13]"
-            ]
+            "type": "string",
+            "value": "P[13]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[14]"
-            ]
+            "type": "string",
+            "value": "P[14]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[15]"
-            ]
+            "type": "string",
+            "value": "P[15]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[16]"
-            ]
+            "type": "string",
+            "value": "P[16]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[17]"
-            ]
+            "type": "string",
+            "value": "P[17]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[18]"
-            ]
+            "type": "string",
+            "value": "P[18]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[19]"
-            ]
+            "type": "string",
+            "value": "P[19]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[20]"
-            ]
+            "type": "string",
+            "value": "P[20]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[21]"
-            ]
+            "type": "string",
+            "value": "P[21]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[22]"
-            ]
+            "type": "string",
+            "value": "P[22]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[23]"
-            ]
+            "type": "string",
+            "value": "P[23]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[24]"
-            ]
+            "type": "string",
+            "value": "P[24]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[25]"
-            ]
+            "type": "string",
+            "value": "P[25]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[26]"
-            ]
+            "type": "string",
+            "value": "P[26]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[27]"
-            ]
+            "type": "string",
+            "value": "P[27]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[28]"
-            ]
+            "type": "string",
+            "value": "P[28]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[29]"
-            ]
+            "type": "string",
+            "value": "P[29]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[30]"
-            ]
+            "type": "string",
+            "value": "P[30]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[31]"
-            ]
+            "type": "string",
+            "value": "P[31]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[32]"
-            ]
+            "type": "string",
+            "value": "P[32]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[33]"
-            ]
+            "type": "string",
+            "value": "P[33]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[34]"
-            ]
+            "type": "string",
+            "value": "P[34]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[35]"
-            ]
+            "type": "string",
+            "value": "P[35]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[36]"
-            ]
+            "type": "string",
+            "value": "P[36]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[37]"
-            ]
+            "type": "string",
+            "value": "P[37]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[38]"
-            ]
+            "type": "string",
+            "value": "P[38]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[39]"
-            ]
+            "type": "string",
+            "value": "P[39]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[40]"
-            ]
+            "type": "string",
+            "value": "P[40]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[41]"
-            ]
+            "type": "string",
+            "value": "P[41]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[42]"
-            ]
+            "type": "string",
+            "value": "P[42]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[43]"
-            ]
+            "type": "string",
+            "value": "P[43]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[44]"
-            ]
+            "type": "string",
+            "value": "P[44]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[45]"
-            ]
+            "type": "string",
+            "value": "P[45]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[46]"
-            ]
+            "type": "string",
+            "value": "P[46]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[47]"
-            ]
+            "type": "string",
+            "value": "P[47]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[48]"
-            ]
+            "type": "string",
+            "value": "P[48]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[49]"
-            ]
+            "type": "string",
+            "value": "P[49]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[50]"
-            ]
+            "type": "string",
+            "value": "P[50]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[1]"
-            ]
+            "type": "string",
+            "value": "P[1]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[2]"
-            ]
+            "type": "string",
+            "value": "P[2]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[3]"
-            ]
+            "type": "string",
+            "value": "P[3]"
           }
         ]
       },
@@ -4318,322 +4147,216 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "k1"
-            ]
+            "type": "string",
+            "value": "k1"
           },
           {
-            "type": "strings",
-            "value": [
-              "k2"
-            ]
+            "type": "string",
+            "value": "k2"
           },
           {
-            "type": "strings",
-            "value": [
-              "k3"
-            ]
+            "type": "string",
+            "value": "k3"
           },
           {
-            "type": "strings",
-            "value": [
-              "k4"
-            ]
+            "type": "string",
+            "value": "k4"
           },
           {
-            "type": "strings",
-            "value": [
-              "k5"
-            ]
+            "type": "string",
+            "value": "k5"
           },
           {
-            "type": "strings",
-            "value": [
-              "k6"
-            ]
+            "type": "string",
+            "value": "k6"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[7]"
-            ]
+            "type": "string",
+            "value": "P[7]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[8]"
-            ]
+            "type": "string",
+            "value": "P[8]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[9]"
-            ]
+            "type": "string",
+            "value": "P[9]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[10]"
-            ]
+            "type": "string",
+            "value": "P[10]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[11]"
-            ]
+            "type": "string",
+            "value": "P[11]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[12]"
-            ]
+            "type": "string",
+            "value": "P[12]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[13]"
-            ]
+            "type": "string",
+            "value": "P[13]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[14]"
-            ]
+            "type": "string",
+            "value": "P[14]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[15]"
-            ]
+            "type": "string",
+            "value": "P[15]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[16]"
-            ]
+            "type": "string",
+            "value": "P[16]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[17]"
-            ]
+            "type": "string",
+            "value": "P[17]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[18]"
-            ]
+            "type": "string",
+            "value": "P[18]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[19]"
-            ]
+            "type": "string",
+            "value": "P[19]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[20]"
-            ]
+            "type": "string",
+            "value": "P[20]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[21]"
-            ]
+            "type": "string",
+            "value": "P[21]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[22]"
-            ]
+            "type": "string",
+            "value": "P[22]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[23]"
-            ]
+            "type": "string",
+            "value": "P[23]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[24]"
-            ]
+            "type": "string",
+            "value": "P[24]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[25]"
-            ]
+            "type": "string",
+            "value": "P[25]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[26]"
-            ]
+            "type": "string",
+            "value": "P[26]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[27]"
-            ]
+            "type": "string",
+            "value": "P[27]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[28]"
-            ]
+            "type": "string",
+            "value": "P[28]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[29]"
-            ]
+            "type": "string",
+            "value": "P[29]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[30]"
-            ]
+            "type": "string",
+            "value": "P[30]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[31]"
-            ]
+            "type": "string",
+            "value": "P[31]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[32]"
-            ]
+            "type": "string",
+            "value": "P[32]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[33]"
-            ]
+            "type": "string",
+            "value": "P[33]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[34]"
-            ]
+            "type": "string",
+            "value": "P[34]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[35]"
-            ]
+            "type": "string",
+            "value": "P[35]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[36]"
-            ]
+            "type": "string",
+            "value": "P[36]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[37]"
-            ]
+            "type": "string",
+            "value": "P[37]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[38]"
-            ]
+            "type": "string",
+            "value": "P[38]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[39]"
-            ]
+            "type": "string",
+            "value": "P[39]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[40]"
-            ]
+            "type": "string",
+            "value": "P[40]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[41]"
-            ]
+            "type": "string",
+            "value": "P[41]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[42]"
-            ]
+            "type": "string",
+            "value": "P[42]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[43]"
-            ]
+            "type": "string",
+            "value": "P[43]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[44]"
-            ]
+            "type": "string",
+            "value": "P[44]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[45]"
-            ]
+            "type": "string",
+            "value": "P[45]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[46]"
-            ]
+            "type": "string",
+            "value": "P[46]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[47]"
-            ]
+            "type": "string",
+            "value": "P[47]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[48]"
-            ]
+            "type": "string",
+            "value": "P[48]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[49]"
-            ]
+            "type": "string",
+            "value": "P[49]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[50]"
-            ]
+            "type": "string",
+            "value": "P[50]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[1]"
-            ]
+            "type": "string",
+            "value": "P[1]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[2]"
-            ]
+            "type": "string",
+            "value": "P[2]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[3]"
-            ]
+            "type": "string",
+            "value": "P[3]"
           }
         ]
       },
@@ -4696,322 +4419,216 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "k4"
-            ]
+            "type": "string",
+            "value": "k4"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[5]"
-            ]
+            "type": "string",
+            "value": "P[5]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[6]"
-            ]
+            "type": "string",
+            "value": "P[6]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[7]"
-            ]
+            "type": "string",
+            "value": "P[7]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[8]"
-            ]
+            "type": "string",
+            "value": "P[8]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[9]"
-            ]
+            "type": "string",
+            "value": "P[9]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[10]"
-            ]
+            "type": "string",
+            "value": "P[10]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[11]"
-            ]
+            "type": "string",
+            "value": "P[11]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[12]"
-            ]
+            "type": "string",
+            "value": "P[12]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[13]"
-            ]
+            "type": "string",
+            "value": "P[13]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[14]"
-            ]
+            "type": "string",
+            "value": "P[14]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[15]"
-            ]
+            "type": "string",
+            "value": "P[15]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[16]"
-            ]
+            "type": "string",
+            "value": "P[16]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[17]"
-            ]
+            "type": "string",
+            "value": "P[17]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[18]"
-            ]
+            "type": "string",
+            "value": "P[18]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[19]"
-            ]
+            "type": "string",
+            "value": "P[19]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[20]"
-            ]
+            "type": "string",
+            "value": "P[20]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[21]"
-            ]
+            "type": "string",
+            "value": "P[21]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[22]"
-            ]
+            "type": "string",
+            "value": "P[22]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[23]"
-            ]
+            "type": "string",
+            "value": "P[23]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[24]"
-            ]
+            "type": "string",
+            "value": "P[24]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[25]"
-            ]
+            "type": "string",
+            "value": "P[25]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[26]"
-            ]
+            "type": "string",
+            "value": "P[26]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[27]"
-            ]
+            "type": "string",
+            "value": "P[27]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[28]"
-            ]
+            "type": "string",
+            "value": "P[28]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[29]"
-            ]
+            "type": "string",
+            "value": "P[29]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[30]"
-            ]
+            "type": "string",
+            "value": "P[30]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[31]"
-            ]
+            "type": "string",
+            "value": "P[31]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[32]"
-            ]
+            "type": "string",
+            "value": "P[32]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[33]"
-            ]
+            "type": "string",
+            "value": "P[33]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[34]"
-            ]
+            "type": "string",
+            "value": "P[34]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[35]"
-            ]
+            "type": "string",
+            "value": "P[35]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[36]"
-            ]
+            "type": "string",
+            "value": "P[36]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[37]"
-            ]
+            "type": "string",
+            "value": "P[37]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[38]"
-            ]
+            "type": "string",
+            "value": "P[38]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[39]"
-            ]
+            "type": "string",
+            "value": "P[39]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[40]"
-            ]
+            "type": "string",
+            "value": "P[40]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[41]"
-            ]
+            "type": "string",
+            "value": "P[41]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[42]"
-            ]
+            "type": "string",
+            "value": "P[42]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[43]"
-            ]
+            "type": "string",
+            "value": "P[43]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[44]"
-            ]
+            "type": "string",
+            "value": "P[44]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[45]"
-            ]
+            "type": "string",
+            "value": "P[45]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[46]"
-            ]
+            "type": "string",
+            "value": "P[46]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[47]"
-            ]
+            "type": "string",
+            "value": "P[47]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[48]"
-            ]
+            "type": "string",
+            "value": "P[48]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[49]"
-            ]
+            "type": "string",
+            "value": "P[49]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[50]"
-            ]
+            "type": "string",
+            "value": "P[50]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[50]"
-            ]
+            "type": "string",
+            "value": "P[50]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[50]"
-            ]
+            "type": "string",
+            "value": "P[50]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[50]"
-            ]
+            "type": "string",
+            "value": "P[50]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[50]"
-            ]
+            "type": "string",
+            "value": "P[50]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[50]"
-            ]
+            "type": "string",
+            "value": "P[50]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[50]"
-            ]
+            "type": "string",
+            "value": "P[50]"
           }
         ]
       },
@@ -5074,322 +4691,216 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "k1"
-            ]
+            "type": "string",
+            "value": "k1"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[10]"
-            ]
+            "type": "string",
+            "value": "X[10]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[11]"
-            ]
+            "type": "string",
+            "value": "X[11]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[12]"
-            ]
+            "type": "string",
+            "value": "X[12]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[13]"
-            ]
+            "type": "string",
+            "value": "X[13]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[14]"
-            ]
+            "type": "string",
+            "value": "X[14]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[15]"
-            ]
+            "type": "string",
+            "value": "X[15]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[16]"
-            ]
+            "type": "string",
+            "value": "X[16]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[17]"
-            ]
+            "type": "string",
+            "value": "X[17]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[18]"
-            ]
+            "type": "string",
+            "value": "X[18]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[19]"
-            ]
+            "type": "string",
+            "value": "X[19]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[20]"
-            ]
+            "type": "string",
+            "value": "X[20]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[21]"
-            ]
+            "type": "string",
+            "value": "X[21]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[22]"
-            ]
+            "type": "string",
+            "value": "X[22]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[23]"
-            ]
+            "type": "string",
+            "value": "X[23]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[24]"
-            ]
+            "type": "string",
+            "value": "X[24]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[25]"
-            ]
+            "type": "string",
+            "value": "X[25]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[26]"
-            ]
+            "type": "string",
+            "value": "X[26]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[27]"
-            ]
+            "type": "string",
+            "value": "X[27]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[28]"
-            ]
+            "type": "string",
+            "value": "X[28]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[29]"
-            ]
+            "type": "string",
+            "value": "X[29]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[30]"
-            ]
+            "type": "string",
+            "value": "X[30]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[31]"
-            ]
+            "type": "string",
+            "value": "X[31]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[32]"
-            ]
+            "type": "string",
+            "value": "X[32]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[33]"
-            ]
+            "type": "string",
+            "value": "X[33]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[34]"
-            ]
+            "type": "string",
+            "value": "X[34]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[35]"
-            ]
+            "type": "string",
+            "value": "X[35]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[36]"
-            ]
+            "type": "string",
+            "value": "X[36]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[37]"
-            ]
+            "type": "string",
+            "value": "X[37]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[38]"
-            ]
+            "type": "string",
+            "value": "X[38]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[39]"
-            ]
+            "type": "string",
+            "value": "X[39]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[40]"
-            ]
+            "type": "string",
+            "value": "X[40]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[41]"
-            ]
+            "type": "string",
+            "value": "X[41]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[42]"
-            ]
+            "type": "string",
+            "value": "X[42]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[43]"
-            ]
+            "type": "string",
+            "value": "X[43]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[44]"
-            ]
+            "type": "string",
+            "value": "X[44]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[45]"
-            ]
+            "type": "string",
+            "value": "X[45]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[46]"
-            ]
+            "type": "string",
+            "value": "X[46]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[47]"
-            ]
+            "type": "string",
+            "value": "X[47]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[48]"
-            ]
+            "type": "string",
+            "value": "X[48]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[49]"
-            ]
+            "type": "string",
+            "value": "X[49]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[50]"
-            ]
+            "type": "string",
+            "value": "X[50]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[3]"
-            ]
+            "type": "string",
+            "value": "X[3]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[2]"
-            ]
+            "type": "string",
+            "value": "X[2]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[6]"
-            ]
+            "type": "string",
+            "value": "X[6]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[4]"
-            ]
+            "type": "string",
+            "value": "X[4]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[5]"
-            ]
+            "type": "string",
+            "value": "X[5]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[6]"
-            ]
+            "type": "string",
+            "value": "X[6]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[7]"
-            ]
+            "type": "string",
+            "value": "X[7]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[8]"
-            ]
+            "type": "string",
+            "value": "X[8]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[9]"
-            ]
+            "type": "string",
+            "value": "X[9]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[10]"
-            ]
+            "type": "string",
+            "value": "X[10]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[11]"
-            ]
+            "type": "string",
+            "value": "X[11]"
           }
         ]
       },
@@ -5452,322 +4963,216 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "k1"
-            ]
+            "type": "string",
+            "value": "k1"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[11]"
-            ]
+            "type": "string",
+            "value": "X[11]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[12]"
-            ]
+            "type": "string",
+            "value": "X[12]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[13]"
-            ]
+            "type": "string",
+            "value": "X[13]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[14]"
-            ]
+            "type": "string",
+            "value": "X[14]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[15]"
-            ]
+            "type": "string",
+            "value": "X[15]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[16]"
-            ]
+            "type": "string",
+            "value": "X[16]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[17]"
-            ]
+            "type": "string",
+            "value": "X[17]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[18]"
-            ]
+            "type": "string",
+            "value": "X[18]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[19]"
-            ]
+            "type": "string",
+            "value": "X[19]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[20]"
-            ]
+            "type": "string",
+            "value": "X[20]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[21]"
-            ]
+            "type": "string",
+            "value": "X[21]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[22]"
-            ]
+            "type": "string",
+            "value": "X[22]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[23]"
-            ]
+            "type": "string",
+            "value": "X[23]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[24]"
-            ]
+            "type": "string",
+            "value": "X[24]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[25]"
-            ]
+            "type": "string",
+            "value": "X[25]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[26]"
-            ]
+            "type": "string",
+            "value": "X[26]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[27]"
-            ]
+            "type": "string",
+            "value": "X[27]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[28]"
-            ]
+            "type": "string",
+            "value": "X[28]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[29]"
-            ]
+            "type": "string",
+            "value": "X[29]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[30]"
-            ]
+            "type": "string",
+            "value": "X[30]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[31]"
-            ]
+            "type": "string",
+            "value": "X[31]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[32]"
-            ]
+            "type": "string",
+            "value": "X[32]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[33]"
-            ]
+            "type": "string",
+            "value": "X[33]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[34]"
-            ]
+            "type": "string",
+            "value": "X[34]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[35]"
-            ]
+            "type": "string",
+            "value": "X[35]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[36]"
-            ]
+            "type": "string",
+            "value": "X[36]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[37]"
-            ]
+            "type": "string",
+            "value": "X[37]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[38]"
-            ]
+            "type": "string",
+            "value": "X[38]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[39]"
-            ]
+            "type": "string",
+            "value": "X[39]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[40]"
-            ]
+            "type": "string",
+            "value": "X[40]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[41]"
-            ]
+            "type": "string",
+            "value": "X[41]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[42]"
-            ]
+            "type": "string",
+            "value": "X[42]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[43]"
-            ]
+            "type": "string",
+            "value": "X[43]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[44]"
-            ]
+            "type": "string",
+            "value": "X[44]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[45]"
-            ]
+            "type": "string",
+            "value": "X[45]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[46]"
-            ]
+            "type": "string",
+            "value": "X[46]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[47]"
-            ]
+            "type": "string",
+            "value": "X[47]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[48]"
-            ]
+            "type": "string",
+            "value": "X[48]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[49]"
-            ]
+            "type": "string",
+            "value": "X[49]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[50]"
-            ]
+            "type": "string",
+            "value": "X[50]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[50]"
-            ]
+            "type": "string",
+            "value": "X[50]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[50]"
-            ]
+            "type": "string",
+            "value": "X[50]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[50]"
-            ]
+            "type": "string",
+            "value": "X[50]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[50]"
-            ]
+            "type": "string",
+            "value": "X[50]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[50]"
-            ]
+            "type": "string",
+            "value": "X[50]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[47]"
-            ]
+            "type": "string",
+            "value": "X[47]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[48]"
-            ]
+            "type": "string",
+            "value": "X[48]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[49]"
-            ]
+            "type": "string",
+            "value": "X[49]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[50]"
-            ]
+            "type": "string",
+            "value": "X[50]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[51]"
-            ]
+            "type": "string",
+            "value": "X[51]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[52]"
-            ]
+            "type": "string",
+            "value": "X[52]"
           },
           {
-            "type": "strings",
-            "value": [
-              "X[53]"
-            ]
+            "type": "string",
+            "value": "X[53]"
           }
         ]
       },
@@ -5890,322 +5295,216 @@
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "P[1]"
-            ]
+            "type": "string",
+            "value": "P[1]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[2]"
-            ]
+            "type": "string",
+            "value": "P[2]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[3]"
-            ]
+            "type": "string",
+            "value": "P[3]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[4]"
-            ]
+            "type": "string",
+            "value": "P[4]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[5]"
-            ]
+            "type": "string",
+            "value": "P[5]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[6]"
-            ]
+            "type": "string",
+            "value": "P[6]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[7]"
-            ]
+            "type": "string",
+            "value": "P[7]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[8]"
-            ]
+            "type": "string",
+            "value": "P[8]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[9]"
-            ]
+            "type": "string",
+            "value": "P[9]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[10]"
-            ]
+            "type": "string",
+            "value": "P[10]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[11]"
-            ]
+            "type": "string",
+            "value": "P[11]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[12]"
-            ]
+            "type": "string",
+            "value": "P[12]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[13]"
-            ]
+            "type": "string",
+            "value": "P[13]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[14]"
-            ]
+            "type": "string",
+            "value": "P[14]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[15]"
-            ]
+            "type": "string",
+            "value": "P[15]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[16]"
-            ]
+            "type": "string",
+            "value": "P[16]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[17]"
-            ]
+            "type": "string",
+            "value": "P[17]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[18]"
-            ]
+            "type": "string",
+            "value": "P[18]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[19]"
-            ]
+            "type": "string",
+            "value": "P[19]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[20]"
-            ]
+            "type": "string",
+            "value": "P[20]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[21]"
-            ]
+            "type": "string",
+            "value": "P[21]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[22]"
-            ]
+            "type": "string",
+            "value": "P[22]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[23]"
-            ]
+            "type": "string",
+            "value": "P[23]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[24]"
-            ]
+            "type": "string",
+            "value": "P[24]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[25]"
-            ]
+            "type": "string",
+            "value": "P[25]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[26]"
-            ]
+            "type": "string",
+            "value": "P[26]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[27]"
-            ]
+            "type": "string",
+            "value": "P[27]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[28]"
-            ]
+            "type": "string",
+            "value": "P[28]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[29]"
-            ]
+            "type": "string",
+            "value": "P[29]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[30]"
-            ]
+            "type": "string",
+            "value": "P[30]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[31]"
-            ]
+            "type": "string",
+            "value": "P[31]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[32]"
-            ]
+            "type": "string",
+            "value": "P[32]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[33]"
-            ]
+            "type": "string",
+            "value": "P[33]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[34]"
-            ]
+            "type": "string",
+            "value": "P[34]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[35]"
-            ]
+            "type": "string",
+            "value": "P[35]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[36]"
-            ]
+            "type": "string",
+            "value": "P[36]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[37]"
-            ]
+            "type": "string",
+            "value": "P[37]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[38]"
-            ]
+            "type": "string",
+            "value": "P[38]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[39]"
-            ]
+            "type": "string",
+            "value": "P[39]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[40]"
-            ]
+            "type": "string",
+            "value": "P[40]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[41]"
-            ]
+            "type": "string",
+            "value": "P[41]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[42]"
-            ]
+            "type": "string",
+            "value": "P[42]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[43]"
-            ]
+            "type": "string",
+            "value": "P[43]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[44]"
-            ]
+            "type": "string",
+            "value": "P[44]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[45]"
-            ]
+            "type": "string",
+            "value": "P[45]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[46]"
-            ]
+            "type": "string",
+            "value": "P[46]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[47]"
-            ]
+            "type": "string",
+            "value": "P[47]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[48]"
-            ]
+            "type": "string",
+            "value": "P[48]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[49]"
-            ]
+            "type": "string",
+            "value": "P[49]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[50]"
-            ]
+            "type": "string",
+            "value": "P[50]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[51]"
-            ]
+            "type": "string",
+            "value": "P[51]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[52]"
-            ]
+            "type": "string",
+            "value": "P[52]"
           },
           {
-            "type": "strings",
-            "value": [
-              "P[53]"
-            ]
+            "type": "string",
+            "value": "P[53]"
           }
         ]
       },
@@ -6306,16 +5605,7 @@
         ]
       },
       {
-        "key": [
-          [
-            ""
-          ],
-          "Metabolic Regulation CompoundName",
-          [
-            ""
-          ],
-          "MetabolicRegulation"
-        ],
+        "key": "\r\nMetabolic Regulation CompoundName\r\nMetabolicRegulation",
         "rawValue": [
           "0 0 0 "
         ],
@@ -6346,16 +5636,7 @@
         ]
       },
       {
-        "key": [
-          [
-            ""
-          ],
-          "Gene Name Operon",
-          [
-            ""
-          ],
-          "Operon Structure"
-        ],
+        "key": "\r\nGene Name Operon\r\nOperon Structure",
         "rawValue": [
           "0 0 0 "
         ],
@@ -6386,16 +5667,7 @@
         ]
       },
       {
-        "key": [
-          [
-            ""
-          ],
-          "GeneticNetwork GeneProductName",
-          [
-            ""
-          ],
-          "Genetic Network"
-        ],
+        "key": "\r\nGeneticNetwork GeneProductName\r\nGenetic Network",
         "rawValue": [
           "0 0 0 "
         ],
@@ -6426,16 +5698,7 @@
         ]
       },
       {
-        "key": [
-          [
-            ""
-          ],
-          "Interaction GeneProductName",
-          [
-            ""
-          ],
-          "InteractionNetwork"
-        ],
+        "key": "\r\nInteraction GeneProductName\r\nInteractionNetwork",
         "rawValue": [
           "0 0 0 "
         ],
@@ -6466,16 +5729,7 @@
         ]
       },
       {
-        "key": [
-          [
-            ""
-          ],
-          "<Interaction Regulation GeneProductName",
-          [
-            ""
-          ],
-          "<InteractionRegulation"
-        ],
+        "key": "\r\n<Interaction Regulation GeneProductName\r\n<InteractionRegulation",
         "rawValue": [
           "0 0 0 "
         ],
@@ -6596,20 +5850,7 @@
         ]
       },
       {
-        "key": [
-          [
-            ""
-          ],
-          "<Total Cellular Process Names",
-          [
-            ""
-          ],
-          "<Total Entity Names",
-          [
-            ""
-          ],
-          "<Index Link to metabolic"
-        ],
+        "key": "\r\n<Total Cellular Process Names\r\n<Total Entity Names\r\n<Index Link to metabolic",
         "rawValue": [
           "\r\n"
         ],
@@ -7160,7 +6401,7 @@
       {
         "key": "<INI 1",
         "rawValue": [
-          "\r\n//! Data comments \r\n //! Compound administration \r\n //! Compound action on target \r\n //! Auxiliary parameters \r\n //! Compartment volumes \r\n Default=1.000000e+00; \r\n //! Initial concentrations \r\n A=1.898501e+00; \r\n C=1.490793e+00; \r\n B=1.300637e+00; \r\n D=1.234049e+00; \r\n //! Kinetic parameters \r\n k1=1.944853e+00;//V_in \r\n k2=1.931480e+00;//V1 \r\n k3=1.738867e+00;//V2 \r\n k4=1.541431e+00;//V_out \r\n //! Buffered concentrations \r\n //! Parameters for fitting \r\n //! Pools initial \r\n Pool[1]=D+C; ",
+          "\r\n//! Data comments \r\n\r\n //! Compound administration \r\n\r\n //! Compound action on target \r\n\r\n //! Auxiliary parameters \r\n\r\n //! Compartment volumes \r\n\r\n Default=1.000000e+00; \r\n\r\n //! Initial concentrations \r\n\r\n A=1.898501e+00; \r\n\r\n C=1.490793e+00; \r\n\r\n B=1.300637e+00; \r\n\r\n D=1.234049e+00; \r\n\r\n //! Kinetic parameters \r\n\r\n k1=1.944853e+00;//V_in \r\n\r\n k2=1.931480e+00;//V1 \r\n\r\n k3=1.738867e+00;//V2 \r\n\r\n k4=1.541431e+00;//V_out \r\n\r\n //! Buffered concentrations \r\n\r\n //! Parameters for fitting \r\n\r\n //! Pools initial \r\n\r\n Pool[1]=D+C; ",
           "\r\n"
         ],
         "parsedValue": [
@@ -7901,17 +7142,7 @@
         ]
       },
       {
-        "key": [
-          [
-            "",
-            ""
-          ],
-          "PATH->UserLaws",
-          [
-            ""
-          ],
-          "<P Use User's mechanisms"
-        ],
+        "key": "\r\n,\r\nPATH->UserLaws\r\n<P Use User's mechanisms",
         "rawValue": [
           "0 0 0 0 "
         ],
@@ -7928,17 +7159,7 @@
         ]
       },
       {
-        "key": [
-          [
-            "",
-            ""
-          ],
-          "TCN->UserLaws",
-          [
-            ""
-          ],
-          "<P Use User's mechanisms"
-        ],
+        "key": "\r\n,\r\nTCN->UserLaws\r\n<P Use User's mechanisms",
         "rawValue": [
           "\r\n"
         ],
@@ -7950,17 +7171,7 @@
         ]
       },
       {
-        "key": [
-          [
-            "",
-            ""
-          ],
-          "PON->UserLaws",
-          [
-            ""
-          ],
-          "<P Use User's mechanisms"
-        ],
+        "key": "\r\n,\r\nPON->UserLaws\r\n<P Use User's mechanisms",
         "rawValue": [
           "\r\n"
         ],
@@ -7972,17 +7183,7 @@
         ]
       },
       {
-        "key": [
-          [
-            "",
-            ""
-          ],
-          "PIN->UserLaws",
-          [
-            ""
-          ],
-          "<P Use User's mechanisms"
-        ],
+        "key": "\r\n,\r\nPIN->UserLaws\r\n<P Use User's mechanisms",
         "rawValue": [
           "\r\n"
         ],
@@ -8344,21 +7545,19 @@
       {
         "key": "<COMMENTS 0",
         "rawValue": [
-          "\r\n#dbs# "
+          "\r\n\r\n#dbs# "
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "#dbs#"
-            ]
+            "type": "emptyValue",
+            "value": null
           }
         ]
       },
       {
         "key": "<COMMENTS 1",
         "rawValue": [
-          "\r\n//! Annotation of model variables \r\n//! Literature cited \r\n//! Description of experimental data presented in �dat� files \r\n#dbs# "
+          "\r\n//! Annotation of model variables \r\n//! Literature cited \r\n//! Description of experimental data presented in �dat� files \r\n\r\n#dbs# "
         ],
         "parsedValue": [
           [
@@ -8379,12 +7578,6 @@
               "header": 1,
               "value": " Description of experimental data presented in �dat� files ",
               "newLine": true
-            },
-            {
-              "type": "strings",
-              "value": [
-                "#dbs#"
-              ]
             }
           ]
         ]
@@ -8392,77 +7585,67 @@
       {
         "key": "<COMMENTS 2",
         "rawValue": [
-          "\r\n#dbs# "
+          "\r\n\r\n#dbs# "
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "#dbs#"
-            ]
+            "type": "emptyValue",
+            "value": null
           }
         ]
       },
       {
         "key": "<COMMENTS 3",
         "rawValue": [
-          "\r\n#dbs# "
+          "\r\n\r\n#dbs# "
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "#dbs#"
-            ]
+            "type": "emptyValue",
+            "value": null
           }
         ]
       },
       {
         "key": "<COMMENTS 4",
         "rawValue": [
-          "\r\n#dbs# "
+          "\r\n\r\n#dbs# "
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "#dbs#"
-            ]
+            "type": "emptyValue",
+            "value": null
           }
         ]
       },
       {
         "key": "<COMMENTS 5",
         "rawValue": [
-          "\r\n#dbs# "
+          "\r\n\r\n#dbs# "
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "#dbs#"
-            ]
+            "type": "emptyValue",
+            "value": null
           }
         ]
       },
       {
         "key": "<COMMENTS 6",
         "rawValue": [
-          "\r\n#dbs# "
+          "\r\n\r\n#dbs# "
         ],
         "parsedValue": [
           {
-            "type": "strings",
-            "value": [
-              "#dbs#"
-            ]
+            "type": "emptyValue",
+            "value": null
           }
         ]
       },
       {
         "key": "<COMMENTS 7",
         "rawValue": [
-          "\r\n#dbs# \r\n0 \r\n0 \r\n0 \r\n0 \r\n1 \r\nDefault \r\n0 \r\n1 \r\n0 \r\n1 \r\n 1 \r\ntrue \r\n0 \r\n1 \r\n1.0 \r\n1 \r\n3 \r\n4 \r\nA \r\nC \r\nB \r\nD \r\n0 \r\n4 \r\nDefault \r\nDefault \r\nDefault \r\nDefault \r\n4 \r\n \r\n \r\n4 \r\n \r\n \r\n0 \r\n0 \r\n0 \r\n4 \r\nfalse \r\nfalse \r\nfalse \r\nfalse \r\n0 \r\n4 \r\nfalse \r\nfalse \r\nfalse \r\nfalse \r\n4 \r\nfalse \r\nfalse \r\nfalse \r\nfalse \r\n0 \r\n0 \r\n0 \r\n0 \r\n0 \r\n0 \r\n0 \r\n0 \r\n0 \r\n4 \r\nV_in \r\nV_in \r\n0 1 \r\n0 \r\nV1 \r\nV1 \r\n0 1 \r\n0 \r\nV2 \r\nV2 \r\n0 1 \r\n0 \r\nV_out \r\nV_out \r\n0 1 \r\n0 \r\n0 \r\n2 \r\nmm \r\nmole \r\n1000 \r\n15 \r\nk1 \r\n1.000000 \r\n0.000000 \r\n15 \r\n1000 \r\nk1 \r\n1.000000 \r\n0 \r\n0 \r\n1.000000e-06 \r\n0 \r\n0 \r\n5 \r\nk1 \r\n0.001000 \r\nk1 \r\n0.001000 \r\n0 \r\n100 \r\n0 \r\n100 \r\n2.000000 \r\n-1 \r\n-1 \r\n0 \r\n0 \r\n1000 \r\n0 \r\n1.000000 \r\n0.500000 \r\n0 \r\n0 \r\n1 \r\n0.000010 \r\n1000000 \r\n0 \r\n2 \r\nk1 \r\n1.5 \r\n0 \r\n1 \r\n0 \r\n0 \r\nB \r\n1 \r\n1 \r\n2 \r\n5 \r\n1 \r\n<listModelData> \r\n   <item> \r\n      <name></name> \r\n      <organizm></organizm> \r\n      <modeltype>0</modeltype> \r\n      <expdata></expdata> \r\n   </item> \r\n</listModelData> \r\n<listUnits size=\"1\"> \r\n</listUnits> \r\n<listComp size=\"1\"> \r\n   <item> \r\n      <name>Default_mc</name> \r\n      <comment></comment> \r\n      <unit></unit> \r\n      <outside></outside> \r\n      <spdim>3</spdim> \r\n      <sizes>1</sizes> \r\n      <const>0</const> \r\n      <rrule></rrule> \r\n      <cdown></cdown> \r\n   </item> \r\n</listComp> \r\n<listSpecies size=\"0\"> \r\n</listSpecies> \r\n<listRepository size=\"1\" default=\"List1\"> \r\n   <item> \r\n      <name>List1</name> \r\n      <comment></comment> \r\n      <listParameters size=\"0\"> \r\n      </listParameters> \r\n   </item> \r\n</listRepository> \r\n<listRules size=\"0\"> \r\n</listRules> \r\n<listReactions size=\"0\"> \r\n</listReactions> \r\n<listcontent size=\"0\"> \r\n</listcontent> \r\n22jun2007 "
+          "\r\n\r\n#dbs# \r\n0 \r\n0 \r\n0 \r\n0 \r\n1 \r\nDefault \r\n0 \r\n1 \r\n0 \r\n1 \r\n\r\n 1 \r\ntrue \r\n0 \r\n1 \r\n1.0 \r\n1 \r\n3 \r\n4 \r\nA \r\nC \r\nB \r\nD \r\n0 \r\n4 \r\nDefault \r\nDefault \r\nDefault \r\nDefault \r\n4 \r\n\r\n \r\n\r\n \r\n4 \r\n\r\n \r\n\r\n \r\n0 \r\n0 \r\n0 \r\n4 \r\nfalse \r\nfalse \r\nfalse \r\nfalse \r\n0 \r\n4 \r\nfalse \r\nfalse \r\nfalse \r\nfalse \r\n4 \r\nfalse \r\nfalse \r\nfalse \r\nfalse \r\n0 \r\n0 \r\n0 \r\n0 \r\n0 \r\n0 \r\n0 \r\n0 \r\n0 \r\n4 \r\nV_in \r\nV_in \r\n0 1 \r\n0 \r\nV1 \r\nV1 \r\n0 1 \r\n0 \r\nV2 \r\nV2 \r\n0 1 \r\n0 \r\nV_out \r\nV_out \r\n0 1 \r\n0 \r\n0 \r\n2 \r\nmm \r\nmole \r\n1000 \r\n15 \r\nk1 \r\n1.000000 \r\n0.000000 \r\n15 \r\n1000 \r\nk1 \r\n1.000000 \r\n0 \r\n0 \r\n1.000000e-06 \r\n0 \r\n0 \r\n5 \r\nk1 \r\n0.001000 \r\nk1 \r\n0.001000 \r\n0 \r\n100 \r\n0 \r\n100 \r\n2.000000 \r\n-1 \r\n-1 \r\n0 \r\n0 \r\n1000 \r\n0 \r\n1.000000 \r\n0.500000 \r\n0 \r\n0 \r\n1 \r\n0.000010 \r\n1000000 \r\n0 \r\n2 \r\nk1 \r\n1.5 \r\n0 \r\n1 \r\n0 \r\n0 \r\nB \r\n1 \r\n1 \r\n2 \r\n5 \r\n1 \r\n<listModelData> \r\n   <item> \r\n      <name></name> \r\n      <organizm></organizm> \r\n      <modeltype>0</modeltype> \r\n      <expdata></expdata> \r\n   </item> \r\n</listModelData> \r\n<listUnits size=\"1\"> \r\n</listUnits> \r\n<listComp size=\"1\"> \r\n   <item> \r\n      <name>Default_mc</name> \r\n      <comment></comment> \r\n      <unit></unit> \r\n      <outside></outside> \r\n      <spdim>3</spdim> \r\n      <sizes>1</sizes> \r\n      <const>0</const> \r\n      <rrule></rrule> \r\n      <cdown></cdown> \r\n   </item> \r\n</listComp> \r\n<listSpecies size=\"0\"> \r\n</listSpecies> \r\n<listRepository size=\"1\" default=\"List1\"> \r\n   <item> \r\n      <name>List1</name> \r\n      <comment></comment> \r\n      <listParameters size=\"0\"> \r\n      </listParameters> \r\n   </item> \r\n</listRepository> \r\n<listRules size=\"0\"> \r\n</listRules> \r\n<listReactions size=\"0\"> \r\n</listReactions> \r\n<listcontent size=\"0\"> \r\n</listcontent> \r\n22jun2007 "
         ],
         "parsedValue": [
           [

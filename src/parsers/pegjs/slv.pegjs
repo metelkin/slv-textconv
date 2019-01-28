@@ -27,7 +27,7 @@ keyValuePars
 
 header
   = h1:"DBSolve Optimum (new parser) 1 Jul 2006"
-    sp1:spaces*
+    sp1:break*
     h2:("SLV"[0-9.*]+)
     {
       return h1+sp1+h2[0]+h2[1].join('')
@@ -82,10 +82,10 @@ sharps = s:"##"+ "#"? {
   //console.log(`sharp is ${s}`)
   return s.join('')
 }
-break =  s:" "* "\r"* "\n" {
+break =  s:(" "* "\r"* "\n") {
   return s.join('')
 }
-dictionaryKey = break* "Right Hand Sides &&" break* "Initial Values &&" break* "Comments Or Selkov DB record"/
+dictionaryKey = key:(break* "Right Hand Sides &&" break* "Initial Values &&" break* "Comments Or Selkov DB record"/
 break* "PIN->UserLaws" break* "<P Use User's mechanisms"/
 break* "PON->UserLaws" break* "<P Use User's mechanisms"/
 break* "TCN->UserLaws" break* "<P Use User's mechanisms"/
@@ -95,4 +95,6 @@ break* "<Interaction Regulation GeneProductName" break* "<InteractionRegulation"
 break* "Interaction GeneProductName" break* "InteractionNetwork"/
 break* "Gene Name Operon" break* "Operon Structure"/
 break* "Metabolic Regulation CompoundName" break* "MetabolicRegulation"/
-break* "GeneticNetwork GeneProductName" break* "Genetic Network"
+break* "GeneticNetwork GeneProductName" break* "Genetic Network") {
+  return key.join('')
+}
