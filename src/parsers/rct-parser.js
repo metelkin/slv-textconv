@@ -179,10 +179,6 @@ function peg$parse(input, options) {
       peg$c15 = peg$literalExpectation("!", false),
       peg$c16 = function(b, level, comment) {
             let newLine = false
-            console.log(b.join(''))
-            console.log(b.join('').indexOf('\n'))
-            console.log(location().start)
-            console.log("________")
             if ((b.join('').indexOf('\n') != -1) || (location().start.column == 1)) {
               newLine = true
             }

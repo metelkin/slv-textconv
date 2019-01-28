@@ -23,7 +23,8 @@ let tests = casesDirs.reduce((result, dir) => {
     ).toString();
     let name = getFileName(caseName);
     let expected = fs.readFileSync(
-      path.join('./test/cases', dir, 'output', name + '.' + extensionOutputFiles[dir])
+      path.join('./test/cases', dir, 'output', name + '.' + extensionOutputFiles[dir]),
+      'utf8'
     ).toString();
     return makeCaseObj(dir, input, expected, name);
   });
