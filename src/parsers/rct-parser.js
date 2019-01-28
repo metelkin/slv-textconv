@@ -201,7 +201,7 @@ function peg$parse(input, options) {
       peg$c21 = "\n",
       peg$c22 = peg$literalExpectation("\n", false),
       peg$c23 = function(s) {
-        return s.join('')
+        return s.join('').replace(/\r/g, '')
       },
       peg$c24 = /^[_A-Za-z0-9]/,
       peg$c25 = peg$classExpectation(["_", ["A", "Z"], ["a", "z"], ["0", "9"]], false, false),

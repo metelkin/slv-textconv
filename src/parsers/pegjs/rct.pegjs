@@ -71,7 +71,7 @@ lineComment
       }
     }
 break =  s:" "* "\r"* "\n" {
-  return s.join('')
+  return s.join('').replace(/\r/g, '')
 }
 nameSymbols = [_A-Za-z0-9]
 signSymbols = [+-]
