@@ -1,5 +1,5 @@
 {% macro hs(items=[])%}{% for species in items %}{% if loop.first == false %}+{% endif %}{% if species.stoichiometry != 1 %}{{ species.stoichiometry }}*{% endif %}{{ species.species }}{% endfor %}{% endmacro %}
 {% for item in content %}
 {% include "./layouts/linecomment.njk" %}
-{% if item.type === 'reaction' %}{% if loop.first == false %}{{"\r\n"}}{% endif %}{{ item.id }}: {{ hs(item.left) }}={{ hs(item.right) }};{% endif %}
+{% if item.type === 'reaction' %}{% if loop.first == false %}{{"\n"}}{% endif %}{{ item.id }}: {{ hs(item.left) }}={{ hs(item.right) }};{% endif %}
 {% endfor %}
