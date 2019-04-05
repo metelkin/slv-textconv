@@ -3,3 +3,5 @@ test/dev-test.js
 test/result.txt
 result.txt
 case/
+result.xlsx
+.~lock.result.xlsx#

@@ -12,7 +12,8 @@
     "slv-rct-serialize": "./bin/slv-rct-serialize.js",
     "slv-excel2json": "./bin/slv-excel2json.js",
     "slv-dat-serialize": "./bin/slv-dat-serialize.js",
-    "slv-json2excel": "./bin/slv-json2excel.js"
+    "slv-json2excel": "./bin/slv-json2excel.js",
+    "slv-dat2excel": "./bin/slv-dat2excel.js"
   },
   "scripts": {
     "test": "npm run generate&& node test/build.js && mocha ./test/index.js",

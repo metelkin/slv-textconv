@@ -13,6 +13,7 @@ commander
   .command('dat-parse <inputFile>', 'Parse .DAT file')
   .command('dat-serialize <inputFile>', 'Serialize .DAT file')
   .command('json2excel <inputFile>', 'Convert .DATJS to .XLSX')
+  .command('dat2excel <inputFile>', 'Convert .DAT to .XLSX')
   .command('excel2json <inputFile>', 'Convert .XLSX files to .DATJS')
   .command('excel2dat <inputFile>', 'Convert .XLSX files to .DAT')
 
