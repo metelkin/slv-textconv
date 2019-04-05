@@ -29,32 +29,39 @@ function _datJson2excelJson(json) {
       dataHeader['include'] = item.header[1];
       dataHeader['x'] = item.header[2];
       dataHeader['y'] = item.header[3];
+
+      let vars = item.header[3];
+      var headCond = {};
+      let conditions = item.conditions.reduce((result, c) => {
+        templateItem[c[1]] = '';
+        result[c[1]] = c[0];
+        headCond[c[1]] = c[1];
+        return result;
+      }, {});
+
+      dataHeader = _.mergeWith(dataHeader, headCond);
       let rows = _
         .chain(item.data)
-        .zipWith(item.conditions, (data = [], conditions = []) => {
-          return {data, conditions};
-        })
         .reduce((result, x) => {
-          if (x.conditions[1] !== 'tmp') {
-            result.push({
-              num: '',
-              method: '',
-              include: '',
-              x: x.data[0] || 0,
-              y: x.data[1] || 0,
-              weight: x.data[2] || 0,
-              sd: x.data[3] || 0,
-              vars: x.conditions[1],
-              values: x.conditions[0],
-              'irtRef\.pubmed[]': [],
-              notes: ''
-            });
-          }
+          let r = {
+            num: '',
+            method: '',
+            include: '',
+            x: x[0] || 0,
+            y: x[1] || 0,
+            weight: x[2] || 0,
+            sd: x[3] || 0,
+            vars,
+            'irtRef\.pubmed[]': [],
+            values: x[1] || 0,
+            notes: ''
+          };
+          result.push(_.mergeWith(r, conditions));
           return result;
         }, [])
         .value();
 
-      return _.flatten([dataHeader, rows]);
+      return _.flatten([dataHeader, rows, conditions]);
     })
     .flatten()
     .value();
