@@ -60,8 +60,9 @@ function _datJson2excelJson(json) {
           return result;
         }, [])
         .value();
-
-      return _.flatten([dataHeader, rows, conditions]);
+      let resultRows = _.flatten([rows, conditions]);
+      resultRows.pop();
+      return resultRows;
     })
     .flatten()
     .value();
@@ -69,7 +70,8 @@ function _datJson2excelJson(json) {
 
 function json2excel(data) {
   let result = _datJson2excelJson(data);
-  result.unshift(templateItem, templateItem);
+  result.pop();
+  //result.unshift(templateItem, templateItem);
   return json2xls(result);
 }
 
