@@ -38,7 +38,7 @@
   "dependencies": {
     "excel-as-json": "^2.0.2",
     "json2xls": "^0.1.2",
-    "lodash": "^4.17.11",
+    "lodash": ">=4.17.13",
     "pegjs": "^0.10.0",
     "commander": "^2.19.0",
     "nunjucks": "^3.1.4"
