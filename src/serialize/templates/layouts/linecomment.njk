@@ -1,1 +1,4 @@
-{% if item.type === 'lineComment' %}{% if item.newLine == true %}{{"\n"}}{% endif %}//{% for i in range(0, item.header) %}!{% endfor %} {{ item.value }}{% endif %}
+{%- if item.type === 'lineComment' -%}
+    {%- if item.newLine == true %}{{"\n"}}{% endif -%}
+    //{% for i in range(0, item.header) %}!{% endfor %} {{ item.value }}
+{%- endif -%}
