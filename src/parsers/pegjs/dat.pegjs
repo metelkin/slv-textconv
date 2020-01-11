@@ -1,3 +1,7 @@
+/*
+  Parse .DAT files to JS object
+*/
+
 start
   = startRubbish*
     result:content+

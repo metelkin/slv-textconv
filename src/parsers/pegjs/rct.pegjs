@@ -1,3 +1,7 @@
+/*
+  Parse .RCT files to JS object
+*/
+
 start
   = c:(reaction/lineComment)+
     (break/space)*

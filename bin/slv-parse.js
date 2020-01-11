@@ -2,7 +2,7 @@
 const commander = require('commander');
 const fs = require('fs');
 // const path = require('path');
-const {slvParse} = require('../src');
+const { slvParse } = require('../src');
 
 commander
   .description('Parse .SLV to .SLVJS')

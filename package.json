@@ -16,7 +16,7 @@
   },
   "scripts": {
     "test": "npm run generate&& node test/build.js && mocha ./test/index.js",
-    "generate": "pegjs -o src/parsers/slv-raw-parser.js src/parsers/pegjs/slv.pegjs && pegjs -o src/parsers/slv-value-parser.js src/parsers/pegjs/slv-value.pegjs && pegjs -o src/parsers/dat-parser.js src/parsers/pegjs/dat.pegjs && pegjs -o src/parsers/rct-parser.js src/parsers/pegjs/rct.pegjs"
+    "generate": "pegjs -o src/parsers/slv-raw-parser.js src/parsers/pegjs/slv-raw.pegjs && pegjs -o src/parsers/slv-value-parser.js src/parsers/pegjs/slv-value.pegjs && pegjs -o src/parsers/dat-parser.js src/parsers/pegjs/dat.pegjs && pegjs -o src/parsers/rct-parser.js src/parsers/pegjs/rct.pegjs"
   },
   "repository": {
     "type": "git",

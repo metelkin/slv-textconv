@@ -1,5 +1,7 @@
 'use strict';
-
+/*
+  manually written combinarion of raw parser and value parser
+*/
 const SRP = require('./slv-raw-parser.js');
 const SVP = require('./slv-value-parser.js');
 const fs = require('fs');

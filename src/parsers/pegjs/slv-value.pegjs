@@ -1,3 +1,8 @@
+/*
+  Parse some parts of .SLV files to JS objects
+  used together with slv-raw
+*/
+
 start
   = oneValue/
     record/

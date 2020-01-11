@@ -1,3 +1,7 @@
+/*
+  Parse .SLV files to JS object
+*/
+
 start
   = head:header
     pairs:keyValuePars*
