@@ -4,7 +4,7 @@
 */
 const SRP = require('./slv-raw-parser.js');
 const SVP = require('./slv-value-parser.js');
-const fs = require('fs');
+//const fs = require('fs');
 
 function parse(slv) {
   let SLV = SRP.parse(slv); //parse slv files, values is raw
@@ -37,11 +37,11 @@ function lastCommentParse(inputComment) {
   let comment = inputComment
     .substring(0,xmlStart)
     .trim()
-    .split('\r\n');
+    .split(/\r*\n/);
+
   let result = [];
-  let l = comment.length;
-  let i = 0;
-  while(i < l) {
+  let i = 1;
+  while(i < comment.length) {
     let j = parseInt(comment[i].trim());
     //console.log(`j is ${j}`);
     let cell = [];

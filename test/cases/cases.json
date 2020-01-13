@@ -13130,7 +13130,6 @@
               ],
               "parsedValue": [
                 [
-                  [],
                   {
                     "type": "string",
                     "value": "<listModelData> \n   <item> \n      <name></name> \n      <organizm></organizm> \n      <modeltype>0</modeltype> \n      <expdata></expdata> \n   </item> \n</listModelData> \n<listUnits size=\"1\"> \n</listUnits> \n<listComp size=\"1\"> \n   <item> \n      <name>Default_mc</name> \n      <comment></comment> \n      <unit></unit> \n      <outside></outside> \n      <spdim>3</spdim> \n      <sizes>1</sizes> \n      <const>0</const> \n      <rrule></rrule> \n      <cdown></cdown> \n   </item> \n</listComp> \n<listSpecies size=\"0\"> \n</listSpecies> \n<listRepository size=\"1\" default=\"List1\"> \n   <item> \n      <name>List1</name> \n      <comment></comment> \n      <listParameters size=\"0\"> \n      </listParameters> \n   </item> \n</listRepository> \n<listRules size=\"0\"> \n</listRules> \n<listReactions size=\"0\"> \n</listReactions> \n<listcontent size=\"0\"> \n</listcontent> \n22jun2007 "
@@ -19549,7 +19548,6 @@
               ],
               "parsedValue": [
                 [
-                  [],
                   {
                     "type": "string",
                     "value": "<listModelData> \n   <item> \n      <name></name> \n      <organizm></organizm> \n      <modeltype>0</modeltype> \n      <expdata></expdata> \n   </item> \n</listModelData> \n<listUnits size=\"1\"> \n</listUnits> \n<listComp size=\"1\"> \n   <item> \n      <name>Default_mc</name> \n      <comment></comment> \n      <unit></unit> \n      <outside></outside> \n      <spdim>3</spdim> \n      <sizes>1</sizes> \n      <const>0</const> \n      <rrule></rrule> \n      <cdown></cdown> \n   </item> \n</listComp> \n<listSpecies size=\"0\"> \n</listSpecies> \n<listRepository size=\"1\" default=\"List1\"> \n   <item> \n      <name>List1</name> \n      <comment></comment> \n      <listParameters size=\"0\"> \n      </listParameters> \n   </item> \n</listRepository> \n<listRules size=\"0\"> \n</listRules> \n<listReactions size=\"0\"> \n</listReactions> \n<listcontent size=\"0\"> \n</listcontent> \n22jun2007 "
@@ -29858,7 +29856,6 @@
               ],
               "parsedValue": [
                 [
-                  [],
                   {
                     "type": "string",
                     "value": "<listModelData> \n   <item> \n      <name></name> \n      <organizm></organizm> \n      <modeltype>0</modeltype> \n      <expdata></expdata> \n   </item> \n</listModelData> \n<listUnits size=\"1\"> \n</listUnits> \n<listComp size=\"1\"> \n   <item> \n      <name>Default_mc</name> \n      <comment></comment> \n      <unit></unit> \n      <outside></outside> \n      <spdim>3</spdim> \n      <sizes>1</sizes> \n      <const>0</const> \n      <rrule></rrule> \n      <cdown></cdown> \n   </item> \n</listComp> \n<listSpecies size=\"0\"> \n</listSpecies> \n<listRepository size=\"1\" default=\"List1\"> \n   <item> \n      <name>List1</name> \n      <comment></comment> \n      <listParameters size=\"0\"> \n      </listParameters> \n   </item> \n</listRepository> \n<listRules size=\"0\"> \n</listRules> \n<listReactions size=\"0\"> \n</listReactions> \n<listcontent size=\"0\"> \n</listcontent> \n22jun2007 \n          "
@@ -36783,7 +36780,6 @@
               ],
               "parsedValue": [
                 [
-                  [],
                   {
                     "type": "string",
                     "value": "<listModelData> \n   <item> \n      <name></name> \n      <organizm></organizm> \n      <modeltype>0</modeltype> \n      <expdata></expdata> \n   </item> \n</listModelData> \n<listUnits size=\"1\"> \n</listUnits> \n<listComp size=\"1\"> \n   <item> \n      <name>Default_mc</name> \n      <comment></comment> \n      <unit></unit> \n      <outside></outside> \n      <spdim>3</spdim> \n      <sizes>1</sizes> \n      <const>0</const> \n      <rrule></rrule> \n      <cdown></cdown> \n   </item> \n</listComp> \n<listSpecies size=\"0\"> \n</listSpecies> \n<listRepository size=\"1\" default=\"List1\"> \n   <item> \n      <name>List1</name> \n      <comment></comment> \n      <listParameters size=\"0\"> \n      </listParameters> \n   </item> \n</listRepository> \n<listRules size=\"0\"> \n</listRules> \n<listReactions size=\"0\"> \n</listReactions> \n<listcontent size=\"0\"> \n</listcontent> \n22jun2007 "
@@ -36838,7 +36834,6 @@
               ],
               "parsedValue": [
                 [
-                  [],
                   {
                     "type": "string",
                     "value": "<xml> \n</xml> "
@@ -37010,7 +37005,6 @@
               ],
               "parsedValue": [
                 [
-                  [],
                   {
                     "type": "string",
                     "value": "<xml> \n</xml> "
@@ -37071,7 +37065,6 @@
               ],
               "parsedValue": [
                 [
-                  [],
                   {
                     "type": "string",
                     "value": "<xml> \n</xml> "
@@ -37112,7 +37105,6 @@
               ],
               "parsedValue": [
                 [
-                  [],
                   {
                     "type": "string",
                     "value": "<xml> \n</xml> "
@@ -37175,7 +37167,6 @@
               ],
               "parsedValue": [
                 [
-                  [],
                   {
                     "type": "string",
                     "value": "<xml> \n</xml> "
@@ -37270,7 +37261,6 @@
               ],
               "parsedValue": [
                 [
-                  [],
                   {
                     "type": "string",
                     "value": "<xml> \n</xml> "
