@@ -1,5 +1,5 @@
 const nunjucks = require('nunjucks');
-//const _ = require('lodash');
+const _ = require('lodash');
 
 const env = new nunjucks.Environment(
   new nunjucks.FileSystemLoader(__dirname),
@@ -9,5 +9,20 @@ const env = new nunjucks.Environment(
     lstripBlocks: true
   }
 );
+
+// print dictionary
+env.addFilter('dictString', function(component) {
+  let res = _.omit(component, ['id', 'class', 'assignments', 'num']);
+  let str = toHetaDict(res);
+
+  return str===' {  }' ? '': str;
+});
+
+function toHetaDict(o){
+  let pairs = _.toPairs(o)
+    .map((x) => x[0] + ': ' + x[1])
+    .join(', ');
+  return ' { ' + pairs + ' }';
+}
 
 module.exports = env;

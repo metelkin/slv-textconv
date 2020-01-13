@@ -44,18 +44,27 @@ function slv2hetajs(slvjs){
     .dropRight()
     .groupBy((x) => x[0])
     .mapValues((x) => x.map(y => y.slice(1)))
+    .mapValues((x) => x.map(y => {
+      return { target: compoundNames[y[0]-1], stoichiometry: y[1] };
+    }))
+    .mapValues((x) => {
+      let left = x
+        .filter(y => y.stoichiometry < 0)
+        .map(y => y.stoichiometry===-1 ? y.target : `${-y.stoichiometry}*${y.target}` )
+        .join(' + ');
+      let right = x
+        .filter(y => y.stoichiometry > 0)
+        .map(y => y.stoichiometry===1 ? y.target : `${y.stoichiometry}*${y.target}`)
+        .join(' + ');
+      return left + ' => ' + right;
+    })
     .value();
+
   reactionNames.forEach((x, i) => {
-    let actorsArray = reactionConsistency[i];
-    let actors = actorsArray
-      ? actorsArray.map(y => {
-        return { target: compoundNames[y[0]], stoichiometry: y[1] };
-      })
-      : undefined;
     space.push({
       id: x,
       class: 'Reaction',
-      actors: actors
+      actors: reactionConsistency[i+1]
     });
   });
 

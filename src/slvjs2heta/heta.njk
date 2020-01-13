@@ -1,3 +1,9 @@
 {% for component in content %}
-!!!
+{{ component.id -}}
+{{ ' @' + component.class if component.class -}}
+{{ component|dictString -}}
+{{ ' = ' + component.num if component.num -}}
+{{ ' .= ' + component.assignments.start_ if component.assignments.start_ -}}
+{{ ' := ' + component.assignments.ode_ if component.assignments.ode_ -}}
+;
 {% endfor %}
