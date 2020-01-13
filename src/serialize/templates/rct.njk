@@ -6,7 +6,7 @@
     {%- endfor %}
 {% endmacro %}
 {% for item in content %}
-{% include "./layouts/linecomment.njk" %}
+{% include "serialize/templates/layouts/linecomment.njk" %}
     {% if item.type === 'reaction' -%}
         {% if loop.first == false %}{{"\n"}}{% endif -%}
         {{ item.id }}: {{ hs(item.left) }}={{ hs(item.right) }};
