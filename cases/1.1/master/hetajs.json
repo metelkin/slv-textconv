@@ -1,0 +1,120 @@
+[
+  {
+    "id": "Default",
+    "class": "Compartment"
+  },
+  {
+    "id": "A",
+    "class": "Species",
+    "compartment": "Default"
+  },
+  {
+    "id": "C",
+    "class": "Species",
+    "compartment": "Default"
+  },
+  {
+    "id": "B",
+    "class": "Species",
+    "compartment": "Default"
+  },
+  {
+    "id": "D",
+    "class": "Species",
+    "compartment": "Default"
+  },
+  {
+    "id": "V_in",
+    "class": "Reaction",
+    "actors": " => A"
+  },
+  {
+    "id": "V1",
+    "class": "Reaction",
+    "actors": "A + C => B + D"
+  },
+  {
+    "id": "V2",
+    "class": "Reaction",
+    "actors": "D => C"
+  },
+  {
+    "id": "V_out",
+    "class": "Reaction",
+    "actors": "B => "
+  },
+  {
+    "id": "V_in",
+    "assignments": {
+      "ode_": "k1"
+    }
+  },
+  {
+    "id": "V1",
+    "assignments": {
+      "ode_": "k2*A*C"
+    }
+  },
+  {
+    "id": "V2",
+    "assignments": {
+      "ode_": "k3*D"
+    }
+  },
+  {
+    "id": "V_out",
+    "assignments": {
+      "ode_": "k4*B"
+    }
+  },
+  {
+    "id": "Default",
+    "assignments": {
+      "start_": "1.000000e+00"
+    }
+  },
+  {
+    "id": "A",
+    "assignments": {
+      "start_": "1.898501e+00"
+    }
+  },
+  {
+    "id": "C",
+    "assignments": {
+      "start_": "1.490793e+00"
+    }
+  },
+  {
+    "id": "B",
+    "assignments": {
+      "start_": "1.300637e+00"
+    }
+  },
+  {
+    "id": "D",
+    "assignments": {
+      "start_": "1.234049e+00"
+    }
+  },
+  {
+    "id": "k1",
+    "class": "Const",
+    "num": 1.944853
+  },
+  {
+    "id": "k2",
+    "class": "Const",
+    "num": 1.93148
+  },
+  {
+    "id": "k3",
+    "class": "Const",
+    "num": 1.738867
+  },
+  {
+    "id": "k4",
+    "class": "Const",
+    "num": 1.541431
+  }
+]

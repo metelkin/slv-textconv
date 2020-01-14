@@ -1,0 +1,27 @@
+/*
+  This file was generated from .SLV file using slv-utils 0.2.0
+  see https://github.com/insysbio/slv-utils
+*/
+
+Default @Compartment;
+A @Species { compartment: Default };
+C @Species { compartment: Default };
+B @Species { compartment: Default };
+D @Species { compartment: Default };
+V_in @Reaction { actors:  => A };
+V1 @Reaction { actors: A + C => B + D };
+V2 @Reaction { actors: D => C };
+V_out @Reaction { actors: B =>  };
+V_in := k1;
+V1 := k2*A*C;
+V2 := k3*D;
+V_out := k4*B;
+Default .= 1.000000e+00;
+A .= 1.898501e+00;
+C .= 1.490793e+00;
+B .= 1.300637e+00;
+D .= 1.234049e+00;
+k1 @Const = 1.944853;
+k2 @Const = 1.93148;
+k3 @Const = 1.738867;
+k4 @Const = 1.541431;

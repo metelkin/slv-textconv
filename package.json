@@ -15,7 +15,8 @@
     "slv-json2excel": "./bin/slv-json2excel.js"
   },
   "scripts": {
-    "test": "npm run generate&& node test/build.js && mocha ./test/index.js",
+    "test0": "npm run generate&& mocha ./test/slv.js",
+    "test": "npm run generate&& node test/build.js && mocha test/slv.js test/index.js",
     "generate": "pegjs -o src/parsers/slv-raw-parser.js src/parsers/pegjs/slv-raw.pegjs && pegjs -o src/parsers/slv-value-parser.js src/parsers/pegjs/slv-value.pegjs && pegjs -o src/parsers/dat-parser.js src/parsers/pegjs/dat.pegjs && pegjs -o src/parsers/rct-parser.js src/parsers/pegjs/rct.pegjs"
   },
   "repository": {
@@ -44,6 +45,7 @@
     "pegjs": "^0.10.0"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
     "mocha": "^5.2.0"
   }
 }
