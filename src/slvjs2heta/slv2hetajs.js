@@ -96,6 +96,21 @@ function slv2hetajs(slvjs){
       });
     }
   });
+  
+  // estimate which components mentioned in events
+  let eventedRecordsNames = [];
+  if (additionalSettings['useEvents'] === '1') {
+    let evtArray = additionalSettings['eventsDataManager'];
+    eventedRecordsNames = _.uniq(
+      evtArray.map((x) => x[0])
+    );
+  }
+  eventedRecordsNames.forEach((x) => {
+    space.push({
+      id: x,
+      class: 'Record'
+    });
+  });
 
   // initial values
   let ivParsed = getByKey(slvjs, '<INI 1');
@@ -112,6 +127,7 @@ function slv2hetajs(slvjs){
       if (compartmentNames.indexOf(x.value.lhs) !== -1) x.isCompartment = true;
       if (compoundNames.indexOf(x.value.lhs) !== -1) x.isSpecies = true;
       if (reactionNames.indexOf(x.value.lhs) !== -1) x.isReaction = true;
+      if (eventedRecordsNames.indexOf(x.value.lhs) !== -1) x.isRecord = true;
     })
     .value();
 
@@ -154,7 +170,7 @@ function slv2hetajs(slvjs){
       }
     });
   }
-
+    
   return space;
 }
 

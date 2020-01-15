@@ -25,6 +25,10 @@
     }
   },
   {
+    "id": "Vmax",
+    "class": "Record"
+  },
+  {
     "id": "S",
     "assignments": {
       "start_": "0.01"
@@ -38,8 +42,9 @@
   },
   {
     "id": "Vmax",
-    "class": "Const",
-    "num": 10
+    "assignments": {
+      "start_": "10"
+    }
   },
   {
     "id": "Km",
