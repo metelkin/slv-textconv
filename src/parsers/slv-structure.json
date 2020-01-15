@@ -1,0 +1,94 @@
+{
+  "extra": [
+    { "name": "functDefId", "func": "readList" },
+    { "name": "functDefMath", "func": "readList" },
+    { "name": "units1", "func": "readList" },
+    { "name": "units2", "func": "readList" },
+
+    { "name": "compartmentName", "func": "readList"},
+    { "name": "compartmentIdname", "func": "readList"},
+    { "name": "compartmentId", "func": "readList"},
+    { "name": "compartmentOutside", "func": "readList"},
+    { "name": "compartmentCconst", "func": "readList"},
+    { "name": "compartmentUnits", "func": "readList"},
+    { "name": "compartmentCsize", "func": "readList"},
+    { "name": "compartmentSpatialdim", "func": "readList"},
+
+    { "name": "metabolitesId", "func": "readList"},
+    { "name": "metabolitesName", "func": "readList"},
+    { "name": "metabolitesCompartment", "func": "readList"},
+    { "name": "metabolitesMia", "func": "readList"},
+    { "name": "metabolitesMic", "func": "readList"},
+    { "name": "metabolitesMsu", "func": "readList"},
+    { "name": "metabolitesMssu", "func": "readList"},
+    { "name": "metabolitesMhosu", "func": "readList"},
+    { "name": "metabolitesMbc", "func": "readList"},
+    { "name": "metabolitesMc", "func": "readList"},
+    { "name": "metabolitesMconst", "func": "readList"},
+    { "name": "metabolitesMtype", "func": "readList"},
+
+    { "name": "parametersName", "func": "readList"},
+    { "name": "parametersValue", "func": "readList"},
+    { "name": "parametersUnits", "func": "readList"},
+    { "name": "parametersPconst", "func": "readList"},
+
+    { "name": "rulesAlg_formula", "func": "readList"},
+    { "name": "rulesAss_variable", "func": "readList"},
+    { "name": "rulesAss_formula", "func": "readList"},
+    { "name": "rulesRate_variable", "func": "readList"},
+    { "name": "rulesRate_formula", "func": "readList"},
+
+    { "name": "reactions", "func": "readList", "len": 4 },
+    { "name": "events", "func": "readList", "len": 4 },
+
+    { "name": "unitsStr", "func": "readList"},
+
+    { "name": "ode3dplotQuality", "func": "readSimple"},
+    { "name": "ode3dplotN", "func": "readSimple"},
+    { "name": "ode3dplotUnknown", "func": "readSimple"},
+    { "name": "ode3dplotMax", "func": "readSimple"},
+    { "name": "ode3dplotMin", "func": "readSimple"},
+
+    { "name": "impl3dplotNdiv", "func": "readSimple"},
+    { "name": "impl3dplotQuality", "func": "readSimple"},
+    { "name": "impl3dplotUnknown", "func": "readSimple"},
+    { "name": "impl3dplotVal", "func": "readSimple"},
+
+    { "name": "optionsNonNegativeCheck", "func": "readSimple"},
+    { "name": "optionsFitToStationareStateFlag", "func": "readSimple"},
+    { "name": "optionsFitToStationareStateValue", "func": "readSimple"},
+    { "name": "optionsHeavyTask", "func": "readSimple"},
+    { "name": "optionsAutoSaveEnable", "func": "readSimple"},
+    { "name": "optionsAutoSavePeriod", "func": "readSimple"},
+
+    { "name": "sensDataSensParam", "func": "readSimple"},
+    { "name": "sensDataSensErr", "func": "readSimple"},
+    { "name": "sensDataSensParImpl", "func": "readSimple"},
+    { "name": "sensDataSensErrImpl", "func": "readSimple"},
+    { "name": "sensDataSensLog", "func": "readSimple"},
+    { "name": "sensDataSensNum", "func": "readSimple"},
+    { "name": "sensDataSensLogImpl", "func": "readSimple"},
+    { "name": "sensDataSensNumImpl", "func": "readSimple"},
+
+    { "name": "fitDataFitCICriteria", "func": "readSimple"},
+
+    { "name": "paramScanPrmScanMethod", "func": "readSimple"},
+    { "name": "paramScanPrmScanInput", "func": "readSimple"},
+    { "name": "paramScanPrmScanLastPoint", "func": "readSimple"},
+    { "name": "paramScanPrmScanBestPoint", "func": "readSimple"},
+
+    { "name": "bootStrapDataBootStrapingCnt", "func": "readSimple"},
+    { "name": "bootStrapDataBootStrapingBestPointOnly", "func": "readSimple"},
+
+    { "name": "fitDataFitAlpha", "func": "readSimple"},
+    { "name": "fitDataFitBeta", "func": "readSimple"},
+    { "name": "fitDataFitFindBest", "func": "readSimple"},
+    { "name": "fitDataFitDiag", "func": "readSimple"},
+    { "name": "fitDataFitoOtputBestOnly", "func": "readSimple"},
+    { "name": "fitDataFitEpsy", "func": "readSimple"},
+    { "name": "fitDataFitNFMax", "func": "readSimple"},
+
+    { "name": "useEvents", "func": "readSimple"},
+    { "name": "eventsDataManager", "func": "readList", "len": 6 }
+  ]
+}

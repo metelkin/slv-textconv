@@ -10,13 +10,14 @@ let preamble =
 
 `;
 
-function slvjs2heta(slvjs, json = false){
+function slvjs2heta(slvjs, json = false, skipPreamble = false){
   let hetajs = slv2hetajs(slvjs);
+  let preamble1 = skipPreamble ? '' : preamble;
 
   if (json) {
     return JSON.stringify(hetajs, null, 2);
   } else {
-    return preamble + nunjucks.render(
+    return preamble1 + nunjucks.render(
       'slvjs2heta/heta.njk', 
       { content: hetajs }
     );

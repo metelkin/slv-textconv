@@ -7,6 +7,7 @@ commander
   .description('Convert .SLV to Heta code.')
   .usage('[inputFile]')
   .option('-j, --json', 'save as Heta JSON module')
+  .option('-s, --skip-preamble', 'save as Heta JSON module')
   .option('-o, --output <path>', 'save result to file')
   .action((input, cmd) => {
     fs.readFile(input, 'utf8', (err, contents) => {
@@ -14,7 +15,7 @@ commander
         process.stderr.write(err.message);
       } else {
         let parsed = slvParse.parse(contents);
-        let result = slvjs2heta(parsed, cmd.json);
+        let result = slvjs2heta(parsed, cmd.json, cmd.skipPreamble);
 
         if (cmd.output) {
           fs.writeFileSync(cmd.output, result);

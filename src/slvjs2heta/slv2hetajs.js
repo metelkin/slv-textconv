@@ -4,8 +4,8 @@ function slv2hetajs(slvjs){
   let space = new Space();
 
   // compartments
-  let additionalSettings = getByKey(slvjs, '<COMMENTS 7')[0];
-  let compartmentNames = additionalSettings[4]
+  let additionalSettings = getByKey(slvjs, '<COMMENTS 7');
+  let compartmentNames = additionalSettings['compartmentName']
     .map((x) => x.trim());
   compartmentNames.forEach((x) => {
     space.push({
@@ -17,7 +17,7 @@ function slv2hetajs(slvjs){
   // compounds
   let compoundNames = getByKey(slvjs, '>Compound Names')
     .map((x) => x.value);
-  let compartmentConsistency = additionalSettings[14]
+  let compartmentConsistency = additionalSettings['metabolitesCompartment']
     .map((x) => x.trim());
   compoundNames.forEach((x, i) => {
     space.push({

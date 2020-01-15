@@ -50,7 +50,7 @@ describe('SLV exports', () => {
       });
       
       it('convert to Heta module', () => {
-        let hetaActual = slvjs2heta(slvjsActual, false);
+        let hetaActual = slvjs2heta(slvjsActual, false, true);
         expect(hetaActual).to.be.equal(heta);
       });
     });

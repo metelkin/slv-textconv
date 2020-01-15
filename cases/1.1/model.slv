@@ -227,7 +227,7 @@ Redraw Plot Window
 Variable for Family
 #k1 
 Sign for Family
-#+                         
+#+                          
 Initial  for Family
 #1.945000e+00 
 Implicit Algebraic System Dimension
@@ -1470,7 +1470,7 @@ k1
 1
 0.000010
 1000000
-0
+1
 2
 k1
 1.5
