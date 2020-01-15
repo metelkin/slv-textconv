@@ -18,6 +18,10 @@ env.addFilter('dictString', function(component) {
   return str===' {  }' ? '': str;
 });
 
+env.addFilter('skipAssignments', function(record) {
+  return _.omit(record, ['start_', 'ode_']);
+});
+
 function toHetaDict(o){
   let pairs = _.toPairs(o)
     .map((x) => x[0] + ': ' + x[1])

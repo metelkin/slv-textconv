@@ -130,6 +130,31 @@ function slv2hetajs(slvjs){
     }
   });
 
+  // events
+  if (additionalSettings['useEvents'] === '1') {
+    let evtArray = additionalSettings['eventsDataManager'];
+    evtArray.forEach((x, i) => {
+      if (x[5] === '1') {
+        // TimeSwitcher
+        let evtID = `evt${i}_`;
+        let evt_i = {
+          id: evtID,
+          class: 'TimeSwitcher',
+          start: x[3],
+          period: x[4]
+        };
+        if (x[4]==='0') evt_i.repeatCount = 0;
+        space.push(evt_i);
+
+        // Record
+        space.push({
+          id: x[0],
+          assignments: {[evtID]: `${x[1]} * ${x[0]} + ${x[2]}`}
+        });
+      }
+    });
+  }
+
   return space;
 }
 

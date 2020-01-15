@@ -5,5 +5,7 @@
 {{ ' = ' + component.num if component.num -}}
 {{ ' .= ' + component.assignments.start_ if component.assignments.start_ -}}
 {{ ' := ' + component.assignments.ode_ if component.assignments.ode_ -}}
+{% for key, value in component.assignments | skipAssignments %} [{{ key }}]= {{ value -}}
+{% endfor -%}
 ;
 {% endfor %}

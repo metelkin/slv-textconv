@@ -50,5 +50,17 @@
     "id": "h",
     "class": "Const",
     "num": 3.2
+  },
+  {
+    "id": "evt0_",
+    "class": "TimeSwitcher",
+    "start": "30",
+    "period": "1"
+  },
+  {
+    "id": "Vmax",
+    "assignments": {
+      "evt0_": "2 * Vmax + 0"
+    }
   }
 ]
