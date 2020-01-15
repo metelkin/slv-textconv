@@ -1,0 +1,10 @@
+Default @Compartment;
+S @Species { compartment: Default };
+P @Species { compartment: Default };
+v1 @Reaction { actors: S => P };
+v1 := Vmax*S^h/(Km^h+S^h);
+S .= 0.01;
+P .= 0;
+Vmax @Const = 10;
+Km @Const = 0.5;
+h @Const = 3.2;

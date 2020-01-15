@@ -1,0 +1,54 @@
+[
+  {
+    "id": "Default",
+    "class": "Compartment"
+  },
+  {
+    "id": "S",
+    "class": "Species",
+    "compartment": "Default"
+  },
+  {
+    "id": "P",
+    "class": "Species",
+    "compartment": "Default"
+  },
+  {
+    "id": "v1",
+    "class": "Reaction",
+    "actors": "S => P"
+  },
+  {
+    "id": "v1",
+    "assignments": {
+      "ode_": "Vmax*S^h/(Km^h+S^h)"
+    }
+  },
+  {
+    "id": "S",
+    "assignments": {
+      "start_": "0.01"
+    }
+  },
+  {
+    "id": "P",
+    "assignments": {
+      "start_": "0"
+    }
+  },
+  {
+    "id": "Vmax",
+    "class": "Const",
+    "num": 10
+  },
+  {
+    "id": "Km",
+    "class": "Const",
+    "num": 0.5
+  },
+  {
+    "id": "h",
+    "class": "Const",
+    "num": 3.2
+  }
+]
