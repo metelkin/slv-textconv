@@ -68,14 +68,6 @@
     }
   },
   {
-    "id": "k1",
-    "class": "Record"
-  },
-  {
-    "id": "B",
-    "class": "Record"
-  },
-  {
     "id": "Default",
     "assignments": {
       "start_": "1.000000e+00"
@@ -107,6 +99,7 @@
   },
   {
     "id": "k1",
+    "class": "Record",
     "assignments": {
       "start_": "1.944853e+00"
     }

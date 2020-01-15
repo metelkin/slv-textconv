@@ -105,12 +105,6 @@ function slv2hetajs(slvjs){
       evtArray.map((x) => x[0])
     );
   }
-  eventedRecordsNames.forEach((x) => {
-    space.push({
-      id: x,
-      class: 'Record'
-    });
-  });
 
   // initial values
   let ivParsed = getByKey(slvjs, '<INI 1');
@@ -132,9 +126,15 @@ function slv2hetajs(slvjs){
     .value();
 
   ivArray.forEach((x) => {
-    if ( x.isCompartment | x.isSpecies | x.isReaction | x.isRecord ) {
+    if ( x.isCompartment | x.isSpecies | x.isReaction ) {
       space.push({
         id: x.value.lhs,
+        assignments: { start_: x.value.rhs }
+      });
+    } else if(x.isRecord) {
+      space.push({
+        id: x.value.lhs,
+        class: 'Record',
         assignments: { start_: x.value.rhs }
       });
     } else {

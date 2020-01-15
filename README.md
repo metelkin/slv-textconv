@@ -13,7 +13,7 @@ Utilities for working with SLV and DAT files.
 
 Required `npm` and `nodejs` installed.
 ```
-npm install slv-utils --global
+npm install --global slv-utils
 ```
 
 ```shell

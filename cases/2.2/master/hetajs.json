@@ -25,10 +25,6 @@
     }
   },
   {
-    "id": "Vmax",
-    "class": "Record"
-  },
-  {
     "id": "S",
     "assignments": {
       "start_": "0.01"
@@ -42,6 +38,7 @@
   },
   {
     "id": "Vmax",
+    "class": "Record",
     "assignments": {
       "start_": "10"
     }
