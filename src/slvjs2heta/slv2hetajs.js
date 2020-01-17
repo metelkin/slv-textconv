@@ -74,6 +74,7 @@ function slv2hetajs(slvjs){
     .flatten()
     .filter((x) => x.type === 'expression')
     .filter((x) => !/F\[.+\]/.test(x.value.lhs)) // remove F[1]
+    .filter((x) => compoundNames.indexOf(x.value.lhs) === -1) // remove pools
     .map((x) => { // analyze left part
       // analysis of reactions id in old format: V[1]
       let checker = /^V\[(\d+)\]$/;
@@ -104,7 +105,6 @@ function slv2hetajs(slvjs){
     .forEach((x) => {
       x.isRecord = true;
       if (compartmentNames.indexOf(x.value.lhs) !== -1) x.isCompartment = true;
-      if (compoundNames.indexOf(x.value.lhs) !== -1) x.isSpecies = true;
       if (reactionNames.indexOf(x.value.lhs) !== -1) x.isReaction = true;
     })
     .value();
@@ -134,9 +134,9 @@ function slv2hetajs(slvjs){
 
   // initial values
   let ivParsed = getByKey(slvjs, '<INI 1');
-  ivParsed.forEach((x) => {
+  _.flatten(ivParsed).forEach((x) => {
     if (x.type === 'expression'){
-      throw new Error(`Expressions in Initial values is not currently supported, see ${x.value.lhs}`);
+      throw new Error(`Expressions in Initial values is not supported, see ${x.value.lhs} = ${x.value.rhs}`);
     }
   });
   let ivArray = _.chain(ivParsed)

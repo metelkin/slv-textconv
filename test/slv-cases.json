@@ -19,5 +19,12 @@
         "slvjsPath": "../cases/5.1/master/slvjs.json",
         "hetajsPath": "../cases/5.1/master/hetajs.json",
         "hetaPath": "../cases/5.1/master/heta.heta"
+    },
+    {
+        "name": "slv 2.1",
+        "sourcePath": "../cases/2.1/model.slv",
+        "slvjsPath": "../cases/2.1/master/slvjs.json",
+        "hetajsPath": "../cases/2.1/master/hetajs.json",
+        "hetaPath": "../cases/2.1/master/heta.heta"
     }
 ]

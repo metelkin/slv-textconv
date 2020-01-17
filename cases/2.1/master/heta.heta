@@ -1,0 +1,12 @@
+Default @Compartment;
+S @Species { compartment: Default };
+P @Species { compartment: Default };
+v1 @Reaction { actors: S => P };
+v1 := Vmax*S^h/(Km^h+S^h);
+S .= 0.01;
+P .= 0;
+Vmax @Const = 10;
+Km @Const = 0.5;
+h @Const = 3.2;
+evt0_ @TimeSwitcher { start: 12, period: 0, repeatCount: 0 };
+S [evt0_]= 1 * S + 1;
