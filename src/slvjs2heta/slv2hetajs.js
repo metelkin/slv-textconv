@@ -74,6 +74,32 @@ function slv2hetajs(slvjs){
     .flatten()
     .filter((x) => x.type === 'expression')
     .filter((x) => !/F\[.+\]/.test(x.value.lhs)) // remove F[1]
+    .map((x) => { // analyze left part
+      // analysis of reactions id in old format: V[1]
+      let checker = /^V\[(\d+)\]$/;
+      if (checker.test(x.value.lhs)) {
+        let reactionNum = x.value.lhs
+          .match(checker)[1];
+        if (reactionNum > reactionNames.length)
+          throw new Error('index in V[i] is larger than number of reactions');
+        x.value.lhs = reactionNames[reactionNum-1];
+      }
+
+      return x;
+    })
+    .map((x) => {// analyze right part
+      let checker = /V\[(\d+)\]/g;
+      if (checker.test(x.value.rhs)) {
+        x.value.rhs = x.value.rhs
+          .replace(checker, (match, reactionNum) => {
+            if (reactionNum > reactionNames.length)
+              throw new Error('index in V[i] is larger than number of reactions');
+            return reactionNames[reactionNum-1];
+          });
+      }
+
+      return x;
+    })
     .reverse().uniqBy((x) => x.value.lhs).reverse()
     .forEach((x) => {
       x.isRecord = true;

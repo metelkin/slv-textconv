@@ -1,0 +1,245 @@
+[
+  {
+    "id": "Default",
+    "class": "Compartment"
+  },
+  {
+    "id": "lac",
+    "class": "Species",
+    "compartment": "Default"
+  },
+  {
+    "id": "alac",
+    "class": "Species",
+    "compartment": "Default"
+  },
+  {
+    "id": "x1",
+    "class": "Species",
+    "compartment": "Default"
+  },
+  {
+    "id": "x2",
+    "class": "Species",
+    "compartment": "Default"
+  },
+  {
+    "id": "glc",
+    "class": "Species",
+    "compartment": "Default"
+  },
+  {
+    "id": "gal",
+    "class": "Species",
+    "compartment": "Default"
+  },
+  {
+    "id": "V1",
+    "class": "Reaction",
+    "actors": "lac => glc + gal"
+  },
+  {
+    "id": "V2",
+    "class": "Reaction",
+    "actors": "alac => glc + gal"
+  },
+  {
+    "id": "V4",
+    "class": "Reaction",
+    "actors": "lac + gal => x1"
+  },
+  {
+    "id": "V5",
+    "class": "Reaction",
+    "actors": "alac + gal => x2"
+  },
+  {
+    "id": "A",
+    "class": "Record",
+    "assignments": {
+      "ode_": "1+lac/K_l+alac/K_a"
+    }
+  },
+  {
+    "id": "B",
+    "class": "Record",
+    "assignments": {
+      "ode_": "1+glc/K_g"
+    }
+  },
+  {
+    "id": "C",
+    "class": "Record",
+    "assignments": {
+      "ode_": "k3*gal+k1*lac/K_l+k2*alac/K_a+k44*x1+k44*x2"
+    }
+  },
+  {
+    "id": "D",
+    "class": "Record",
+    "assignments": {
+      "ode_": "k33+k4*lac+k4*alac+(glc/K_g)*(k11+k22)"
+    }
+  },
+  {
+    "id": "E_",
+    "class": "Record",
+    "assignments": {
+      "ode_": "E_0*D/(A*D+B*C)"
+    }
+  },
+  {
+    "id": "E_gal",
+    "class": "Record",
+    "assignments": {
+      "ode_": "E_0*C/(A*D+B*C)"
+    }
+  },
+  {
+    "id": "V1",
+    "assignments": {
+      "ode_": "k1*E_*lac/K_l-k11*E_gal*glc/K_g"
+    }
+  },
+  {
+    "id": "V2",
+    "assignments": {
+      "ode_": "k2*E_*alac/K_a-k22*E_gal*glc/K_g"
+    }
+  },
+  {
+    "id": "V4",
+    "assignments": {
+      "ode_": "k4*E_gal*lac-k44*E_*x1"
+    }
+  },
+  {
+    "id": "V5",
+    "assignments": {
+      "ode_": "k4*E_gal*alac-k44*E_*x2"
+    }
+  },
+  {
+    "id": "oligo",
+    "class": "Record",
+    "assignments": {
+      "ode_": "x1+x2"
+    }
+  },
+  {
+    "id": "v_glc",
+    "class": "Record",
+    "assignments": {
+      "ode_": "V1+V2"
+    }
+  },
+  {
+    "id": "xxx",
+    "class": "Record",
+    "assignments": {
+      "ode_": "glc-gal"
+    }
+  },
+  {
+    "id": "Default",
+    "assignments": {
+      "start_": "1"
+    }
+  },
+  {
+    "id": "E_0",
+    "class": "Const",
+    "num": 0.001117
+  },
+  {
+    "id": "lac",
+    "assignments": {
+      "start_": "500"
+    }
+  },
+  {
+    "id": "alac",
+    "assignments": {
+      "start_": "0"
+    }
+  },
+  {
+    "id": "x1",
+    "assignments": {
+      "start_": "0"
+    }
+  },
+  {
+    "id": "x2",
+    "assignments": {
+      "start_": "0"
+    }
+  },
+  {
+    "id": "glc",
+    "assignments": {
+      "start_": "0"
+    }
+  },
+  {
+    "id": "gal",
+    "assignments": {
+      "start_": "0"
+    }
+  },
+  {
+    "id": "k1",
+    "class": "Const",
+    "num": 7068.49
+  },
+  {
+    "id": "k2",
+    "class": "Const",
+    "num": 46000
+  },
+  {
+    "id": "K_a",
+    "class": "Const",
+    "num": 0.8680725
+  },
+  {
+    "id": "k4",
+    "class": "Const",
+    "num": 31.43778
+  },
+  {
+    "id": "k33",
+    "class": "Const",
+    "num": 16432.29
+  },
+  {
+    "id": "k44",
+    "class": "Const",
+    "num": 741.4315
+  },
+  {
+    "id": "k11",
+    "class": "Const",
+    "num": 848.2373
+  },
+  {
+    "id": "k3",
+    "class": "Const",
+    "num": 61.52228
+  },
+  {
+    "id": "K_l",
+    "class": "Const",
+    "num": 0.5520582
+  },
+  {
+    "id": "K_g",
+    "class": "Const",
+    "num": 16.99294
+  },
+  {
+    "id": "k22",
+    "class": "Const",
+    "num": 11500
+  }
+]
