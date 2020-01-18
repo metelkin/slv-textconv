@@ -72,7 +72,7 @@ function slv2hetajs(slvjs){
   let rhsParsed = getByKey(slvjs, '<RHS 1');
   let rhsArray = _.chain(rhsParsed) // store unique expressions
     .flatten()
-    .filter((x) => x.type === 'expression')
+    .filter((x) => ['expression', 'numeric'].indexOf(x.type) !== -1)
     .filter((x) => !/F\[.+\]/.test(x.value.lhs)) // remove F[1]
     .filter((x) => compoundNames.indexOf(x.value.lhs) === -1) // remove pools
     .map((x) => { // analyze left part
