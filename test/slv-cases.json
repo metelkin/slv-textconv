@@ -26,5 +26,10 @@
         "slvjsPath": "../cases/2.1/master/slvjs.json",
         "hetajsPath": "../cases/2.1/master/hetajs.json",
         "hetaPath": "../cases/2.1/master/heta.heta"
+    },
+    {
+        "name": "slv 1.0",
+        "sourcePath": "../cases/1.0/model.slv",
+        "slvjsPath": "../cases/1.0/master/slvjs.json"
     }
 ]
