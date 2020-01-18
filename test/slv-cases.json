@@ -1,5 +1,4 @@
 [
-    
     {
         "name": "slv 1.0: pools, iv-expression, no-heta",
         "sourcePath": "../cases/1.0/model.slv",
@@ -27,7 +26,12 @@
         "hetaPath": "../cases/2.2/master/heta.heta"
     },
     {
-        "name": "slv 5.1: records, old-reactions",
+        "name": "slv 3.0: pools, iv-expression, no-heta",
+        "sourcePath": "../cases/3.0/model.slv",
+        "slvjsPath": "../cases/3.0/master/slvjs.json"
+    },
+    {
+        "name": "slv 5.1: records, old-reactions, nb-ne",
         "sourcePath": "../cases/5.1/model.slv",
         "slvjsPath": "../cases/5.1/master/slvjs.json",
         "hetajsPath": "../cases/5.1/master/hetajs.json",
