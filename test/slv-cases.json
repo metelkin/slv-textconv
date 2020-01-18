@@ -38,6 +38,13 @@
         "hetaPath": "../cases/4.0/master/heta.heta"
     },
     {
+        "name": "slv 4.2: records, if-else, events-off",
+        "sourcePath": "../cases/4.2/model.slv",
+        "slvjsPath": "../cases/4.2/master/slvjs.json",
+        "hetajsPath": "../cases/4.2/master/hetajs.json",
+        "hetaPath": "../cases/4.2/master/heta.heta"
+    },
+    {
         "name": "slv 5.1: records, old-reactions, nb-ne",
         "sourcePath": "../cases/5.1/model.slv",
         "slvjsPath": "../cases/5.1/master/slvjs.json",
