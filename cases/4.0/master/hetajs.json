@@ -1,0 +1,115 @@
+[
+  {
+    "id": "Default",
+    "class": "Compartment"
+  },
+  {
+    "id": "Vd",
+    "class": "Compartment"
+  },
+  {
+    "id": "C0",
+    "class": "Species",
+    "compartment": "Default"
+  },
+  {
+    "id": "C1",
+    "class": "Species",
+    "compartment": "Vd"
+  },
+  {
+    "id": "vabs",
+    "class": "Reaction",
+    "actors": "C0 => C1"
+  },
+  {
+    "id": "vel",
+    "class": "Reaction",
+    "actors": "C1 => "
+  },
+  {
+    "id": "DoseF",
+    "class": "Record",
+    "assignments": {
+      "ode_": "Dose*F"
+    }
+  },
+  {
+    "id": "vabs",
+    "assignments": {
+      "ode_": "Default*(kabs*C0)"
+    }
+  },
+  {
+    "id": "vel",
+    "assignments": {
+      "ode_": "Vd*(kcat*C1/(Km+C1))"
+    }
+  },
+  {
+    "id": "Default",
+    "assignments": {
+      "start_": "1"
+    }
+  },
+  {
+    "id": "F",
+    "class": "Const",
+    "num": 0.72
+  },
+  {
+    "id": "Dose",
+    "class": "Const",
+    "num": 5
+  },
+  {
+    "id": "T",
+    "class": "Const",
+    "num": 24
+  },
+  {
+    "id": "C0",
+    "assignments": {
+      "start_": "0"
+    }
+  },
+  {
+    "id": "C1",
+    "assignments": {
+      "start_": "0"
+    }
+  },
+  {
+    "id": "kcat",
+    "class": "Const",
+    "num": 0.7375
+  },
+  {
+    "id": "Vd",
+    "assignments": {
+      "start_": "5.275000e+00"
+    }
+  },
+  {
+    "id": "Km",
+    "class": "Const",
+    "num": 5.528412
+  },
+  {
+    "id": "kabs",
+    "class": "Const",
+    "num": 2.064588
+  },
+  {
+    "id": "evt0_",
+    "class": "TimeSwitcher",
+    "start": "0",
+    "period": "24"
+  },
+  {
+    "id": "C0",
+    "assignments": {
+      "evt0_": "1 * C0 + DoseF"
+    }
+  }
+]

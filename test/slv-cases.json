@@ -26,9 +26,16 @@
         "hetaPath": "../cases/2.2/master/heta.heta"
     },
     {
-        "name": "slv 3.0: pools, iv-expression, no-heta",
+        "name": "slv 3.0: pools, iv-expression, no-heta, old-reactions",
         "sourcePath": "../cases/3.0/model.slv",
         "slvjsPath": "../cases/3.0/master/slvjs.json"
+    },
+    {
+        "name": "slv 4.0: records, events",
+        "sourcePath": "../cases/4.0/model.slv",
+        "slvjsPath": "../cases/4.0/master/slvjs.json",
+        "hetajsPath": "../cases/4.0/master/hetajs.json",
+        "hetaPath": "../cases/4.0/master/heta.heta"
     },
     {
         "name": "slv 5.1: records, old-reactions, nb-ne",
