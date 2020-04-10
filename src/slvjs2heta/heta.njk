@@ -1,10 +1,10 @@
 {% for component in content %}
 {{ component.id -}}
-{{ ' @' + component.class if component.class -}}
+{{ ' @' + component.class if component.class is defined -}}
 {{ component|dictString -}}
-{{ ' = ' + component.num if component.num -}}
-{{ ' .= ' + component.assignments.start_ if component.assignments.start_ -}}
-{{ ' := ' + component.assignments.ode_ if component.assignments.ode_ -}}
+{{ ' = ' + component.num if component.num is defined -}}
+{{ ' .= ' + component.assignments.start_ if component.assignments.start_ is defined -}}
+{{ ' := ' + component.assignments.ode_ if component.assignments.ode_ is defined -}}
 {% for key, value in component.assignments | skipAssignments %} [{{ key }}]= {{ value -}}
 {% endfor -%}
 ;

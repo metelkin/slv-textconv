@@ -7,8 +7,8 @@ commander
   .description('Convert .SLV to Heta code.')
   .usage('[inputFile]')
   .option('-j, --json', 'save as Heta JSON module')
-  .option('-s, --skip-preamble', 'save as Heta JSON module')
-  .option('-o, --output <path>', 'save result to file')
+  .option('-s, --skip-preamble', 'skip version preamble in output')
+  .option('-o, --output <path>', 'filepath to save results')
   .action((input, cmd) => {
     fs.readFile(input, 'utf8', (err, contents) => {
       if (err) {

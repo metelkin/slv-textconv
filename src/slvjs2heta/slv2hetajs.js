@@ -1,5 +1,8 @@
 const _ = require('lodash');
 
+/*
+  This function creates Space object based on SLVJS object
+*/
 function slv2hetajs(slvjs){
   let space = new Space();
 
@@ -72,7 +75,7 @@ function slv2hetajs(slvjs){
   let rhsParsed = getByKey(slvjs, '<RHS 1');
   let rhsArray = _.chain(rhsParsed) // store unique expressions
     .flatten()
-    .filter((x) => ['expression', 'numeric'].indexOf(x.type) !== -1)
+    .filter((x) => ['expression', 'numeric'].indexOf(x.type) !== -1) // select only y = 1*2 and y = 1.1
     .filter((x) => !/F\[.+\]/.test(x.value.lhs)) // remove F[1]
     .filter((x) => compoundNames.indexOf(x.value.lhs) === -1) // remove pools
     .map((x) => { // analyze left part
@@ -101,13 +104,17 @@ function slv2hetajs(slvjs){
 
       return x;
     })
-    .reverse().uniqBy((x) => x.value.lhs).reverse()
+    .reverse().uniqBy((x) => x.value.lhs).reverse() // use only unique right side (from buttom to top scan)
     .forEach((x) => {
       x.isRecord = true;
+      x.isRule = true;
       if (compartmentNames.indexOf(x.value.lhs) !== -1) x.isCompartment = true;
       if (reactionNames.indexOf(x.value.lhs) !== -1) x.isReaction = true;
     })
     .value();
+
+  // push rules to namespace
+  let recordsNames = []; // names of all values in RHS
   rhsArray.forEach((x) => {
     if ( x.isCompartment | x.isSpecies | x.isReaction ) {
       space.push({
@@ -115,6 +122,7 @@ function slv2hetajs(slvjs){
         assignments: { ode_: x.value.rhs }
       });
     } else {
+      recordsNames.push(x.value.lhs);
       space.push({
         id: x.value.lhs,
         class: 'Record', // create Record instance
@@ -123,7 +131,7 @@ function slv2hetajs(slvjs){
     }
   });
   
-  // estimate which components mentioned in events
+  // estimate which components is used in events
   let eventedRecordsNames = [];
   if (additionalSettings['useEvents'] === '1') {
     let evtArray = additionalSettings['eventsDataManager'];
@@ -141,13 +149,14 @@ function slv2hetajs(slvjs){
   });
   let ivArray = _.chain(ivParsed)
     .flatten()
-    .filter((x) => x.type === 'numeric')
-    .reverse().uniqBy((x) => x.value.lhs).reverse()
+    .filter((x) => x.type === 'numeric') // use only expressions k1 = 1.1;
+    .reverse().uniqBy((x) => x.value.lhs).reverse() // select unique from the end
     .forEach((x) => {
       if (compartmentNames.indexOf(x.value.lhs) !== -1) x.isCompartment = true;
       if (compoundNames.indexOf(x.value.lhs) !== -1) x.isSpecies = true;
       if (reactionNames.indexOf(x.value.lhs) !== -1) x.isReaction = true;
-      if (eventedRecordsNames.indexOf(x.value.lhs) !== -1) x.isRecord = true;
+      if (eventedRecordsNames.indexOf(x.value.lhs) !== -1) x.isInEvent = true;
+      if (recordsNames.indexOf(x.value.lhs) !== -1) x.isRule = true;
     })
     .value();
 
@@ -157,7 +166,12 @@ function slv2hetajs(slvjs){
         id: x.value.lhs,
         assignments: { start_: x.value.rhs }
       });
-    } else if(x.isRecord) {
+    } else if (x.isRule) {
+      space.push({
+        id: x.value.lhs,
+        assignments: { start_: x.value.rhs }
+      });
+    } else if(x.isInEvent) {
       space.push({
         id: x.value.lhs,
         class: 'Record',

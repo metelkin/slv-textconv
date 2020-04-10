@@ -1,7 +1,11 @@
+/*
+  This code creates JSON or Heta text based on -j option
+*/
 const { version, homepage } = require('../../package');
 const { slv2hetajs } = require('./slv2hetajs');
 const nunjucks = require('../nunjucks-env');
 
+// preamble can be off by -s option
 let preamble = 
 `/*
   This file was generated from .SLV file using slv-utils ${version}

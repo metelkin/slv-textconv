@@ -272,7 +272,7 @@ otherSings = [?!.,$@~№%&:;<>/|\\�#]
 quoteSings = ['"`]
 space = ' '
 comparisonSings = [<>=!]
-expressionSymbols = [0-9 .+\-*^/A-Za-z()[\]_\r\n]
+expressionSymbols = [0-9 .,+\-*^/A-Za-z()[\]_\r\n]
 signLineComment = "//"/"<?NE?>"/"<?NB?>"
 simpleDataTypes
     = number/
