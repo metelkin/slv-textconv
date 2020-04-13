@@ -335,8 +335,8 @@ function peg$parse(input, options) {
       peg$c55 = peg$classExpectation([["A", "Z"], ["a", "z"], "_", ["0", "9"]], false, false),
       peg$c56 = /^[[\]]/,
       peg$c57 = peg$classExpectation(["[", "]"], false, false),
-      peg$c58 = /^[0-9e.+\-]/,
-      peg$c59 = peg$classExpectation([["0", "9"], "e", ".", "+", "-"], false, false),
+      peg$c58 = /^[0-9eE.+\-]/,
+      peg$c59 = peg$classExpectation([["0", "9"], "e", "E", ".", "+", "-"], false, false),
       peg$c60 = /^[*\/+-\^%]/,
       peg$c61 = peg$classExpectation(["*", "/", ["+", "^"], "%"], false, false),
       peg$c62 = /^[[\]()]/,
@@ -1245,7 +1245,7 @@ function peg$parse(input, options) {
   }
 
   function peg$parsenumeric() {
-    var s0, s1, s2, s3, s4, s5, s6, s7;
+    var s0, s1, s2, s3, s4, s5, s6, s7, s8;
 
     s0 = peg$currPos;
     s1 = [];
@@ -1305,17 +1305,34 @@ function peg$parse(input, options) {
                 s6 = peg$FAILED;
               }
               if (s6 !== peg$FAILED) {
-                if (input.charCodeAt(peg$currPos) === 59) {
-                  s7 = peg$c25;
-                  peg$currPos++;
-                } else {
-                  s7 = peg$FAILED;
-                  if (peg$silentFails === 0) { peg$fail(peg$c26); }
+                s7 = [];
+                s8 = peg$parsebreak();
+                if (s8 === peg$FAILED) {
+                  s8 = peg$parsespace();
+                }
+                while (s8 !== peg$FAILED) {
+                  s7.push(s8);
+                  s8 = peg$parsebreak();
+                  if (s8 === peg$FAILED) {
+                    s8 = peg$parsespace();
+                  }
                 }
                 if (s7 !== peg$FAILED) {
-                  peg$savedPos = s0;
-                  s1 = peg$c27(s1, s2, s6);
-                  s0 = s1;
+                  if (input.charCodeAt(peg$currPos) === 59) {
+                    s8 = peg$c25;
+                    peg$currPos++;
+                  } else {
+                    s8 = peg$FAILED;
+                    if (peg$silentFails === 0) { peg$fail(peg$c26); }
+                  }
+                  if (s8 !== peg$FAILED) {
+                    peg$savedPos = s0;
+                    s1 = peg$c27(s1, s2, s6);
+                    s0 = s1;
+                  } else {
+                    peg$currPos = s0;
+                    s0 = peg$FAILED;
+                  }
                 } else {
                   peg$currPos = s0;
                   s0 = peg$FAILED;

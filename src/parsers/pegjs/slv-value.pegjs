@@ -144,6 +144,7 @@ numeric
     "="
     space*
     rhs:digits+
+    (break/space)*
     ";"
     {
       //console.log(`numeric LHS: ${lhs.join('')}`)
@@ -265,7 +266,7 @@ break =  s:(" "* "\r"* "\n") {
   return s.join('')
 }
 variableName = [A-Za-z_0-9]/[[\]]
-digits = [0-9e.+\-]
+digits = [0-9eE.+\-]
 mathSings = [*/+-^%]
 brackets = [\[\]()]
 otherSings = [?!.,$@~№%&:;<>/|\\�#]
