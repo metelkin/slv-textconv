@@ -18,7 +18,7 @@ function slv2hetajs(slvjs){
   });
 
   // compounds
-  let compoundNames = getByKey(slvjs, '>Compound Names')
+  let compoundNames = _.flatten(getByKey(slvjs, '>Compound Names'))
     .map((x) => x.value);
   let compartmentConsistency = additionalSettings['metabolitesCompartment']
     .map((x) => x.trim());
