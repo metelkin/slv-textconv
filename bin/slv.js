@@ -10,8 +10,6 @@ commander
   
   // converters and utilities
   .command('slv2heta <inputFile>', 'Convert .SLV to Heta code.')
-  .command('excel2dat <inputFile>', 'Convert .XLSX files to .DAT')
-  .command('excel2json <inputFile>', 'Convert .XLSX files to .DATJS')
   .command('clear <inputFile>', 'Display cleared .SLV')
   // parsers
   .command('parse <inputFile>', 'Parse .SLV file')
