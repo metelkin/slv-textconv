@@ -7,7 +7,6 @@ DBSolveOptimum is modeling software for systems biology and systems pharmacology
 [![Build Status](https://travis-ci.org/insysbio/slv-utils.svg?branch=master)](https://travis-ci.org/insysbio/slv-utils)
 [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/insysbio/slv-utils?svg=true&branch=master&passingText=master)](https://ci.appveyor.com/project/metelkin/slv-utils/branch/master)
 [![GitHub issues](https://img.shields.io/github/issues/insysbio/slv-utils.svg)](https://GitHub.com/insysbio/slv-utils/issues/)
-[![GitHub release](https://img.shields.io/github/release/insysbio/slv-utils.svg)](https://github.com/insysbio/slv-utils/releases/)
 [![GitHub npm](https://img.shields.io/npm/v/slv-utils/latest.svg)](https://www.npmjs.com/package/slv-utils)
 [![GitHub license](https://img.shields.io/github/license/insysbio/slv-utils.svg)](https://github.com/insysbio/slv-utils/blob/master/LICENSE)
 
@@ -41,7 +40,9 @@ Export SLV file to Heta module file (.HETA).
 ```shell
 slv slv2heta -o output.heta model.slv
 ```
-**Note.** Conversion of SLV to Heta modules is intended for learning purposes and should be used for modeling workflow. After creating Heta file one should check and manually fix update file for proper structure. Known restrictions are:
+**Note.** Conversion of SLV to Heta modules is intended for learning purposes and should NOT be used for modeling workflow. 
+After creating Heta file one should check and manually fix update file for proper structure.
+Known restrictions are:
 
 - slv-utils does not transform slv functions to Heta supported list.
 - All SLV ODE variables are transformed to species.
