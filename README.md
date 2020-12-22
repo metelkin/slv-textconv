@@ -2,7 +2,7 @@
 
 Utilities for transformation of DBSolve files (.SLV, .RCT and .DAT). It can be used as node package as well as command line tool.
 
-DBSolveOptimum is modeling software for systems biology and systems pharmacology modeling developed by InSysBio, see <http://http://insysbio.com/en/software/db-solve-optimum>.
+DBSolveOptimum is modeling software for systems biology and systems pharmacology modeling developed by InSysBio, see <http://insysbio.com/en/software/db-solve-optimum>.
 
 [![Build Status](https://travis-ci.org/insysbio/slv-utils.svg?branch=master)](https://travis-ci.org/insysbio/slv-utils)
 [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/insysbio/slv-utils?svg=true&branch=master&passingText=master)](https://ci.appveyor.com/project/metelkin/slv-utils/branch/master)
