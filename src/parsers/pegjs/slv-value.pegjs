@@ -102,7 +102,7 @@ lineComment
   = b:(break/space)*
     signLineComment
     level:("!")*
-    comment:(variableName/digits/otherSings/brackets/[{}]/quoteSings/space/mathSings)+
+    comment:(variableName/digits/otherSings/brackets/[{}]/quoteSings/space/mathSings)*
     break?
     {
       let newLine = false

@@ -2,6 +2,7 @@
 /*
   manually written combinarion of raw parser and value parser
 */
+// const { writeFileSync } = require('fs'); 
 const SRP = require('./slv-raw-parser');
 const SVP = require('./slv-value-parser');
 //const fs = require('fs');
@@ -10,6 +11,8 @@ const slvStructure = require('./slv-structure');
 
 function parse(slv) {
   let SLV = SRP.parse(slv); //parse slv files, values is raw
+  // let output = JSON.stringify(SLV, null, 2); // debug
+  // writeFileSync('raw.json', output); // debug
 
   let mapLength = SLV.content.map.length;
   // parse all values except the last one
