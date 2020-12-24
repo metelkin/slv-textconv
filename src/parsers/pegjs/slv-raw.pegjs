@@ -30,7 +30,7 @@ keyValuePars
   }
 
 header
-  = h1:"DBSolve Optimum (new parser) 1 Jul 2006"
+  = h1:("DBSolve Optimum (new parser) 1 Jul 2006"/"DBSolve Optimum 2020 (new parser) 1 Jul 2006")
     sp1:break*
     h2:("SLV"[0-9.*]+)
     {
