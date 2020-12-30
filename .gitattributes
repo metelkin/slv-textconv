@@ -1,0 +1,5 @@
+# Note that binary is a macro for -text -diff.
+
+* text=auto
+
+*.rct text eol=crlf
